@@ -7,12 +7,12 @@ import {
   useContext,
 } from "react";
 import { initialState } from "./InitialState";
-import { Actions } from "@/utils/Types";
-import { reducer } from "./Reducer";
+import reducer from "./Reducer";
+import { Action, InitialState } from "@/utils/Types";
 
-const AppContext = createContext(initialState);
+const AppContext = createContext<InitialState>(initialState);
 
-const DispatchContext = createContext<Dispatch<Actions>>(({}: Actions) => {});
+const DispatchContext = createContext<Dispatch<Action>>(({}: Action) => {});
 
 export default function ContextProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);

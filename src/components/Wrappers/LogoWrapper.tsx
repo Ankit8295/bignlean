@@ -6,7 +6,7 @@ type Props = {
 };
 export default function LogoWrapper({ children }: Props) {
   return (
-    <div className="max-w-[550px] mx-auto flex flex-col items-center pt-[50px] mb-[60px] px-5">
+    <div className="max-w-[550px] mx-auto flex flex-col gap-5 items-center pt-[50px] mb-[60px] px-5">
       <Image
         src={"/assets/logo.png"}
         alt="logo"

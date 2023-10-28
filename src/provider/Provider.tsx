@@ -1,7 +1,6 @@
-import {ReactNode} from 'react';
+import { ReactNode } from "react";
+import ContextProvider from "./ContextProvider/ContextProvider";
 
-export default function Provider({children}:{children:ReactNode}) {
-  return (
-    <div>{children}</div>
-  )
+export default function Provider({ children }: { children: ReactNode }) {
+  return <ContextProvider>{children}</ContextProvider>;
 }
