@@ -1,6 +1,10 @@
-import { LoginForm } from "@/components";
+import { LoginForm, LogoWrapper } from "@/components";
 import React from "react";
 
 export default function page() {
-  return <LoginForm />;
+  return (
+    <LogoWrapper>
+      <LoginForm />
+    </LogoWrapper>
+  );
 }

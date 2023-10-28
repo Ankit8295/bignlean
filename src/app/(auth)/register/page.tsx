@@ -1,7 +1,10 @@
-import React from 'react'
+import { LogoWrapper, RegisterForm } from "@/components";
+import React from "react";
 
 export default function page() {
   return (
-    <div>Register</div>
-  )
+    <LogoWrapper>
+      <RegisterForm />
+    </LogoWrapper>
+  );
 }

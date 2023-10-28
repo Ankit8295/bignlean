@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.sm-1 {
+  box-shadow: 12px 12px 36px 2px rgba(14, 31, 53, 0.12);
+}
+.sm-3 {
+  box-shadow: 5px 0px 12px 1px rgba(14, 31, 53, 0.07);
+}
+.sm-2 {
+  box-shadow: 5px 4px 15px rgba(51, 51, 51, 0.05);
+}
+.linear-gradient-1 {
+  background: linear-gradient(90deg, #e70f0f 0%, #ff5f5f 100%);
+}
