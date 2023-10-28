@@ -14,3 +14,9 @@
 .linear-gradient-1 {
   background: linear-gradient(90deg, #e70f0f 0%, #ff5f5f 100%);
 }
+
+@media (max-width: 550px) {
+  .sm-1 {
+    box-shadow: none;
+  }
+}

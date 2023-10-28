@@ -31,7 +31,7 @@ export default function VerifyOtp() {
           )}
         />
         <PrimaryButton
-          className="w-[350px] mx-auto mt-[22px]"
+          className="w-[350px] mx-auto mt-[22px] max-[550px]:w-full"
           label="Verify otp"
         />
       </form>
