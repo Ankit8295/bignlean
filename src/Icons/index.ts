@@ -19,7 +19,21 @@ import InstagramIcon from "./InstagramIcon";
 import LinkedinIcon from "./LinkedinIcon";
 import YoutubeIcon from "./YoutubeIcon";
 import TwitterIcon from "./TwitterIcon";
+import CurrentLLocationIcon from "./CurrentLLocationIcon";
+import BestsellerIcon from "./BestsellerIcon";
+import WhishlistIcon from "./WhishlistIcon";
+import ThunderIcon from "./ThunderIcon";
+import CartIcon from "./CartIcon";
+import BmcIcon from "./BmcIcon";
+import StarIcon from "./StarIcon";
 export {
+  StarIcon,
+  BmcIcon,
+  CartIcon,
+  ThunderIcon,
+  WhishlistIcon,
+  BestsellerIcon,
+  CurrentLLocationIcon,
   TwitterIcon,
   YoutubeIcon,
   LinkedinIcon,

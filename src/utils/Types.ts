@@ -2,6 +2,7 @@ export type InitialState = {
   recentSearchToggle: boolean;
   notificationToggle: boolean;
   profileToggle: boolean;
+  locationToggle: boolean;
 };
 
 export type Action =
@@ -22,4 +23,10 @@ export type Action =
     }
   | {
       type: "PROFILE_TOGGLE_OFF";
+    }
+  | {
+      type: "LOCATION_TOGGLE_ON";
+    }
+  | {
+      type: "LOCATION_TOGGLE_OFF";
     };

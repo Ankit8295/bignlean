@@ -20,7 +20,7 @@ export default function SearchForProducts() {
         label="products"
       />
       {recentSearchToggle && (
-        <div className="absolute top-full bg-white py-4 px-5 w-full sm-1 rounded-xl translate-y-[5px]">
+        <div className="absolute top-full bg-white py-4 px-5 w-full sm-1 rounded-xl translate-y-[5px] z-30">
           <h3 className="text-black text-lg not-italic font-semibold mb-4">
             Recent Searches
           </h3>

@@ -70,7 +70,7 @@ export default function Notification() {
       {notificationToggle && (
         <div
           onMouseLeave={() => dispatch({ type: "NOTIFICATION_TOGGLE_OFF" })}
-          className="absolute w-[450px] top-full right-0 bg-white sm-1 rounded-xl p-6 flex flex-col gap-3 max-h-[400px] overflow-auto"
+          className="absolute w-[450px] top-full right-0 bg-white sm-1 rounded-xl p-6 flex flex-col gap-3 max-h-[400px] overflow-auto z-30"
         >
           {notificationList.map((item, index) => (
             <NotificationCard

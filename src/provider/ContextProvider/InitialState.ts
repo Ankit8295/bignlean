@@ -4,4 +4,5 @@ export const initialState: InitialState = {
   recentSearchToggle: false,
   notificationToggle: false,
   profileToggle: false,
+  locationToggle: false,
 };

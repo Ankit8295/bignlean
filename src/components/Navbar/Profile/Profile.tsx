@@ -63,7 +63,7 @@ export default function Profile() {
       {profileToggle && (
         <div
           onMouseLeave={() => dispatch({ type: "PROFILE_TOGGLE_OFF" })}
-          className="absolute w-[320px] sm-1 top-full right-0 bg-white rounded-xl p-4 translate-y-2"
+          className="absolute w-[320px] sm-1 top-full right-0 bg-white rounded-xl p-4 translate-y-2 z-30"
         >
           <div className="flex gap-4 items-center mb-5">
             <Image

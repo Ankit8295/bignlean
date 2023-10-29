@@ -14,6 +14,10 @@ const reducer = (state: InitialState, actions: Action) => {
       return { ...state, profileToggle: true };
     case "PROFILE_TOGGLE_OFF":
       return { ...state, profileToggle: false };
+    case "LOCATION_TOGGLE_ON":
+      return { ...state, locationToggle: true };
+    case "LOCATION_TOGGLE_OFF":
+      return { ...state, locationToggle: false };
     default:
       return state;
   }

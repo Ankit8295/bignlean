@@ -21,7 +21,7 @@ export default function TwitterIcon() {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#E70F0F" />
-          <stop offset="1" stop-color="#FF5F5F" />
+          <stop offset="1" stopColor="#FF5F5F" />
         </linearGradient>
       </defs>
     </svg>
