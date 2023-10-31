@@ -26,7 +26,13 @@ import ThunderIcon from "./ThunderIcon";
 import CartIcon from "./CartIcon";
 import BmcIcon from "./BmcIcon";
 import StarIcon from "./StarIcon";
+import CallIcon from "./CallIcon";
+import MessageIcon from "./MessageIcon";
+import AddressIcon from "./AddressIcon";
 export {
+  AddressIcon,
+  MessageIcon,
+  CallIcon,
   StarIcon,
   BmcIcon,
   CartIcon,

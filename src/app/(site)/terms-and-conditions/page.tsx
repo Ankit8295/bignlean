@@ -1,3 +1,4 @@
+import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import ContactCard, {
   generalTermOfUseList,
   usageRestrictionsList,
@@ -5,10 +6,7 @@ import ContactCard, {
 
 export default function page() {
   return (
-    <div className="max-w-[1200px] max-[1200px]:w-full mx-auto py-[40px] px-[10px]">
-      <h2 className="text-black text-2xl not-italic font-bold leading-9 mb-[79px]">
-        Terms and Conditions
-      </h2>
+    <CustomPageWrapper heading="Terms and Conditions">
       <ContactCard
         heading="Introduction"
         paragraph={`Bignlean.com(‘Website’) is an online service owned, operated and
@@ -95,29 +93,6 @@ export default function page() {
         heading="Eligibility to use:"
         paragraph={`Use of the Website is available only to persons who can form legally binding contracts under applicable law. Persons who are “incompetent to contract” within the meaning of the Indian Contract Act, 1872 including un-discharged insolvents etc. are not eligible to use the Website. We reserve the right to terminate your membership and refuse to provide you with access to the Website at our sole discretion. The Website is not available to persons whose membership has been suspended or terminated by us for any reason whatsoever. If you are registering as a business entity, you represent that you have the authority to bind the entity to this User Agreement. We make no representation that any products or services referred to in the materials on this Website are appropriate for use, or available outside India. Those who choose to access this Website from outside India are responsible for compliance with local laws if and to the extent local laws are applicable. We will deliver the products only within India and will not be liable for any claims relating to any products ordered from outside India. Some Indian states prohibit direct sale of merchandise from other states and require special documentation to effect such a sale without dual taxation, if we receive an order from such states or to be delivered to such states under such circumstances we retain the right to accept or reject the order at our sole discretion. Those who choose to access this Website from Indian states which restrict such use are responsible for compliance with local laws if and to the extent local state laws are applicable. We will deliver the products only within states having open import policy and will not be liable for any claims relating to any products ordered from restricted states. Except where additional terms and conditions are provided which are product specific, these terms and conditions supersede all previous representations, understandings, or agreements and shall prevail notwithstanding any variance with any other terms of any order submitted.`}
       />
-      <div className="h-[1px] bg-gray-300 my-[60px]"></div>
-      <p className="text-black text-sm not-italic font-medium leading-5 mb-2">
-        Bignlean.com is the only online & offline supplement store in India that
-        can truly guarantee authenticity. Bignlean.com has been in the health
-        and fitness industry for several years. We have been supplying
-        nutritional products such as weight loss supplements, protein weight
-        loss supplements, dietary products, and much more. With over a huge
-        population of happy customers, we aim to spread the joy of good health
-        among others. Our online supplement store is your ultimate destination
-        for getting all the desired health and fitness products. From protein
-        powder, fat burners, to organic whey protein we supply it all! Top
-        quality products, great customer support, competitive rates, attractive
-        offers, all under a single roof – Bignlean.com. We work hard to make you
-        reach your goals our products along with you following proper diet and
-        exercise. We are available to guide you at every step of shopping the
-        supplements.
-      </p>
-      <p className="text-black text-sm not-italic font-medium leading-5 mb-5">
-        Whether it’s your first step towards the fitness goal or you are an
-        existing professional, we can help. We have a vast range of health
-        supplements categorized as per their qualities in our online shop. Happy
-        Shopping.
-      </p>
-    </div>
+    </CustomPageWrapper>
   );
 }
