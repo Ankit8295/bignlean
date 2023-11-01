@@ -29,7 +29,11 @@ import StarIcon from "./StarIcon";
 import CallIcon from "./CallIcon";
 import MessageIcon from "./MessageIcon";
 import AddressIcon from "./AddressIcon";
+import QualityIcon from "./QualityIcon";
+import EditIcon from "./EditIcon";
 export {
+  EditIcon,
+  QualityIcon,
   AddressIcon,
   MessageIcon,
   CallIcon,

@@ -17,7 +17,7 @@ const siteLinks: SiteLinks = [
     heading: "BignLean",
     links: [
       { label: "About us", link: "/aboutus" },
-      { label: "Contact us", link: "/Contactus" },
+      { label: "Contact us", link: "/contact-us" },
       { label: "Refer & Earn", link: "/refer" },
       { label: "Authenticity Guaranteed", link: "/authenticity" },
     ],

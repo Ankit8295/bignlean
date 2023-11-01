@@ -3,10 +3,17 @@ import { ReactNode } from "react";
 type Props = {
   children: ReactNode;
   heading: string;
+  className?: string;
 };
-export default function CustomPageWrapper({ children, heading }: Props) {
+export default function CustomPageWrapper({
+  children,
+  heading,
+  className,
+}: Props) {
   return (
-    <div className="w-[1200px] max-[1200px]:w-full mx-auto py-[40px] px-[10px]">
+    <div
+      className={`w-[1200px] max-[1200px]:w-full mx-auto py-[40px] px-[10px] ${className}`}
+    >
       <h2 className="text-black text-2xl not-italic font-bold leading-9 mb-[79px]">
         {heading}
       </h2>
@@ -20,7 +27,7 @@ export const ContentFooter = () => {
   return (
     <>
       <div className="h-[1px] bg-gray-300 my-[60px]"></div>
-      <p className="text-black text-sm not-italic font-medium leading-5 mb-2">
+      <p className="text-black text-sm not-italic font-medium leading-6 mb-2">
         Bignlean.com is the only online & offline supplement store in India that
         can truly guarantee authenticity. Bignlean.com has been in the health
         and fitness industry for several years. We have been supplying
