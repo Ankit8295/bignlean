@@ -1,26 +1,27 @@
+import { BlogCarosoul } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import Image from "next/image";
 
 const blogs: BlogsProps[] = [
   {
     src: `/assets/blogs/img1.png`,
-    day: "2",
-    heading: "Fitness",
-    timeToRead: "2",
+    postedTime: "2",
+    type: "Fitness",
+    timeToComplete: "2",
     title: "Benefits of working out daily for your health",
   },
   {
     src: `/assets/blogs/img2.png`,
-    day: "2",
-    heading: "Fitness",
-    timeToRead: "2",
+    postedTime: "2",
+    type: "Fitness",
+    timeToComplete: "2",
     title: "Benefits of yoga daily for your health",
   },
   {
     src: `/assets/blogs/img3.png`,
-    day: "2",
-    heading: "Fitness",
-    timeToRead: "2",
+    postedTime: "2",
+    type: "Fitness",
+    timeToComplete: "2",
     title: "Benefits of working out daily for your health",
   },
 ];
@@ -28,6 +29,9 @@ const blogs: BlogsProps[] = [
 export default function page() {
   return (
     <CustomPageWrapper heading="Blogs">
+      <div className="w-[666px] max-[666px]:w-full mx-auto mb-[65px]">
+        <BlogCarosoul blogData={blogs} />
+      </div>
       <div className="w-[900px] max-[900px]:w-full mx-auto">
         <h2 className="text-black text-2xl not-italic font-bold mb-[34px]">
           Latest Blogs
@@ -36,10 +40,10 @@ export default function page() {
           {blogs.map((item, index, arr) => (
             <BlogCard
               key={index}
-              day={item.day}
-              heading={item.heading}
+              postedTime={item.postedTime}
+              type={item.type}
               src={item.src}
-              timeToRead={item.timeToRead}
+              timeToComplete={item.timeToComplete}
               title={item.title}
               arr={arr}
               index={index}
@@ -53,18 +57,18 @@ export default function page() {
 
 type BlogsProps = {
   src: string;
-  heading: string;
+  type: string;
   title: string;
-  day: string;
-  timeToRead: string;
+  postedTime: string;
+  timeToComplete: string;
   arr?: unknown[];
   index?: number;
 };
 const BlogCard = ({
   src,
-  day,
-  heading,
-  timeToRead,
+  postedTime,
+  type,
+  timeToComplete,
   title,
   arr,
   index,
@@ -86,18 +90,18 @@ const BlogCard = ({
       </div>
       <div>
         <h2 className="text-gray-700 text-lg not-italic font-medium mb-[15px]">
-          {heading}
+          {type}
         </h2>
         <h3 className="text-black text-xl not-italic font-bold mb-2">
           {title}
         </h3>
         <div className="flex items-center gap-[10px]">
           <p className="text-gray-500 text-base not-italic font-semibold">
-            {day} days ago
+            {postedTime} Times ago
           </p>
           <p className="w-1 h-1 rounded-full bg-gray-500"></p>
           <p className="text-gray-500 text-base not-italic font-normal">
-            {timeToRead} min read
+            {timeToComplete} min read
           </p>
         </div>
       </div>

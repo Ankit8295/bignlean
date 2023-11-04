@@ -20,6 +20,31 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.swiper-pagination-bullet {
+  width: 50px !important;
+  height: 4px !important;
+  border-radius: 10px !important;
+  opacity: 1;
+  background: rgb(111, 111, 111) !important;
+  margin-right: 20px !important;
+}
+.swiper-pagination-bullet:last-child {
+  margin-right: 0 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 @media (max-width: 550px) {
   .sm-1 {
     box-shadow: none;

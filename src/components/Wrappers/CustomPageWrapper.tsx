@@ -4,11 +4,13 @@ type Props = {
   children: ReactNode;
   heading: string;
   className?: string;
+  showContentFooter?: boolean;
 };
 export default function CustomPageWrapper({
   children,
   heading,
   className,
+  showContentFooter = true,
 }: Props) {
   return (
     <div
@@ -18,7 +20,7 @@ export default function CustomPageWrapper({
         {heading}
       </h2>
       {children}
-      <ContentFooter />
+      {showContentFooter && <ContentFooter />}
     </div>
   );
 }

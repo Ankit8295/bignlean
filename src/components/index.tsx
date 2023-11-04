@@ -24,7 +24,15 @@ import FitFoodRange from "./Home/FitFoodRange/FitFoodRange";
 import BudgetComboZone from "./Home/BudgetComboZone/BudgetComboZone";
 import TopSellingCombos from "./Home/TopSellingCombos/TopSellingCombos";
 import DownloadBanner from "./Home/DownloadBanner/DownloadBanner";
+import BlogCarosoul from "./BlogCarosoul/BlogCarosoul";
+import ReferalCodeCard from "./ReferalCodeCard/ReferalCodeCard";
+import OutlinedButton from "./Buttons/OutlinedButton";
+import ReviewCard from "./ReviewCard/ReviewCard";
 export {
+  ReviewCard,
+  OutlinedButton,
+  ReferalCodeCard,
+  BlogCarosoul,
   DownloadBanner,
   TopSellingCombos,
   BudgetComboZone,

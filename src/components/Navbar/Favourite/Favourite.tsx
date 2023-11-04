@@ -1,9 +1,10 @@
 import { FavIcon } from "@/Icons";
+import Link from "next/link";
 
 export default function Favourite() {
   return (
-    <div>
+    <Link href={"/wishlist"}>
       <FavIcon />
-    </div>
+    </Link>
   );
 }
