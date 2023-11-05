@@ -5,14 +5,16 @@ import { useState } from "react";
 
 type Props = {
   heading: string;
-  srcs: string[];
+  srcs?: string[];
   defaultToggleValue?: boolean;
+  para?: string;
 };
 
 export default function Accordian({
   defaultToggleValue,
   heading,
   srcs,
+  para,
 }: Props) {
   const [toggle, setToggle] = useState(defaultToggleValue || false);
   return (
@@ -25,17 +27,23 @@ export default function Accordian({
         {toggle ? <MinusIcon /> : <PlusIcon />}
       </div>
       {toggle && (
-        <div className="flex items-center w-[80%] gap-3">
-          {srcs.map((src, index) => (
-            <Image
-              key={index}
-              src={src}
-              alt="certificates"
-              width={100}
-              height={100}
-              className="w-full h-auto"
-            />
-          ))}
+        <div className={`flex items-center w-[${para ? "100" : "80"}%] gap-3`}>
+          {para && (
+            <p className="text-gray-600 text-sm not-italic leading-5 font-normal">
+              {para}
+            </p>
+          )}
+          {srcs &&
+            srcs!.map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt="certificates"
+                width={100}
+                height={100}
+                className="w-full h-auto"
+              />
+            ))}
         </div>
       )}
     </div>

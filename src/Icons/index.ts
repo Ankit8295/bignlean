@@ -45,7 +45,9 @@ import CoinIcon from "./CoinIcon";
 import CreditIcon from "./CreditIcon";
 import DebitIcon from "./DebitIcon";
 import CoinSmIcon from "./CoinSmIcon";
+import SideArrowIcon from "./SideArrowIcon";
 export {
+  SideArrowIcon,
   CoinSmIcon,
   DebitIcon,
   CreditIcon,
