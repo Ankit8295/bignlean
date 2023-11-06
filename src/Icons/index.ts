@@ -46,7 +46,13 @@ import CreditIcon from "./CreditIcon";
 import DebitIcon from "./DebitIcon";
 import CoinSmIcon from "./CoinSmIcon";
 import SideArrowIcon from "./SideArrowIcon";
+import TrashIcon from "./TrashIcon";
+import CheckoutCard from "./CheckoutCard";
+import Info2Icon from "./Info2Icon";
 export {
+  Info2Icon,
+  CheckoutCard,
+  TrashIcon,
   SideArrowIcon,
   CoinSmIcon,
   DebitIcon,

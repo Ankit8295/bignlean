@@ -28,7 +28,11 @@ import BlogCarosoul from "./BlogCarosoul/BlogCarosoul";
 import ReferalCodeCard from "./ReferalCodeCard/ReferalCodeCard";
 import OutlinedButton from "./Buttons/OutlinedButton";
 import ReviewCard from "./ReviewCard/ReviewCard";
+import CartProducts from "./CartProducts/CartProducts";
+import SuggestedProduct from "./CartProducts/SuggestedProduct";
 export {
+  SuggestedProduct,
+  CartProducts,
   ReviewCard,
   OutlinedButton,
   ReferalCodeCard,
