@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ShoppingBag() {
   return (
-    <Link href={"/shoppingbag"}>
+    <Link href={"/cart"}>
       <ShoppingBagIcon />
     </Link>
   );

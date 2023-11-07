@@ -18,7 +18,7 @@ const siteLinks: SiteLinks = [
     links: [
       { label: "About us", link: "/aboutus" },
       { label: "Contact us", link: "/contact-us" },
-      { label: "Refer & Earn", link: "/refer" },
+      { label: "Refer & Earn", link: "/refer-friend" },
       { label: "Authenticity Guaranteed", link: "/authenticity" },
     ],
   },
@@ -46,9 +46,9 @@ const siteLinks: SiteLinks = [
     heading: "Useful Links",
     links: [
       { label: "Returns and Refunds", link: "/" },
-      { label: "Terms and Conditions", link: "/" },
-      { label: "Privacy Policy", link: "/" },
-      { label: "Track your Shipment", link: "/" },
+      { label: "Terms and Conditions", link: "/terms-and-conditions" },
+      { label: "Privacy Policy", link: "/privacy-policy" },
+      { label: "Track your Shipment", link: "/track-order" },
     ],
   },
 ];
