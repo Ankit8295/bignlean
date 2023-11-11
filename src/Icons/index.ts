@@ -51,7 +51,9 @@ import CheckoutCard from "./CheckoutCard";
 import Info2Icon from "./Info2Icon";
 import ProccessingIcon from "./ProccessingIcon";
 import CompleteIcon from "./CompleteIcon";
+import DownArrow from "./DownArrow";
 export {
+  DownArrow,
   CompleteIcon,
   ProccessingIcon,
   Info2Icon,

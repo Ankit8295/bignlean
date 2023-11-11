@@ -18,6 +18,12 @@ const reducer = (state: InitialState, actions: Action) => {
       return { ...state, locationToggle: true };
     case "LOCATION_TOGGLE_OFF":
       return { ...state, locationToggle: false };
+    case "ACTIVE_PRODUCT_TAB":
+      return { ...state, activeProductTab: actions.payload };
+    case "REVIEW_MODAL_TOGGLE_ON":
+      return { ...state, reviewModalToggle: true };
+    case "REVIEW_MODAL_TOGGLE_OFF":
+      return { ...state, reviewModalToggle: false };
     default:
       return state;
   }

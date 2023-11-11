@@ -5,4 +5,6 @@ export const initialState: InitialState = {
   notificationToggle: false,
   profileToggle: false,
   locationToggle: false,
+  activeProductTab: "Overview",
+  reviewModalToggle: false,
 };

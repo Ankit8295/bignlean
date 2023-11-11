@@ -30,7 +30,13 @@ import OutlinedButton from "./Buttons/OutlinedButton";
 import ReviewCard from "./ReviewCard/ReviewCard";
 import CartProducts from "./CartProducts/CartProducts";
 import SuggestedProduct from "./CartProducts/SuggestedProduct";
+import ProductOverview from "./ProductOverview/ProductOverview";
+import ProductDetail from "./ProductDetail/ProductDetail";
+import ProductFooter from "./ProductFooter/ProductFooter";
 export {
+  ProductFooter,
+  ProductDetail,
+  ProductOverview,
   SuggestedProduct,
   CartProducts,
   ReviewCard,

@@ -3,6 +3,8 @@ export type InitialState = {
   notificationToggle: boolean;
   profileToggle: boolean;
   locationToggle: boolean;
+  activeProductTab: string;
+  reviewModalToggle: boolean;
 };
 
 export type Action =
@@ -29,4 +31,14 @@ export type Action =
     }
   | {
       type: "LOCATION_TOGGLE_OFF";
+    }
+  | {
+      type: "ACTIVE_PRODUCT_TAB";
+      payload: string;
+    }
+  | {
+      type: "REVIEW_MODAL_TOGGLE_ON";
+    }
+  | {
+      type: "REVIEW_MODAL_TOGGLE_OFF";
     };
