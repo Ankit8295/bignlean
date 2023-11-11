@@ -5,6 +5,7 @@ type Props = {
   error?: string;
   className?: string;
   shadow?: true | false;
+  inputClassName?: string;
 };
 export default function InputField({
   type,
@@ -13,6 +14,7 @@ export default function InputField({
   error,
   className,
   shadow = true,
+  inputClassName,
 }: Props) {
   if (type === "textarea") {
     return (
@@ -50,7 +52,7 @@ export default function InputField({
           placeholder={placeholder}
           className={`w-full rounded-[15px] outline-none p-5 text-sm not-italic font-normal ${
             shadow ? `sm-3` : `border border-[#D9D9D9]`
-          }`}
+          } ${inputClassName}`}
         />
       )}
       {error && <span>{error}</span>}

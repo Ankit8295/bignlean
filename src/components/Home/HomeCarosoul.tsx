@@ -8,9 +8,11 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 
-export default function HomeCarosoul() {
+export default function HomeCarosoul({ className }: { className?: string }) {
   return (
-    <div className="w-[1000px]  mx-auto max-[1000px]:w-full">
+    <div
+      className={"w-[1000px]  mx-auto max-[1000px]:w-full" + " " + className}
+    >
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

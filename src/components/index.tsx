@@ -33,7 +33,11 @@ import SuggestedProduct from "./CartProducts/SuggestedProduct";
 import ProductOverview from "./ProductOverview/ProductOverview";
 import ProductDetail from "./ProductDetail/ProductDetail";
 import ProductFooter from "./ProductFooter/ProductFooter";
+import FilterBy from "./FilterBy/FilterBy";
+import SecondaryNavbar from "./SecondaryNavbar/SecondaryNavbar";
 export {
+  SecondaryNavbar,
+  FilterBy,
   ProductFooter,
   ProductDetail,
   ProductOverview,
