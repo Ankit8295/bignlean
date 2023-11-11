@@ -34,7 +34,7 @@ export default function page() {
       <p className="text-black text-base not-italic font-normal leading-6 mb-[53px]">
         MuscleBlaze is one of the best selling brands in India. When it comes to
         healthy, top quality and reasonable supplements. From whey protein, mass
-        gainers, BCAA's to raw whey protein, MuscleBlaze has everything to
+        gainers, BCAA&apos;s to raw whey protein, MuscleBlaze has everything to
         complement your fitness
       </p>
       <h2 className="text-black text-2xl not-italic font-medium mb-8">
@@ -60,7 +60,7 @@ export default function page() {
       <p className="text-black text-base not-italic font-normal leading-6 mb-[101px]">
         MuscleBlaze is one of the best selling brands in India. When it comes to
         healthy, top quality and reasonable supplements. From whey protein, mass
-        gainers, BCAA's to raw whey protein, MuscleBlaze has everything to
+        gainers, BCAA&apos;s to raw whey protein, MuscleBlaze has everything to
         complement your fitness.
       </p>
       <div className="w-auto mb-6">
@@ -72,7 +72,7 @@ export default function page() {
       <p className="text-black text-base not-italic font-normal leading-6 mb-9">
         MuscleBlaze is one of the best selling brands in India. When it comes to
         healthy, top quality and reasonable supplements. From whey protein, mass
-        gainers, BCAA's to raw whey protein, MuscleBlaze has everything to
+        gainers, BCAA&apos;s to raw whey protein, MuscleBlaze has everything to
         complement your fitness.
       </p>
       <div className="flex gap-[18px] mb-11">
@@ -96,16 +96,16 @@ export default function page() {
         BEWARE OF FAKE BODYBUILDING SUPPLEMENTS
       </h2>
       <p className="text-black text-base not-italic font-normal leading-7">
-        Spurious ingredients mixed with steroids' make for cheap supplements.
+        Spurious ingredients mixed with steroids make for cheap supplements.
         Such supplements are made to look like their real counterparts in color
         and texture. but the pump in muscle and the mass gain are directly
         because of the steroids in the Fake supplements. As for the permanent
         damage, you can get Cancer and severe impotence without smoking, skin
         diseases and rashes without being infected. kidney and liver damage
         without consuming alcohol. hormonal imbalance without having Stress,
-        mood swings, hair loss and permanent organ damage. That's what anabolic
-        steroids' do in a nutshell. Duplicate Supplements Or Fake Supplements
-        Can Lead Many Health Problems.
+        mood swings, hair loss and permanent organ damage. That&apos;s what
+        anabolic steroids do in a nutshell. Duplicate Supplements Or Fake
+        Supplements Can Lead Many Health Problems.
       </p>
     </CustomPageWrapper>
   );
