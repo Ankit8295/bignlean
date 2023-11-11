@@ -24,7 +24,19 @@ import FitFoodRange from "./Home/FitFoodRange/FitFoodRange";
 import BudgetComboZone from "./Home/BudgetComboZone/BudgetComboZone";
 import TopSellingCombos from "./Home/TopSellingCombos/TopSellingCombos";
 import DownloadBanner from "./Home/DownloadBanner/DownloadBanner";
+import BlogCarosoul from "./BlogCarosoul/BlogCarosoul";
+import ReferalCodeCard from "./ReferalCodeCard/ReferalCodeCard";
+import OutlinedButton from "./Buttons/OutlinedButton";
+import ReviewCard from "./ReviewCard/ReviewCard";
+import CartProducts from "./CartProducts/CartProducts";
+import SuggestedProduct from "./CartProducts/SuggestedProduct";
 export {
+  SuggestedProduct,
+  CartProducts,
+  ReviewCard,
+  OutlinedButton,
+  ReferalCodeCard,
+  BlogCarosoul,
   DownloadBanner,
   TopSellingCombos,
   BudgetComboZone,
