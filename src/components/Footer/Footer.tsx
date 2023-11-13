@@ -55,7 +55,7 @@ const siteLinks: SiteLinks = [
 
 export default function Footer() {
   return (
-    <div className="bg-black mt-auto py-[68px]">
+    <div className="bg-black mt-auto py-[68px] px-5 max-[1060px]:hidden">
       <div className="flex max-w-[1300px] gap-10 mx-auto mb-12">
         <div className="flex-[0.75]">
           <div className="flex gap-10 mb-10">

@@ -1,13 +1,15 @@
 "use client";
 
 import { ProductCard, SectionHeader, SliderWrapper } from "@/components";
+import { useAppContext } from "@/provider/ContextProvider/ContextProvider";
 import { SwiperSlide } from "swiper/react";
 
 export default function PopularProducts() {
+  const { slidePerView } = useAppContext();
   return (
     <div className="w-[1200px] mx-auto mt-[60px] max-[1200px]:w-full flex flex-col gap-[40px]">
       <SectionHeader label="Popular products" showBtn btnLabel="View all" />
-      <SliderWrapper slidePerView={4.2}>
+      <SliderWrapper slidePerView={slidePerView}>
         <SwiperSlide>
           <ProductCard />
         </SwiperSlide>

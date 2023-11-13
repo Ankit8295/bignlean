@@ -12,7 +12,7 @@ export default function SearchForProducts() {
   const dispatch = useDispatchContext();
 
   return (
-    <div className="relative w-[438px]">
+    <div className="relative w-[438px] max-[500px]:w-full">
       <Searchbar
         onFocus={() => dispatch({ type: "RECENT_SEARCH_TOGGLE_ON" })}
         onBlur={() => dispatch({ type: "RECENT_SEARCH_TOGGLE_OFF" })}

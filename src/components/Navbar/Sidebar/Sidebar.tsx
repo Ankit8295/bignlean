@@ -6,10 +6,14 @@ import ShoppingBag from "../ShoppingBag/ShoppingBag";
 export default function Sidebar() {
   return (
     <div className="flex-1 flex items-center gap-[24px] justify-end">
-      <Favourite />
+      <div className="max-[750px]:hidden">
+        <Favourite />
+      </div>
       <Notification />
       <ShoppingBag />
-      <Profile />
+      <div className="max-[750px]:hidden">
+        <Profile />
+      </div>
     </div>
   );
 }

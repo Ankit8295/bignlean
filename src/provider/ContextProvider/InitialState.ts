@@ -7,4 +7,5 @@ export const initialState: InitialState = {
   locationToggle: false,
   activeProductTab: "Overview",
   reviewModalToggle: false,
+  slidePerView: 1500,
 };

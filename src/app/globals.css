@@ -55,3 +55,21 @@ img {
     box-shadow: none;
   }
 }
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 1000px) {
+  .custom-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .custom-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

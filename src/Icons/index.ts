@@ -52,7 +52,9 @@ import Info2Icon from "./Info2Icon";
 import ProccessingIcon from "./ProccessingIcon";
 import CompleteIcon from "./CompleteIcon";
 import DownArrow from "./DownArrow";
+import MenuIcon from "./MenuIcon";
 export {
+  MenuIcon,
   DownArrow,
   CompleteIcon,
   ProccessingIcon,

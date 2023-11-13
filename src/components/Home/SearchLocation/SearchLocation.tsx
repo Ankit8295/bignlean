@@ -11,7 +11,7 @@ export default function SearchLocation() {
   const { locationToggle } = useAppContext();
   const dispatch = useDispatchContext();
   return (
-    <div className="w-[1000px] max-[1000px]:w-full mx-auto my-7 relative">
+    <div className="w-[1000px] max-[1050px]:hidden mx-auto my-7 relative">
       <div className="flex items-center gap-8">
         <Searchbar
           onBlur={() => dispatch({ type: "LOCATION_TOGGLE_OFF" })}

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SecondaryNavbar() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center max-[850px]:hidden mb-5">
       <div className="flex items-center gap-6">
         <Link
           href={"/"}

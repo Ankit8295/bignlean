@@ -21,7 +21,7 @@ export default function FormWrapper({ children, label, link, privacy }: Props) {
         {label}
       </h2>
       {children}
-      <div className="w-[170px] h-px relative bg-gray-300 mx-auto mb-[21px] mt-[44px]">
+      <div className="w-[170px] h-px relative bg-gray-300 mx-auto mb-[21px] mt-[44px] max-[500px]:mt-[70px]">
         <span className="absolute bg-white text-center text-xs not-italic font-normal leading-5 px-2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
           Or
         </span>

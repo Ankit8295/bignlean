@@ -5,6 +5,7 @@ export type InitialState = {
   locationToggle: boolean;
   activeProductTab: string;
   reviewModalToggle: boolean;
+  slidePerView: number;
 };
 
 export type Action =
@@ -41,4 +42,8 @@ export type Action =
     }
   | {
       type: "REVIEW_MODAL_TOGGLE_OFF";
+    }
+  | {
+      type: "SET_SLIDE_PER_VIEW";
+      payload: number;
     };

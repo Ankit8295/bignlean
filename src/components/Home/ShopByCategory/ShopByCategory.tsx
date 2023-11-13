@@ -51,17 +51,16 @@ export default function ShopByCategory() {
   return (
     <div className="w-[1200px] mx-auto mt-[60px] max-[1200px]:w-full flex flex-col gap-[40px]">
       <SectionHeader label="Shop by category" showBtn={false} />
-      <SliderWrapper slidePerView={6}>
+      <div className="custom-grid">
         {categoryList.map((item, index) => (
-          <SwiperSlide key={index}>
-            <ShopCategoryCard
-              image={item.image}
-              label={item.label}
-              subLabel={item.subLabel}
-            />
-          </SwiperSlide>
+          <ShopCategoryCard
+            key={index}
+            image={item.image}
+            label={item.label}
+            subLabel={item.subLabel}
+          />
         ))}
-      </SliderWrapper>
+      </div>
     </div>
   );
 }
