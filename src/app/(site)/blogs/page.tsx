@@ -28,7 +28,7 @@ const blogs: BlogsProps[] = [
   },
 ];
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
   return (
     <CustomPageWrapper heading="Blogs">
