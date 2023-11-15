@@ -30,8 +30,8 @@ const sidebarData = [
 export default function page() {
   return (
     <CustomPageWrapper heading="FAQ" showContentFooter={false}>
-      <div className="flex gap-10">
-        <div className="flex-[0.3]">
+      <div className="flex gap-10 max-[1000px]:flex-col">
+        <div className="flex-[0.3] max-[1000px]:hidden">
           <div className="flex flex-col gap-5 bg-white sm-3 rounded-xl p-4">
             {sidebarData?.map((item, index) => (
               <div

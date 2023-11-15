@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  heading: string;
+  heading?: string;
   className?: string;
   showContentFooter?: boolean;
 };
@@ -14,11 +14,13 @@ export default function CustomPageWrapper({
 }: Props) {
   return (
     <div
-      className={`w-[1200px] max-[1200px]:w-full mx-auto py-[40px] px-[10px] ${className}`}
+      className={`w-[1200px] max-[1200px]:w-full max-[850px]:pt-0 mx-auto py-[40px] px-[10px] ${className}`}
     >
-      <h2 className="text-black text-2xl not-italic font-bold leading-9 mb-[79px]">
-        {heading}
-      </h2>
+      {heading && (
+        <h2 className="text-black text-2xl not-italic font-bold leading-9 mb-[79px] max-[850px]:mb-4">
+          {heading}
+        </h2>
+      )}
       {children}
       {showContentFooter && <ContentFooter />}
     </div>
@@ -28,8 +30,8 @@ export default function CustomPageWrapper({
 export const ContentFooter = () => {
   return (
     <>
-      <div className="h-[1px] bg-gray-300 my-[60px]"></div>
-      <p className="text-black text-sm not-italic font-medium leading-6 mb-2">
+      <div className="h-[1px] bg-gray-300 my-[60px] max-[500px]:hidden"></div>
+      <p className="text-black text-sm not-italic font-medium leading-6 mb-2 max-[500px]:hidden">
         Bignlean.com is the only online & offline supplement store in India that
         can truly guarantee authenticity. Bignlean.com has been in the health
         and fitness industry for several years. We have been supplying
@@ -45,7 +47,7 @@ export const ContentFooter = () => {
         exercise. We are available to guide you at every step of shopping the
         supplements.
       </p>
-      <p className="text-black text-sm not-italic font-medium leading-5 mb-5">
+      <p className="text-black text-sm not-italic font-medium leading-5 mb-5 max-[500px]:hidden">
         Whether it’s your first step towards the fitness goal or you are an
         existing professional, we can help. We have a vast range of health
         supplements categorized as per their qualities in our online shop. Happy

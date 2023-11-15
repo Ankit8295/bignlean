@@ -33,17 +33,17 @@ export default function Accordian({
               {para}
             </p>
           )}
-          {srcs &&
-            srcs!.map((src, index) => (
-              <Image
-                key={index}
-                src={src}
-                alt="certificates"
-                width={100}
-                height={100}
-                className="w-full h-auto"
-              />
-            ))}
+          <div className="custom-grid4">
+            {srcs &&
+              srcs!.map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt="certificates"
+                  className="w-full h-auto"
+                />
+              ))}
+          </div>
         </div>
       )}
     </div>

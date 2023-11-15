@@ -14,7 +14,7 @@ import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 export default function page() {
   return (
     <CustomPageWrapper heading="Refer a Friend">
-      <div className="flex">
+      <div className="flex max-[950px]:flex-col-reverse max-[950px]:gap-5">
         <div className="flex-1 flex flex-col items-center gap-6">
           <ReferOfferCard />
           <StepCards />
@@ -24,7 +24,7 @@ export default function page() {
             during registering
           </p>
           <ReferalCodeCard />
-          <div className="flex w-[500px] max-[500px]:w-full gap-3 justify-center mt-4">
+          <div className="flex w-[500px] max-[500px]:w-full max-[500px]:flex-col gap-3 justify-center mt-4">
             <OutlinedButton label="More" icon={<ShareIcon />} />
             <PrimaryButton label="Whatsapp" icon={<WhatsappIcon />} />
           </div>
@@ -39,7 +39,7 @@ export default function page() {
 
 const StepCards = () => {
   return (
-    <div className="flex w-[400px] max-[400px]:w-full gap-5">
+    <div className="flex w-[400px] max-[450px]:w-full max-[450px]:flex-col gap-5">
       <div className="flex flex-col items-center gap-2">
         <LinkIcon />
         <p className="text-center text-xs not-italic font-semibold leading-5 text-gradient">

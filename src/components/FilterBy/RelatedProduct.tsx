@@ -7,7 +7,7 @@ export default function RelatedProduct() {
 
   return (
     <div className="border border-gray-300 rounded-lg p-4 flex flex-col gap-3">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between max-[1400px]:gap-5">
         <h2>Related Product</h2>
         <button onClick={() => setToggle(!toggle)}>
           <DownArrow />

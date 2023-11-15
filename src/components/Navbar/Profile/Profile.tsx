@@ -24,15 +24,19 @@ type ProfileOption = {
   icon: ReactNode;
 };
 const profileOptions: ProfileOption[] = [
-  { icon: <MyOrderIcon />, label: "My Orders", link: "/myorders" },
-  { icon: <CouponIcon />, label: "Coupons", link: "/coupons" },
+  { icon: <MyOrderIcon />, label: "My Orders", link: "/track-order" },
+  { icon: <CouponIcon />, label: "Coupons", link: "/" },
   { icon: <WalletIcon />, label: "Wallet", link: "/wallet" },
-  { icon: <ReferIcon />, label: "Refer a Friend", link: "/referfriend" },
-  { icon: <FlashSaleIcon />, label: "Flash Sale", link: "/flashsale" },
+  { icon: <ReferIcon />, label: "Refer a Friend", link: "/refer-friend" },
+  { icon: <FlashSaleIcon />, label: "Flash Sale", link: "/" },
   { icon: <ReviewsIcon />, label: "My Reviews", link: "/reviews" },
   { icon: <AuthencityIcon />, label: "Authenticity", link: "/authenticity" },
-  { icon: <FaqIcon />, label: "FAQs", link: "/faqs" },
-  { icon: <CertificateIcon />, label: "Certificates", link: "/ceritificates" },
+  { icon: <FaqIcon />, label: "FAQs", link: "/faq" },
+  {
+    icon: <CertificateIcon />,
+    label: "Certificates",
+    link: "/app-certificates",
+  },
 ];
 
 export default function Profile() {
@@ -63,7 +67,7 @@ export default function Profile() {
       {profileToggle && (
         <div
           onMouseLeave={() => dispatch({ type: "PROFILE_TOGGLE_OFF" })}
-          className="absolute w-[320px] sm-1 top-full right-0 bg-white rounded-xl p-4 translate-y-2 z-30"
+          className="absolute w-[320px] sm-1 top-full right-0 bg-white rounded-xl p-4 translate-y-2 z-[10000000]"
         >
           <div className="flex gap-4 items-center mb-5">
             <Image

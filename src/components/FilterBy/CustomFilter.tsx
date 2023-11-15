@@ -17,7 +17,7 @@ export default function CustomFilter({
   return (
     <div className="border border-gray-300 rounded-lg p-4 flex flex-col gap-3">
       {heading && (
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-[1400px]:gap-5">
           <h2>{heading}</h2>
           {filterOptions?.length > 1 && (
             <button onClick={() => setToggle(!toggle)}>

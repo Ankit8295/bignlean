@@ -19,21 +19,8 @@ import {
   TopSellingCombos,
 } from "@/components";
 import SearchForProducts from "@/components/Navbar/SearchForProducts/SearchForProducts";
-import { useDispatchContext } from "@/provider/ContextProvider/ContextProvider";
-import { useEffect } from "react";
 
 export default function Home() {
-  const dispatch = useDispatchContext();
-  useEffect(() => {
-    const func = () => {
-      dispatch({ type: "SET_SLIDE_PER_VIEW", payload: window.innerWidth });
-    };
-    func();
-    window.addEventListener("resize", func);
-
-    return () => window.removeEventListener("resize", func);
-  }, []);
-
   return (
     <div className="px-5">
       <SearchLocation />

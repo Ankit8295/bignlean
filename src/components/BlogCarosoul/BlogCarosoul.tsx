@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type Props = {
   blogData: {
@@ -19,6 +20,7 @@ type Props = {
   }[];
 };
 export default function BlogCarosoul({ blogData }: Props) {
+  const router = useRouter();
   const pagination = {
     clickable: true,
     renderBullet: function (index: number, className: string) {
@@ -34,16 +36,18 @@ export default function BlogCarosoul({ blogData }: Props) {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper w-full h-[375px] rounded-[20px]"
+        className="mySwiper w-full h-[375px] rounded-[20px] max-[550px]:h-[400px] max-[550px]:rounded-lg"
       >
         {blogData.map((blog, index) => (
-          <SwiperSlide key={index} className="relative">
-            <Image
+          <SwiperSlide
+            key={index}
+            onClick={() => router.push("/blogs/asfadasdasd")}
+            className="relative cursor-pointer"
+          >
+            <img
               src={blog?.src}
               alt="blog image"
-              width={100}
-              height={100}
-              className="w-full bg-center"
+              className="w-full h-full bg-center"
             />
             <div className="absolute bottom-10 left-4 w-[395px] max-[395px]:w-full">
               <div className="flex items-center gap-5 mb-4">

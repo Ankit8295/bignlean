@@ -22,7 +22,7 @@ const ProductBenefits = () => {
         <h2 className="text-black text-sm not-italic font-bold mb-3">
           Product Benefits
         </h2>
-        <p className="flex gap-2 items-center text-black text-sm not-italic font-normal">
+        <div className="flex gap-2 items-center text-black text-sm not-italic font-normal">
           <div>
             <svg
               width="13"
@@ -34,14 +34,14 @@ const ProductBenefits = () => {
               <path
                 d="M1 5L4.5 8.5L11.5 1"
                 stroke="black"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>
           Helps in Muscle Building
-        </p>
+        </div>
       </div>
       <div
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}

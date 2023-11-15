@@ -5,7 +5,7 @@ export default function SecondaryNavbar() {
     <div className="flex items-center justify-center max-[850px]:hidden mb-5">
       <div className="flex items-center gap-6">
         <Link
-          href={"/"}
+          href={"/shop-by-brands"}
           className="flex items-center gap-2 border border-gray-200 p-2 rounded-lg"
         >
           <CategoryIcon />
@@ -13,7 +13,7 @@ export default function SecondaryNavbar() {
             Shop By Category
           </p>
         </Link>
-        <Link href={"/"} className="flex items-center gap-2">
+        <Link href={"/shop-by-brands"} className="flex items-center gap-2">
           <BrandIcon />
           <p className="text-gray-600 not-italic font-medium">Brands</p>
         </Link>
@@ -21,11 +21,11 @@ export default function SecondaryNavbar() {
           <OfferIcon />
           <p className="text-gray-600 not-italic font-medium">Offer Zone</p>
         </Link>
-        <Link href={"/"} className="flex items-center gap-2">
+        <Link href={"/blogs"} className="flex items-center gap-2">
           <BlogsIcon />
           <p className="text-gray-600 not-italic font-medium">Blogs</p>
         </Link>
-        <Link href={"/"} className="flex items-center gap-2">
+        <Link href={"/contact-us"} className="flex items-center gap-2">
           <DocumentIcon />
           <p className="text-gray-600 not-italic font-medium">
             Customer Support

@@ -8,13 +8,15 @@ import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 
 export default function page() {
   return (
-    <CustomPageWrapper heading="" className="w-[1400px]">
-      <div className="flex gap-[27px]">
+    <CustomPageWrapper className="w-[1400px] px-5">
+      <div className="flex gap-[27px] max-[1400px]:flex-col">
         <div className="flex-[0.25]">
           <FilterBy />
         </div>
         <div className="flex-[0.75] flex flex-col items-center gap-4">
-          <HomeCarosoul className="!w-[1000px] " />
+          <div className="max-[1000px]:hidden">
+            <HomeCarosoul className="!w-[1000px]" />
+          </div>
           <BrandInfo />
           <div className="h-[2px] bg-gray-300 w-full"></div>
           <div className="w-full flex items-center justify-between">
@@ -24,12 +26,12 @@ export default function page() {
                 (35 Items)
               </span>
             </p>
-            <div className="flex items-center gap-2 border rounded-lg p-2 border-gray-300">
+            <div className="flex items-center gap-2 border rounded-lg p-2 border-gray-300 max-[1000px]:hidden">
               <p>Sort by :</p>
               <p>Popularity</p>
             </div>
           </div>
-          <div className="w-full flex gap-2 items-center">
+          <div className="w-full flex gap-2 items-center max-[1000px]:hidden">
             <OutlinedButton label="All" className="!py-1 !p-2 " />
             <OutlinedButton label="Protein Powder" className="!py-1 !p-2" />
             <OutlinedButton label="Multivitamins" className="!py-1 !p-2" />
@@ -55,11 +57,11 @@ const Pagination = () => {
     <div className="flex items-center gap-3 my-10">
       <PaginationButton label="<" />
       <PaginationButton label="1" />
-      <PaginationButton label="2" />
-      <PaginationButton label="3" active />
+      <PaginationButton label="2" className="max-[500px]:hidden" />
+      <PaginationButton label="3" active className="max-[500px]:hidden" />
       <PaginationButton label=".." />
-      <PaginationButton label="8" />
-      <PaginationButton label="9" />
+      <PaginationButton label="8" className="max-[500px]:hidden" />
+      <PaginationButton label="9" className="max-[500px]:hidden" />
       <PaginationButton label="10" />
       <PaginationButton label=">" />
     </div>
@@ -68,9 +70,11 @@ const Pagination = () => {
 const PaginationButton = ({
   label,
   active,
+  className,
 }: {
   label: string;
   active?: boolean;
+  className?: string;
 }) => {
   return (
     <div
@@ -78,7 +82,7 @@ const PaginationButton = ({
         active
           ? "border-red-500 text-white linear-gradient-1"
           : "border-red-500 text-gradient"
-      }`}
+      } ${className}`}
     >
       {label}
     </div>
@@ -87,14 +91,7 @@ const PaginationButton = ({
 
 const Products = () => {
   return (
-    <div
-      className="my-5"
-      style={{
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr 1fr",
-        gap: "10px",
-      }}
-    >
+    <div className="my-5 custom-grid2">
       <ProductCard />
       <ProductCard />
       <ProductCard />

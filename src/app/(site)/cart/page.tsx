@@ -8,8 +8,8 @@ export default function page() {
   return (
     <CustomPageWrapper heading="Cart">
       <SavingBanner />
-      <div className="flex gap-[22px] mt-6">
-        <div className="flex-[0.6] flex flex-col gap-[150px]">
+      <div className="flex gap-[22px] mt-6 max-[800px]:flex-col">
+        <div className="flex-[0.6] flex flex-col gap-[150px] max-[800px]:gap-[40px]">
           <CartProducts />
           <SuggestedProduct />
         </div>
@@ -106,7 +106,9 @@ const AddressCard = () => {
           Thane W
         </p>
       </div>
-      <EditIcon />
+      <button className="ml-auto">
+        <EditIcon />
+      </button>
     </div>
   );
 };

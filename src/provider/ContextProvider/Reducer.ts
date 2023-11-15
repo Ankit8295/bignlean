@@ -34,7 +34,7 @@ const reducer = (state: InitialState, actions: Action) => {
       if (actions.payload < 650 && actions.payload >= 500) slide = 2;
       if (actions.payload < 500 && actions.payload >= 450) slide = 1.5;
       if (actions.payload < 450 && actions.payload >= 400) slide = 1.2;
-      if (actions.payload < 400) slide = 1;
+      if (actions.payload < 400) slide = 1.1;
       return { ...state, slidePerView: slide };
     default:
       return state;

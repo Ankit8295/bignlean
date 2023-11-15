@@ -7,7 +7,7 @@ export default function page() {
         <img
           src={"/assets/blogs/img1.jpg"}
           alt="blog image"
-          className="w-full bg-center"
+          className="w-full bg-center max-[550px]:h-[300px]"
         />
         <div className="absolute bottom-10 left-4 w-[521px] max-[521px]:w-full">
           <div className="flex items-center gap-5 mb-4">
@@ -21,7 +21,7 @@ export default function page() {
               6 min read
             </p>
           </div>
-          <h2 className="text-white not-italic font-bold text-[40px]">
+          <h2 className="text-white not-italic font-bold text-[40px] max-[550px]:text-2xl">
             Here’s what you need to know about diet plans
           </h2>
         </div>

@@ -40,7 +40,7 @@ export default function page() {
       <h2 className="text-black text-2xl not-italic font-medium mb-8">
         We Collaborate with all the Popular Global Brands
       </h2>
-      <div className="flex gap-8 mb-[73px]">
+      <div className="flex gap-8 mb-[73px] flex-wrap">
         {brandsSrcs.map((src, index) => (
           <BrandsCard key={index} src={src} />
         ))}
@@ -75,7 +75,7 @@ export default function page() {
         gainers, BCAA&apos;s to raw whey protein, MuscleBlaze has everything to
         complement your fitness.
       </p>
-      <div className="flex gap-[18px] mb-11">
+      <div className="custom-grid3 mb-11">
         <CertificateCard
           src="/assets/product.png"
           heading="BignLean is the Official Supplier of MuscleTech"

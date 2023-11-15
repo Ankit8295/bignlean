@@ -1,6 +1,8 @@
+"use client";
 import { BlogCarosoul } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const blogs: BlogsProps[] = [
   {
@@ -27,6 +29,7 @@ const blogs: BlogsProps[] = [
 ];
 
 export default function page() {
+  const router = useRouter();
   return (
     <CustomPageWrapper heading="Blogs">
       <div className="w-[666px] max-[666px]:w-full mx-auto mb-[65px]">
@@ -39,6 +42,7 @@ export default function page() {
         <div className="flex flex-col gap-6">
           {blogs.map((item, index, arr) => (
             <BlogCard
+              onClick={() => router.push("/blogs/saddsadsadas")}
               key={index}
               postedTime={item.postedTime}
               type={item.type}
@@ -63,6 +67,7 @@ type BlogsProps = {
   timeToComplete: string;
   arr?: unknown[];
   index?: number;
+  onClick?: () => void;
 };
 const BlogCard = ({
   src,
@@ -72,10 +77,12 @@ const BlogCard = ({
   title,
   arr,
   index,
+  onClick,
 }: BlogsProps) => {
   return (
     <div
-      className={`flex gap-[22px]  ${
+      onClick={onClick}
+      className={`flex gap-[22px] cursor-pointer  ${
         index === arr!.length - 1 || "border-b-2 border-gray-200"
       } pb-6`}
     >

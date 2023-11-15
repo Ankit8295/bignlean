@@ -1,7 +1,6 @@
 "use client";
 import { ProductCard, SectionHeader, SliderWrapper } from "@/components";
 import { SwiperSlide } from "swiper/react";
-import { useEffect, useState } from "react";
 import { useAppContext } from "@/provider/ContextProvider/ContextProvider";
 export default function PriceSaleAlert() {
   const { slidePerView } = useAppContext();

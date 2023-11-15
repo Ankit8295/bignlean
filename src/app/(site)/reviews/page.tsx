@@ -45,7 +45,7 @@ export default function page() {
     <CustomPageWrapper heading="Reviews">
       <div className="flex">
         <div className="flex-1">
-          <div className="bg-white rounded-lg sm-3 p-3 flex flex-col gap-4 w-[455px] max-[455px]:w-full mb-[50px]">
+          <div className="bg-white rounded-lg sm-3 p-3 flex flex-col gap-4 w-[455px] max-[500px]:w-full mb-[50px]">
             {fakeData.map((data, index) => (
               <div key={index} className="flex flex-col gap-4">
                 <ReviewCard
@@ -63,7 +63,7 @@ export default function page() {
           </div>
           <RecentProducts />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 max-[850px]:hidden">
           <img src="/assets/reviews/right.png" alt="img" className="w-full" />
         </div>
       </div>

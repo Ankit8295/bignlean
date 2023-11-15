@@ -7,11 +7,11 @@ import { ReactNode } from "react";
 export default function page() {
   return (
     <CustomPageWrapper heading="Contact us">
-      <div className="flex w-[1100px] mx-auto max-[1100px]:w-full gap-[80px] mb-[170px]">
+      <div className="flex w-[1100px] mx-auto max-[1100px]:w-full gap-[80px] max-[1000px]:gap-[40px] mb-[170px] max-[550px]:mb-[70px]">
         <div className="flex-1">
           <ContactUsForm />
         </div>
-        <div className=" w-[450px]">
+        <div className=" w-[450px] max-[1000px]:w-[350px] max-[800px]:hidden">
           <Image
             src={"/assets/contact/img1.jpg"}
             alt="man drinking protien"
@@ -21,7 +21,7 @@ export default function page() {
           />
         </div>
       </div>
-      <div className="flex w-[1100px] mx-auto max-[1100px]:w-full justify-start gap-[70px] flex-wrap">
+      <div className="w-[1000px] mx-auto max-[1000px]:w-full custom-grid3">
         <AddressCard
           heading="Call"
           icon={<CallIcon />}
@@ -65,7 +65,7 @@ type AddressProps = {
 };
 const AddressCard = ({ icon, para, heading, subHeading }: AddressProps) => {
   return (
-    <div className="w-[285px] sm-3 flex flex-col items-center rounded-[10px] p-4 gap-1 text-center bg-white">
+    <div className=" sm-3 flex flex-col items-center rounded-[10px] p-4 gap-1 text-center bg-white">
       {icon}
       {heading && (
         <h3 className="mt-1 text-black text-center text-lg not-italic font-bold leading-6 mb-1">

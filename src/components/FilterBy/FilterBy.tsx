@@ -3,9 +3,9 @@ import RelatedProduct from "./RelatedProduct";
 
 export default function FilterBy() {
   return (
-    <div>
+    <div className="max-[1000px]:hidden">
       <h2 className="mb-5">Filter By</h2>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 max-[1400px]:flex-row max-[1400px]:flex-wrap">
         <CustomFilter filterOptions={["Bestseller"]} />
         <CustomFilter
           search={true}

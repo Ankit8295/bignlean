@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function HomeCarosoul({ className }: { className?: string }) {
   return (
     <div
-      className={"w-[1000px]  mx-auto max-[1050px]:w-full " + " " + className}
+      className={"w-[1000px]  mx-auto max-[1050px]:w-full  " + " " + className}
     >
       <Swiper
         spaceBetween={30}
@@ -24,7 +24,7 @@ export default function HomeCarosoul({ className }: { className?: string }) {
           clickable: true,
         }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper w-full h-full"
+        className="mySwiper w-full h-full max-[500px]:h-300px"
       >
         <SwiperSlide className="w-full h-full bg-text-grey flex items-center justify-center rounded-2xl overflow-hidden">
           <Image

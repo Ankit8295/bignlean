@@ -1,8 +1,11 @@
+"use client";
 import { BestsellerIcon, ThunderIcon, WhishlistIcon } from "@/Icons";
 import Image from "next/image";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import { useRouter } from "next/navigation";
 
 export default function ProductCard() {
+  const router = useRouter();
   return (
     <div className="rounded-[15px] sm-3 relative  p-3 overflow-hidden">
       <div className="w-full flex  justify-center pt-7 pb-4">
@@ -31,7 +34,7 @@ export default function ProductCard() {
         </div>
       </div>
       <div className="h-[1px] bg-black opacity-5 mb-3" />
-      <PrimaryButton label="Add to cart" />
+      <PrimaryButton onClick={() => router.push("/cart")} label="Add to cart" />
       <p className="absolute top-0 left-0 text-green-500 text-xs not-italic font-bold bg-[#DFF3E2] p-2 rounded-br-[15px]">
         32% off
       </p>

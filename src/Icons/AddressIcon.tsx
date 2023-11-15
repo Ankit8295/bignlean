@@ -14,8 +14,8 @@ export default function AddressIcon() {
         fill="url(#paint0_linear_638_2727)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M28 38C31.375 38 37 31.7981 37 26.8889C37 21.9797 32.9706 18 28 18C23.0294 18 19 21.9797 19 26.8889C19 31.7981 24.625 38 28 38ZM28 30C29.6569 30 31 28.6569 31 27C31 25.3431 29.6569 24 28 24C26.3431 24 25 25.3431 25 27C25 28.6569 26.3431 30 28 30Z"
         fill="white"
       />

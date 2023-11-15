@@ -16,7 +16,7 @@ export default function SuggestedProductCard({
         <p className="text-black text-[10px] not-italic font-normal opacity-40">
           3 kg - Unflavoured
         </p>
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
           <p className="text-black text-[10px] not-italic font-normal line-through opacity-40">
             ₹3,999.00
           </p>

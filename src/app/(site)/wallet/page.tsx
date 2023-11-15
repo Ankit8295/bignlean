@@ -50,7 +50,7 @@ export default function page() {
     <CustomPageWrapper heading="Wallet">
       <div className="flex">
         <div className="flex-1 ">
-          <div className="w-[455px] max-[455px]:w-full">
+          <div className="w-[455px] max-[500px]:w-full">
             <BalanceCard />
             <p className="text-gray-600 text-sm not-italic font-medium leading-5 mt-8 mb-2">
               Transaction History
@@ -73,7 +73,7 @@ export default function page() {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 max-[850px]:hidden">
           <img src="/assets/wallet/right.png" alt="wallet" className="w-full" />
         </div>
       </div>

@@ -2,16 +2,20 @@ import { TrashIcon } from "@/Icons";
 
 export default function CartProductCard({ className }: { className?: string }) {
   return (
-    <div className={`flex items-start gap-8 ${className}`}>
-      <img src="/assets/product.png" alt="product" className="w-[56px]" />
+    <div className={`flex items-start gap-8 max-[500px]:gap-4 ${className}`}>
+      <img
+        src="/assets/product.png"
+        alt="product"
+        className="w-[56px] max-[500px]:w-[36px]"
+      />
       <div>
-        <p className="text-black text-base not-italic font-medium">
+        <p className="text-black text-base not-italic font-medium max-[500px]:text-sm">
           Muscletech NitroTech 100% Whey Gold Performance Series
         </p>
         <p className="text-black text-xs not-italic font-normal opacity-40">
           3 kg - Unflavoured
         </p>
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-3 flex-wrap">
           <p className="text-black text-xs not-italic font-normal line-through opacity-40">
             ₹3,999.00
           </p>

@@ -2,7 +2,6 @@ import { EditIcon } from "@/Icons";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import InputField from "@/components/FormComponents/InputField";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
-import Image from "next/image";
 
 export default function page() {
   return (
@@ -12,11 +11,9 @@ export default function page() {
       </button>
       <div className="flex justify-center  mb-6">
         <label className="rounded-full border-[4px] border-red-500 relative">
-          <Image
+          <img
             src={"/assets/profile.png"}
-            width={160}
-            height={160}
-            className="rounded-full"
+            className="rounded-full w-[160px] h-[160px]"
             alt="profile"
           />
           <input type="file" className="hidden" />
@@ -34,7 +31,7 @@ export default function page() {
         </p>
       </div>
       <form>
-        <div className="flex gap-6 mb-6">
+        <div className="flex gap-6 mb-6 max-[600px]:flex-col">
           <InputField
             className="flex-1"
             type="text"
@@ -48,7 +45,7 @@ export default function page() {
             shadow={false}
           />
         </div>
-        <div className="flex gap-6 mb-6">
+        <div className="flex gap-6 mb-6 max-[600px]:flex-col">
           <InputField
             className="flex-1"
             type="email"
@@ -62,7 +59,7 @@ export default function page() {
             shadow={false}
           />
         </div>
-        <div className="flex gap-6">
+        <div className="flex gap-6 max-[600px]:flex-col">
           <InputField
             className="flex-1"
             type="date"
@@ -71,7 +68,7 @@ export default function page() {
           />
           <div className="flex-1"></div>
         </div>
-        <div className="w-[300px] mx-auto mt-12">
+        <div className="w-[300px] mx-auto mt-12 max-[600px]:w-full max-[600px]:mt-5">
           <PrimaryButton label="Edit Profile" />
         </div>
       </form>

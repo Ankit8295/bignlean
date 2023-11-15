@@ -25,27 +25,27 @@ const siteLinks: SiteLinks = [
   {
     heading: "Brand",
     links: [
-      { label: "Muscleblaze", link: "/" },
-      { label: "Fit Foods", link: "/" },
-      { label: "BL Vitals", link: "/" },
-      { label: "Gritzo", link: "/" },
-      { label: "bGreen", link: "/" },
+      { label: "Muscleblaze", link: "/shop-by-brands" },
+      { label: "Fit Foods", link: "/shop-by-brands" },
+      { label: "BL Vitals", link: "/shop-by-brands" },
+      { label: "Gritzo", link: "/shop-by-brands" },
+      { label: "bGreen", link: "/shop-by-brands" },
     ],
   },
   {
     heading: "Health & Fitness",
     links: [
-      { label: "Sports Nutrition", link: "/" },
-      { label: "VItamins & Supplements", link: "/" },
-      { label: "Ayurveda & Herbs", link: "/" },
-      { label: "Health Food & Drinks", link: "/" },
-      { label: "Fitness", link: "/" },
+      { label: "Sports Nutrition", link: "/shop-by-brands" },
+      { label: "VItamins & Supplements", link: "/shop-by-brands" },
+      { label: "Ayurveda & Herbs", link: "/shop-by-brands" },
+      { label: "Health Food & Drinks", link: "/shop-by-brands" },
+      { label: "Fitness", link: "/shop-by-brands" },
     ],
   },
   {
     heading: "Useful Links",
     links: [
-      { label: "Returns and Refunds", link: "/" },
+      { label: "Returns and Refunds", link: "/privacy-policy" },
       { label: "Terms and Conditions", link: "/terms-and-conditions" },
       { label: "Privacy Policy", link: "/privacy-policy" },
       { label: "Track your Shipment", link: "/track-order" },
