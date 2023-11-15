@@ -89,6 +89,7 @@ const MobileSideBar = ({
             key={index}
             className="flex items-center gap-3 text-white"
             href={option.link}
+            onClick={() => setToggle(false)}
           >
             <span>{option.icon}</span>
             {option.label}
