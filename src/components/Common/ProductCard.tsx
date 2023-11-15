@@ -7,7 +7,10 @@ import { useRouter } from "next/navigation";
 export default function ProductCard() {
   const router = useRouter();
   return (
-    <div className="rounded-[15px] sm-3 relative  p-3 overflow-hidden">
+    <div
+      className="rounded-[15px] sm-3 relative  p-3 cursor-pointer overflow-hidden"
+      onClick={() => router.push("/product/asdasdas")}
+    >
       <div className="w-full flex  justify-center pt-7 pb-4">
         <Image
           src={"/assets/product.png"}
