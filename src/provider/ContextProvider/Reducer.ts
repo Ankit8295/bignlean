@@ -1,6 +1,6 @@
 import { Action, InitialState } from "@/utils/Types";
 
-const reducer = (state: InitialState, actions: Action) => {
+const reducer = (state: InitialState, actions: Action):InitialState => {
   switch (actions.type) {
     case "RECENT_SEARCH_TOGGLE_ON":
       return { ...state, recentSearchToggle: true };
@@ -35,7 +35,7 @@ const reducer = (state: InitialState, actions: Action) => {
       if (actions.payload < 500 && actions.payload >= 450) slide = 1.5;
       if (actions.payload < 450 && actions.payload >= 400) slide = 1.2;
       if (actions.payload < 400) slide = 1.1;
-      return { ...state, slidePerView: slide };
+      return { ...state, slidePerView: slide as number };
     default:
       return state;
   }
