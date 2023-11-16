@@ -12,7 +12,7 @@ export default function ReviewCard() {
   const { reviewModalToggle } = useAppContext();
   const dispatch = useDispatchContext();
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-10 max-[800px]:flex-col">
       <div className="flex-[0.35]">
         <CustomerReviewCard />
       </div>

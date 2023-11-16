@@ -114,7 +114,7 @@ const ReviewWithImage = () => {
       <p className="text-black text-base not-italic font-semibold mb-3">
         Reviews with Images
       </p>
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         <div className="w-[56px] h-[56px] p-3 rounded-lg overflow-hidden bg-slate-200 flex items-center ">
           <img src="/assets/product.png" alt="product" className="w-full " />
         </div>

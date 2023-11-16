@@ -1,3 +1,4 @@
+import ProductBottomSheet from "./ProductBottomSheet";
 import ProductCouponOffers from "./ProductCouponOffers";
 import ProductDelivery from "./ProductDelivery";
 import ProductInfo from "./ProductInfo";
@@ -10,6 +11,7 @@ export default function ProductDetail() {
       <ProductVarient />
       <ProductDelivery />
       <ProductCouponOffers />
+      <ProductBottomSheet />
     </div>
   );
 }

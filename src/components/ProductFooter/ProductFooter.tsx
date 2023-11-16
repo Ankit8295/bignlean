@@ -28,12 +28,12 @@ const ProductTab = () => {
   const { activeProductTab } = useAppContext();
   const dispatch = useDispatchContext();
   return (
-    <div className="flex  rounded-lg p-2 items-center w-[700px] justify-between bg-gray-200">
+    <div className="flex  rounded-lg p-2 items-center w-[700px] max-[700px]:w-full max-[700px]:flex-wrap justify-between bg-gray-200">
       {tabs?.map((tab) => (
         <button
           key={tab}
           onClick={() => dispatch({ type: "ACTIVE_PRODUCT_TAB", payload: tab })}
-          className={`${
+          className={`max-[450px]:text-xs ${
             activeProductTab === tab ? " bg-white rounded-lg " : ""
           } p-2 flex-1`}
         >

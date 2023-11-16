@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function ProductDelivery() {
   return (
-    <div className="w-[70%]">
+    <div className="w-[70%] max-[450px]:w-full">
       <h2 className="text-black text-lg not-italic font-semibold mb-4">
         Delivery & Services
       </h2>

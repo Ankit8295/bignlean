@@ -44,13 +44,7 @@ const InformationCard = () => {
       <h3 className="text-black text-lg not-italic font-bold mb-3">
         Information
       </h3>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: "32px",
-        }}
-      >
+      <div className="custom-grid3">
         <InfoCard />
         <InfoCard />
         <InfoCard />

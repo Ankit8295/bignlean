@@ -11,8 +11,10 @@ export default function ProductInfo() {
       </h2>
       <ProductRating />
       <PriceCard className="my-5" />
-      <QuantityCard />
-      <div className="flex gap-3 mt-6 w-[70%]">
+      <div className="max-[450px]:hidden">
+        <QuantityCard />
+      </div>
+      <div className="flex gap-3 mt-6 w-[70%] max-[1220px]:w-full max-[450px]:hidden">
         <OutlinedButton label="ADD TO CART" className="flex-1" />
         <PrimaryButton label="BUY NOW" className="flex-1" />
       </div>
@@ -61,10 +63,10 @@ const PriceCard = ({ className }: { className?: string }) => {
   );
 };
 
-const QuantityCard = () => {
+export const QuantityCard = () => {
   return (
     <div>
-      <p className="text-black text-lg not-italic font-semibold mb-3">
+      <p className="text-black text-lg not-italic font-semibold mb-3 max-[450px]:hidden">
         Quantity:
       </p>
       <div className="flex items-center gap-5">

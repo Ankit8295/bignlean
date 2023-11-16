@@ -2,7 +2,7 @@ import { OutlinedButton } from "..";
 
 export default function ProductCouponOffers() {
   return (
-    <div className="w-[70%] flex flex-col gap-4">
+    <div className="w-[70%] flex flex-col gap-4 max-[450px]:w-full">
       <h2 className="text-black text-lg not-italic font-semibold mb-4">
         Coupons & offers
       </h2>

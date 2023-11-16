@@ -10,7 +10,7 @@ import { DownArrow } from "@/Icons";
 
 export default function ProductSlider() {
   return (
-    <div>
+    <div className="max-[650px]:hidden">
       <div className="w-[64px]  h-[400px] rounded-lg bg-white">
         <Swiper
           direction={"vertical"}
