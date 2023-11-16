@@ -36,7 +36,7 @@ export default function BlogCarosoul({ blogData }: Props) {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper w-full h-[375px] rounded-[20px] max-[550px]:h-[400px] max-[550px]:rounded-lg"
+        className="mySwiper w-full h-[375px] rounded-[20px] "
       >
         {blogData.map((blog, index) => (
           <SwiperSlide

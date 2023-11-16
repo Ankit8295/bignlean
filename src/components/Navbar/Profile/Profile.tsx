@@ -16,6 +16,7 @@ import {
 } from "@/provider/ContextProvider/ContextProvider";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 type ProfileOption = {
@@ -42,6 +43,7 @@ const profileOptions: ProfileOption[] = [
 export default function Profile() {
   const { profileToggle } = useAppContext();
   const dispatch = useDispatchContext();
+  const router = useRouter();
   return (
     <div className="relative">
       <div
@@ -69,7 +71,10 @@ export default function Profile() {
           onMouseLeave={() => dispatch({ type: "PROFILE_TOGGLE_OFF" })}
           className="absolute w-[320px] sm-1 top-full right-0 bg-white rounded-xl p-4 translate-y-2 z-[10000000]"
         >
-          <div className="flex gap-4 items-center mb-5">
+          <div
+            onClick={() => router.push("/profile")}
+            className="flex gap-4 items-center mb-5 cursor-pointer"
+          >
             <Image
               src={"/assets/profile.png"}
               alt="avatar"

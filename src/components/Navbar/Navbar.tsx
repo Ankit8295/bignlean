@@ -5,6 +5,7 @@ import SearchForProducts from "./SearchForProducts/SearchForProducts";
 import Sidebar from "./Sidebar/Sidebar";
 import {
   AuthencityIcon,
+  CartIcon,
   CertificateIcon,
   CouponIcon,
   FaqIcon,
@@ -76,7 +77,7 @@ const MobileSideBar = ({
   setToggle: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 linear-gradient-1 z-[100000]">
+    <div className="fixed top-0 left-0 right-0 bottom-0 linear-gradient-1 z-[100000] hidden max-[750px]:block">
       <button
         onClick={() => setToggle(false)}
         className="absolute top-[7%] left-5"
@@ -84,6 +85,16 @@ const MobileSideBar = ({
         <WhiteCrossIcon />
       </button>
       <div className="flex flex-col gap-5 mt-[110px] ml-8">
+        <Link
+          className="flex items-center gap-3 text-white"
+          href={"/cart"}
+          onClick={() => setToggle(false)}
+        >
+          <span>
+            <CartIcon />
+          </span>
+          My Cart
+        </Link>
         {profileOptions.map((option, index) => (
           <Link
             key={index}
