@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen flex flex-col bg-[#f9f9f9]">
       <NavBar />
       <SecondaryNavbar />
-      {children}
+      <div className="max-[890px]:pb-[70px]">{children}</div>
       <Footer />
       <MobileFooter />
     </div>
