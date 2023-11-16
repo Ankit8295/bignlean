@@ -122,7 +122,7 @@ export default function Footer() {
       <div className="max-w-[1300px] mx-auto pt-[30px]">
         <p className="text-gray-600  text-xs not-italic font-normal leading-4">
           Copyright Protected 2017-{new Date().getFullYear()} © Bignlean.com.
-          All Rights Reserved. Powered by DIgilligence
+          All Rights Reserved. Powered by Digigoat
         </p>
       </div>
     </div>
