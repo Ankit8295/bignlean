@@ -1,8 +1,11 @@
+"use client";
 import { ShareIcon, StarIcon, WhishlistIcon } from "@/Icons";
 import { OutlinedButton } from "..";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import { useRouter } from "next/navigation";
 
 export default function ProductInfo() {
+  const router = useRouter();
   return (
     <div>
       <p className="text-green-700 text-xl not-italic font-normal">Sale!</p>
@@ -10,7 +13,14 @@ export default function ProductInfo() {
         Muscletech NitroTech 100% Whey Gold Performance Series
       </h2>
       <ProductRating />
-      <PriceCard className="my-5" />
+      <div className="flex items-center justify-between">
+        <PriceCard className="my-5" />
+        <OutlinedButton
+          label="+ Compare"
+          className="hidden max-[890px]:block"
+          onClick={() => router.push("/comparison")}
+        />
+      </div>
       <div className="max-[450px]:hidden">
         <QuantityCard />
       </div>

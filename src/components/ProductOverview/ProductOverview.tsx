@@ -1,9 +1,12 @@
+"use client";
+import { useRouter } from "next/navigation";
 import { OutlinedButton } from "..";
 import ProductHorizontalSlider from "./ProductHorizontalSlider";
 import ProductPhoto from "./ProductPhoto";
 import ProductSlider from "./ProductSlider";
 
 export default function ProductOverview() {
+  const router = useRouter();
   return (
     <div className="flex gap-[30px] w-[500px] max-[1100px]:w-[400px] max-[890px]:w-[600px] max-[890px]:mx-auto max-[650px]:w-full max-[650px]:flex-col max-[650px]:gap-4">
       <ProductSlider />
@@ -11,7 +14,10 @@ export default function ProductOverview() {
         <ProductPhoto />
         <div className="max-[890px]:hidden">
           <ProductBenefits />
-          <OutlinedButton label="+ Compare" />
+          <OutlinedButton
+            label="+ Compare"
+            onClick={() => router.push("/comparison")}
+          />
         </div>
       </div>
       <ProductHorizontalSlider />

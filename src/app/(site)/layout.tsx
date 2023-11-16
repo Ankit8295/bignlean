@@ -1,5 +1,6 @@
 "use client";
 import { Footer, NavBar, SecondaryNavbar } from "@/components";
+import MobileFooter from "@/components/Footer/MobileFooter";
 import { useDispatchContext } from "@/provider/ContextProvider/ContextProvider";
 import { ReactNode, useEffect } from "react";
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <SecondaryNavbar />
       {children}
       <Footer />
+      <MobileFooter />
     </div>
   );
 }
