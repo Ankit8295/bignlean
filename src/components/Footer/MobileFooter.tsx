@@ -33,7 +33,7 @@ export default function MobileFooter() {
   const pathname = usePathname();
   return (
     <div className="hidden max-[750px]:block fixed bottom-0 left-0 w-full sm-2 h-[70px] bg-white z-[9999]">
-      <div className="w-[500px] max-[500px]:w-full mx-auto h-full flex items-stretch justify-between">
+      <div className="w-[500px] max-[500px]:w-full mx-auto h-full flex items-stretch justify-between px-2">
         {FooterButtons.map((button, index) => (
           <FooterButton
             onClick={() => router.push(button.route)}
