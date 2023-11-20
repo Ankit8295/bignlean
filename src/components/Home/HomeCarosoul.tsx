@@ -15,7 +15,6 @@ export default function HomeCarosoul({ className }: { className?: string }) {
   return (
     <div className={"w-full  " + " " + className}>
       <Swiper
-        spaceBetween={30}
         centeredSlides={true}
         autoplay={{
           delay: 3500,
