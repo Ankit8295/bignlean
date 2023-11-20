@@ -8,7 +8,9 @@ export default function ProductInfo() {
   const router = useRouter();
   return (
     <div>
-      <p className="text-green-700 text-xl not-italic font-normal">Sale!</p>
+      <p className="text-green-700 text-xl not-italic font-normal">
+        Muscletech
+      </p>
       <h2 className="text-black text-2xl not-italic font-semibold mb-4">
         Muscletech NitroTech 100% Whey Gold Performance Series
       </h2>

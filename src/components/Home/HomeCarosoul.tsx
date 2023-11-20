@@ -13,7 +13,7 @@ import PrevButton from "../SliderButtons/PrevButton";
 export default function HomeCarosoul({ className }: { className?: string }) {
   const swiper = useSwiper();
   return (
-    <div className={"w-full   " + " " + className}>
+    <div className={"w-full  " + " " + className}>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

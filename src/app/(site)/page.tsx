@@ -22,7 +22,7 @@ import SearchForProducts from "@/components/Navbar/SearchForProducts/SearchForPr
 
 export default function Home() {
   return (
-    <div className="px-5">
+    <div>
       <SearchLocation />
       <div className="hidden  justify-center max-[750px]:flex mb-4 max-[500px]:px-5">
         <SearchForProducts />

@@ -61,8 +61,10 @@ const Header = () => {
         Select Variant:
       </h2>
       <div className="flex items-center gap-2">
-        <p className="text-black text-sm not-italic font-semibold">kg</p>
-        <p className="text-black text-sm not-italic font-semibold opacity-30">
+        <p className=" cursor-pointer text-sm not-italic border linear-gradient-1 text-white border-red-400 p-1 font-semibold">
+          kg
+        </p>
+        <p className="text-black cursor-pointer text-sm not-italic border text-gradient border-red-400 p-1 font-semibold">
           lb
         </p>
       </div>
