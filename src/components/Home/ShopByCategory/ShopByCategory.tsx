@@ -35,7 +35,7 @@ const categoryList: CategoryListType = [
   },
   {
     label: "VITAMINS & MINERALS",
-    image: <ViteminsIcon />,
+    image: <CretienIcon />,
   },
   {
     label: "EXTRAS",
