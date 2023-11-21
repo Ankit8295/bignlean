@@ -6,21 +6,21 @@ import { useRouter } from "next/navigation";
 
 const blogs: BlogsProps[] = [
   {
-    src: `/assets/blogs/img1.png`,
+    src: `/assets/blogs/img1.jpg`,
     postedTime: "2",
     type: "Fitness",
     timeToComplete: "2",
     title: "Benefits of working out daily for your health",
   },
   {
-    src: `/assets/blogs/img2.png`,
+    src: `/assets/blogs/img1.jpg`,
     postedTime: "2",
     type: "Fitness",
     timeToComplete: "2",
     title: "Benefits of yoga daily for your health",
   },
   {
-    src: `/assets/blogs/img3.png`,
+    src: `/assets/blogs/img1.jpg`,
     postedTime: "2",
     type: "Fitness",
     timeToComplete: "2",
@@ -86,13 +86,13 @@ const BlogCard = ({
         index === arr!.length - 1 || "border-b-2 border-gray-200"
       } pb-6`}
     >
-      <div className="w-[120px] h-[120px] rounded-[18px]">
+      <div className="w-[120px] h-[120px] rounded-[18px] overflow-hidden">
         <Image
           src={src}
           alt="Blog"
           width={100}
           height={100}
-          className="w-full"
+          className="w-full h-full"
         />
       </div>
       <div>

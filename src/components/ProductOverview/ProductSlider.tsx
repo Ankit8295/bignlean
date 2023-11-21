@@ -20,32 +20,68 @@ export default function ProductSlider() {
           modules={[FreeMode]}
           className="mySwiper h-full"
         >
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
-          <SwiperSlide className="rounded-lg bg-gray-300 p-2 cursor-pointer">
-            <img src="/assets/product.png" alt="product" className="w-full" />
+          <SwiperSlide className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer">
+            <img
+              src="/assets/product.png"
+              alt="product"
+              className="w-auto h-full mx-auto"
+            />
           </SwiperSlide>
         </Swiper>
       </div>

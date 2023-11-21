@@ -32,16 +32,13 @@ export default function page() {
             </div>
           </div>
           <div className="w-full flex gap-2 items-center max-[1000px]:hidden">
-            <OutlinedButton label="All" className="!py-1 !p-2 " />
-            <OutlinedButton label="Protein Powder" className="!py-1 !p-2" />
-            <OutlinedButton label="Multivitamins" className="!py-1 !p-2" />
-            <OutlinedButton
-              label="Specialty Supplements "
-              className="!py-1 !p-2"
-            />
-            <OutlinedButton label="Vitamins" className="!py-1 !p-2" />
-            <OutlinedButton label="Minerals" className="!py-1 !p-2" />
-            <OutlinedButton label="Antioxidants " className="!py-1 !p-2" />
+            <VarityCard label="All" />
+            <VarityCard label="Protein Powder" />
+            <VarityCard label="Multivitamins" />
+            <VarityCard label="Specialty Supplements " active />
+            <VarityCard label="Vitamins" />
+            <VarityCard label="Minerals" />
+            <VarityCard label="Antioxidants " />
           </div>
           <Products />
           <Pagination />
@@ -51,6 +48,18 @@ export default function page() {
     </CustomPageWrapper>
   );
 }
+
+const VarityCard = ({ label, active }: { label: string; active?: boolean }) => {
+  return (
+    <div
+      className={`border-[2px] text-black text-center text-xs not-italic font-medium cursor-pointer rounded-[12px] p-2 ${
+        active ? "text-gradient border-red-400" : ""
+      }`}
+    >
+      {label}
+    </div>
+  );
+};
 
 const Pagination = () => {
   return (

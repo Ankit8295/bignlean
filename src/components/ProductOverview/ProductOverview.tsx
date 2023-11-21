@@ -12,7 +12,7 @@ export default function ProductOverview() {
       <ProductSlider />
       <div className="flex-1 flex flex-col gap-[28px]">
         <ProductPhoto />
-        <div className="max-[890px]:hidden">
+        <div className="max-[890px]:hidden flex flex-col gap-[28px]">
           <ProductBenefits />
           <OutlinedButton
             label="+ Compare"
