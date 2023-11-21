@@ -1,6 +1,7 @@
 import { CoinSmIcon, SideArrowIcon } from "@/Icons";
 import { OutlinedButton } from "..";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import VarityButton from "../Buttons/VarityButton";
 
 export default function ProductVarient() {
   return (
@@ -46,9 +47,9 @@ const FlavourCard = () => {
     <div>
       <p className="text-black text-sm not-italic font-medium mb-2">Flavour</p>
       <div className="flex gap-3 flex-wrap">
-        <OutlinedButton className="!px-2 !py-1" label="Chocolate Fudge" />
-        <PrimaryButton className="!px-2 !py-1" label="Cafe Mocha" />
-        <OutlinedButton label="Vanilla Cream" className="!px-2 !py-1" />
+        <VarityButton label="Chocolate Fudge" />
+        <VarityButton label="Cafe Mocha" active />
+        <VarityButton label="Vanilla Cream" />
       </div>
     </div>
   );
@@ -77,9 +78,9 @@ const WeightCard = () => {
     <div>
       <p className="text-black text-sm not-italic font-medium mb-2">Weight</p>
       <div className="flex gap-3">
-        <OutlinedButton className="!px-2 !py-1" label="1Kg" />
-        <PrimaryButton className="!px-2 !py-1" label="123g" />
-        <OutlinedButton label="1Kg" className="!px-2 !py-1" />
+        <VarityButton label="1Kg" />
+        <VarityButton active label="123g" />
+        <VarityButton label="1Kg" />
       </div>
     </div>
   );
