@@ -44,9 +44,11 @@ export default function BlogCarosoul({ blogData }: Props) {
             onClick={() => router.push("/blogs/asfadasdasd")}
             className="relative cursor-pointer"
           >
-            <img
-              src={blog?.src}
+            <Image
+              src={blog.src}
               alt="blog image"
+              width={700}
+              height={400}
               className="w-full h-full bg-center"
             />
             <div className="absolute bottom-10 left-4 w-[395px] max-[395px]:w-full">

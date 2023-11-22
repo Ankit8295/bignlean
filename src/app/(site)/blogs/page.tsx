@@ -35,7 +35,7 @@ export default function Page() {
       <div className="w-[666px] max-[666px]:w-full mx-auto mb-[65px]">
         <BlogCarosoul blogData={blogs} />
       </div>
-      <div className="w-[900px] max-[900px]:w-full mx-auto">
+      <div className="w-[1000px] max-[900px]:w-full mx-auto">
         <h2 className="text-black text-2xl not-italic font-bold mb-[34px]">
           Latest Blogs
         </h2>
@@ -86,13 +86,13 @@ const BlogCard = ({
         index === arr!.length - 1 || "border-b-2 border-gray-200"
       } pb-6`}
     >
-      <div className="w-[120px] h-[120px] rounded-[18px] overflow-hidden">
+      <div className="w-[120px] h-[120px] rounded-[18px] aspect-video overflow-hidden">
         <Image
           src={src}
           alt="Blog"
           width={100}
           height={100}
-          className="w-full h-full"
+          className="w-full h-full object-fill"
         />
       </div>
       <div>

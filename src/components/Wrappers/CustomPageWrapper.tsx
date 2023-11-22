@@ -5,11 +5,13 @@ type Props = {
   heading?: string;
   className?: string;
   showContentFooter?: boolean;
+  headingClass?: string;
 };
 export default function CustomPageWrapper({
   children,
   heading,
   className,
+  headingClass,
   showContentFooter = true,
 }: Props) {
   return (
@@ -17,7 +19,9 @@ export default function CustomPageWrapper({
       className={`w-[1200px] max-[1200px]:w-full max-[850px]:pt-0 mx-auto py-[40px] px-[10px] ${className}`}
     >
       {heading && (
-        <h2 className="text-black text-2xl not-italic font-bold leading-9 mb-[79px] max-[850px]:mb-4">
+        <h2
+          className={`text-black text-2xl not-italic font-bold leading-9 mb-[79px] max-[850px]:mb-4 ${headingClass}`}
+        >
           {heading}
         </h2>
       )}
