@@ -8,7 +8,7 @@ export default function ProductCard() {
   const router = useRouter();
   return (
     <div
-      className="rounded-[15px] sm-3 relative  p-3 cursor-pointer overflow-hidden"
+      className="rounded-[15px] sm-3 relative  p-3 my-2 cursor-pointer overflow-hidden"
       onClick={() => router.push("/product/asdasdas")}
     >
       <div className="w-full flex  justify-center pt-7 pb-4">

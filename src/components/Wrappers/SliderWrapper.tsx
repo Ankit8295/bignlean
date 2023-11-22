@@ -22,7 +22,7 @@ export default function SliderWrapper({ children, slidePerView }: Props) {
         spaceBetween={30}
         freeMode={true}
         modules={[FreeMode]}
-        className="mySwiper w-full"
+        className="mySwiper w-full "
       >
         {children}
       </Swiper>
