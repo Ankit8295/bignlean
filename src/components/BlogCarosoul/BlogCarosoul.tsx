@@ -7,17 +7,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination, Autoplay } from "swiper/modules";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Blog } from "@/utils/Schemas";
 
 type Props = {
-  blogData: {
-    src: string;
-    type: string;
-    postedTime: string;
-    timeToComplete: string;
-    title: string;
-  }[];
+  blogData: Blog[];
 };
 export default function BlogCarosoul({ blogData }: Props) {
   const router = useRouter();
@@ -44,8 +38,8 @@ export default function BlogCarosoul({ blogData }: Props) {
             onClick={() => router.push("/blogs/asfadasdasd")}
             className="relative cursor-pointer"
           >
-            <Image
-              src={blog.src}
+            <img
+              src={blog?.images[0]}
               alt="blog image"
               width={700}
               height={400}
@@ -54,17 +48,21 @@ export default function BlogCarosoul({ blogData }: Props) {
             <div className="absolute bottom-10 left-4 w-[395px] max-[395px]:w-full">
               <div className="flex items-center gap-5 mb-4">
                 <p className="text-white text-base not-italic font-medium bg-black p-1 px-2 rounded-[30px]">
-                  {blog?.type}
+                  {blog?.category}
                 </p>
                 <p className="text-white text-base not-italic font-semibold">
-                  {blog?.postedTime} days ago
+                  {new Date(blog.createdAt).getDate() +
+                    "-" +
+                    new Date(blog.createdAt).getMonth() +
+                    "-" +
+                    new Date(blog.createdAt).getFullYear()}
                 </p>
                 <p className="text-white text-base not-italic font-normal">
-                  {blog?.timeToComplete} min read
+                  {blog?.duration}
                 </p>
               </div>
               <h2 className="text-white text-3xl not-italic font-bold">
-                {blog?.title}
+                {blog?.heading}
               </h2>
             </div>
           </SwiperSlide>

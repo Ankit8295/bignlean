@@ -14,6 +14,7 @@ import {
   useAppContext,
   useDispatchContext,
 } from "@/provider/ContextProvider/ContextProvider";
+import { logout } from "@/queries/Auth";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -103,7 +104,10 @@ export default function Profile() {
               </Link>
             ))}
           </div>
-          <button className="mt-8 ml-5 text-lg not-italic font-semibold text-gradient">
+          <button
+            onClick={logout}
+            className="mt-8 ml-5 text-lg not-italic font-semibold text-gradient"
+          >
             Logout
           </button>
         </div>

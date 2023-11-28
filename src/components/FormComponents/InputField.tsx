@@ -6,6 +6,8 @@ type Props = {
   className?: string;
   shadow?: true | false;
   inputClassName?: string;
+  value?: string;
+  onChange?: (e: any) => void;
 };
 export default function InputField({
   type,
@@ -15,10 +17,14 @@ export default function InputField({
   className,
   shadow = true,
   inputClassName,
+  onChange,
+  value,
 }: Props) {
   if (type === "textarea") {
     return (
       <textarea
+        onChange={onChange}
+        value={value}
         placeholder={placeholder}
         className={`w-full rounded-[15px] outline-none p-5 text-sm not-italic font-normal ${
           shadow ? `sm-3` : `border border-[#D9D9D9]`
@@ -40,6 +46,8 @@ export default function InputField({
             +91
           </span>
           <input
+            onChange={onChange}
+            value={value}
             type="text"
             className="w-full outline-none p-5  text-sm not-italic font-normal"
             placeholder={placeholder}
@@ -49,6 +57,8 @@ export default function InputField({
       ) : (
         <input
           type={type}
+          onChange={onChange}
+          value={value}
           placeholder={placeholder}
           className={`w-full rounded-[15px] outline-none p-5 text-sm not-italic font-normal ${
             shadow ? `sm-3` : `border border-[#D9D9D9]`

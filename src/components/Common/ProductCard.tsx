@@ -37,7 +37,11 @@ export default function ProductCard() {
         </div>
       </div>
       <div className="h-[1px] bg-black opacity-5 mb-3" />
-      <PrimaryButton onClick={() => router.push("/cart")} label="Add to cart" />
+      <PrimaryButton
+        className="w-full"
+        onClick={() => router.push("/cart")}
+        label="Add to cart"
+      />
       <p className="absolute top-0 left-0 text-green-500 text-xs not-italic font-bold bg-[#DFF3E2] p-2 rounded-br-[15px]">
         32% off
       </p>

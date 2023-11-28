@@ -9,8 +9,15 @@ import { Autoplay, Pagination, A11y } from "swiper/modules";
 import Image from "next/image";
 import NextButton from "../SliderButtons/NextButton";
 import PrevButton from "../SliderButtons/PrevButton";
+import { Banners } from "@/utils/Schemas";
 
-export default function HomeCarosoul({ className }: { className?: string }) {
+export default function HomeCarosoul({
+  className,
+  bannersData,
+}: {
+  className?: string;
+  bannersData: Banners[];
+}) {
   const swiper = useSwiper();
   return (
     <div className={"w-full  " + " " + className}>
@@ -28,51 +35,22 @@ export default function HomeCarosoul({ className }: { className?: string }) {
       >
         <PrevButton />
         <NextButton />
-        <SwiperSlide className="w-full h-full bg-text-grey flex items-center justify-center  overflow-hidden cursor-pointer">
-          <Image
-            src={"/assets/home/img1.png"}
-            alt="carosoul"
-            width={1000}
-            height={"400"}
-            className="w-full h-full  overflow-hidden"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full bg-text-grey flex items-center justify-center overflow-hidden">
-          <Image
-            src={"/assets/home/img1.png"}
-            alt="carosoul"
-            width={1000}
-            height={400}
-            className="w-full h-full  overflow-hidden"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full bg-text-grey flex items-center justify-center overflow-hidden">
-          <Image
-            src={"/assets/home/img1.png"}
-            alt="carosoul"
-            width={1000}
-            height={400}
-            className="w-full h-full  overflow-hidden"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full bg-text-grey flex items-center justify-center  overflow-hidden">
-          <Image
-            src={"/assets/home/img1.png"}
-            alt="carosoul"
-            width={1000}
-            height={400}
-            className="w-full h-full  overflow-hidden"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-full bg-text-grey flex items-center justify-center  overflow-hidden">
-          <Image
-            src={"/assets/home/img1.png"}
-            alt="carosoul"
-            width={1000}
-            height={400}
-            className="w-full h-full  overflow-hidden"
-          />
-        </SwiperSlide>
+        {bannersData &&
+          bannersData?.length > 0 &&
+          bannersData.map((banner) => (
+            <SwiperSlide
+              key={banner?.id}
+              className="w-full h-full bg-text-grey flex items-center justify-center  overflow-hidden cursor-pointer"
+            >
+              <Image
+                src={banner?.web}
+                alt="carosoul"
+                width={1000}
+                height={"400"}
+                className="w-full h-full  overflow-hidden"
+              />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

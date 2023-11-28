@@ -1,27 +1,25 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { ReactNode } from "react";
 type Props = {
-  image: ReactNode;
+  image: string;
   label: string;
-  subLabel?: string;
 };
-export default function ShopCategoryCard({ image, label, subLabel }: Props) {
+export default function ShopCategoryCard({ image, label }: Props) {
   const router = useRouter();
   return (
     <div
       onClick={() => router.push("/shop-by-brands")}
-      className="flex flex-col items-center h-[170px] rounded-xl bg-gray-200 pt-5 cursor-pointer"
+      className="flex flex-col items-center rounded-xl bg-gray-200 pt-5 cursor-pointer"
     >
       <p className="text-black text-center text-lg not-italic font-bold">
-        {label}
+        {label?.split(" ")[0]}
       </p>
-      {subLabel && (
-        <p className="text-black not-italic font-normal text-[10px] tracking-[6px]">
-          {subLabel}
-        </p>
-      )}
-      <div className="mt-auto">{image}</div>
+      <p className="text-black not-italic font-normal mb-2 text-[10px] tracking-[6px]">
+        {label?.split(" ").slice(1).join(" ")}
+      </p>
+      <div className="mt-auto">
+        <img src={image} alt="category" className="w-[120px]" />
+      </div>
     </div>
   );
 }

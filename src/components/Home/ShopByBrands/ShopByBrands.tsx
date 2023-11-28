@@ -2,39 +2,24 @@
 import { SectionHeader, SliderWrapper } from "@/components";
 import { SwiperSlide } from "swiper/react";
 import BrandCard from "./BrandCard";
+import { Brands } from "@/utils/Schemas";
 
-export default function ShopByBrands() {
+type Props = {
+  brandsData: Brands[];
+};
+
+export default function ShopByBrands({ brandsData }: Props) {
   return (
     <div className="w-[1200px] mx-auto mt-[60px] max-[1200px]:w-full flex flex-col gap-[40px]">
       <SectionHeader label="Shop by brands" showBtn btnLabel="Show all" />
       <SliderWrapper slidePerView={6}>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img1.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img2.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img3.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img4.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img5.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img1.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img2.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img3.png" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BrandCard src="/assets/brands/img4.png" />
-        </SwiperSlide>
+        {brandsData &&
+          brandsData.length > 0 &&
+          brandsData.map((brand) => (
+            <SwiperSlide key={brand?.id}>
+              <BrandCard src={brand?.image} />
+            </SwiperSlide>
+          ))}
       </SliderWrapper>
     </div>
   );
