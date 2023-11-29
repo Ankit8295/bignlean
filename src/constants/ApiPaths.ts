@@ -5,4 +5,5 @@ export const ApiPaths = {
   FAQS: "/faqs",
   BLOGS: "/blogs",
   USERS: "/users",
+  HOME: "/home/products",
 };
