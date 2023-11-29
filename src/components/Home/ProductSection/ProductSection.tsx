@@ -24,7 +24,7 @@ export default function ProductSection({ products, sectionName }: Props) {
           />
           <SliderWrapper showBtns slidePerView={slidePerView}>
             {products.map((item, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <ProductCard />
               </SwiperSlide>
             ))}
