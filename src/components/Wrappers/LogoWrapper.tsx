@@ -12,7 +12,7 @@ export default function LogoWrapper({ children }: Props) {
         alt="logo"
         width={356}
         height={95}
-        className="max-[550px]:w-[250px] max-[550px]:h-[60px]"
+        className="max-[550px]:w-[250px] max-[550px]:h-[60px] invert-[1]"
       />
       {children}
     </div>

@@ -54,7 +54,7 @@ export default function NavBar() {
           <img
             src="/assets/logo.png"
             alt="logo"
-            className="w-[180px]  max-[500px]:w-[120px]"
+            className="w-[180px]  max-[500px]:w-[120px] invert-[1]"
           />
         </Link>
         <div className="max-[750px]:hidden">

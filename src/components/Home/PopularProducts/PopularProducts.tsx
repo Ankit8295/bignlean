@@ -16,7 +16,7 @@ export default function PopularProducts() {
         showBtn
         btnLabel="View all"
       />
-      <SliderWrapper slidePerView={slidePerView}>
+      <SliderWrapper showBtns slidePerView={slidePerView}>
         <SwiperSlide>
           <ProductCard />
         </SwiperSlide>

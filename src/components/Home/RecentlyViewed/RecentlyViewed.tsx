@@ -8,7 +8,7 @@ export default function RecentlyViewed() {
   return (
     <div className="w-[1200px] mx-auto mt-[60px] max-[1200px]:w-full flex flex-col gap-[40px] px-5">
       <SectionHeader label="Recently Viewed" />
-      <SliderWrapper slidePerView={slidePerView}>
+      <SliderWrapper showBtns slidePerView={slidePerView}>
         <SwiperSlide>
           <ProductCard />
         </SwiperSlide>

@@ -98,6 +98,9 @@ img {
   .custom-grid2 {
     grid-template-columns: repeat(2, 1fr);
   }
+  .swiper-pagination-bullet {
+    display: none !important;
+  }
 }
 @media (max-width: 500px) {
   .custom-grid3 {
@@ -125,8 +128,10 @@ img {
 .prev-btn {
   background: url("https://static1.hkrtcdn.com/hknext/static/media/common/misc/homePageSlider_v1.svg");
   background-repeat: no-repeat;
+  background-size: cover;
 }
 .next-btn {
   background: url("https://static1.hkrtcdn.com/hknext/static/media/common/misc/homePageSlider_v1.svg");
+  background-size: cover;
   background-repeat: no-repeat;
 }

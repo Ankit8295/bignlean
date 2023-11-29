@@ -15,7 +15,7 @@ export default function BuyOfferCategory() {
         showBtn
         btnLabel="Show all"
       />
-      <SliderWrapper slidePerView={slidePerView}>
+      <SliderWrapper showBtns slidePerView={slidePerView}>
         <SwiperSlide>
           <ProductCard />
         </SwiperSlide>

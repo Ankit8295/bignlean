@@ -5,8 +5,17 @@ import {
   ProductCard,
 } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
+import { ApiPaths } from "@/constants";
+const base_url = process.env.BASE_URL;
 
-export default function page() {
+async function getAllBanners() {
+  const res = await fetch(base_url + ApiPaths.BANNERS);
+  const data = await res.json();
+  return data?.banner;
+}
+
+export default async function page() {
+  const bannersData = await getAllBanners();
   return (
     <CustomPageWrapper className="w-[1400px] px-5">
       <div className="flex gap-[27px] max-[1400px]:flex-col">
@@ -15,7 +24,7 @@ export default function page() {
         </div>
         <div className="flex-[0.75] flex flex-col items-center gap-4">
           <div className="max-[1000px]:hidden">
-            <HomeCarosoul className="!w-[1000px]" />
+            <HomeCarosoul bannersData={bannersData} className="!w-[1000px]" />
           </div>
           <BrandInfo />
           <div className="h-[2px] bg-gray-300 w-full"></div>
