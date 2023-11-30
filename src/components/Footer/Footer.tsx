@@ -117,7 +117,7 @@ export default function Footer() {
           <DownloadApp />
         </div>
       </div>
-      {/* <ProfileImages /> */}
+      <ProfileImages />
       <div className="h-[2px] mt-[30px] bg-gray-400 max-w-[1300px] mx-auto"></div>
       <div className="max-w-[1300px] mx-auto pt-[30px]">
         <p className="text-gray-600  text-xs not-italic font-normal leading-4">
