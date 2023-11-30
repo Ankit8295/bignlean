@@ -47,7 +47,7 @@ export default function HomeCarosoul({
                 alt="carosoul"
                 width={1000}
                 height={"400"}
-                className="w-full h-full  overflow-hidden"
+                className="w-full h-full min-h-[200px]  overflow-hidden"
               />
             </SwiperSlide>
           ))}
