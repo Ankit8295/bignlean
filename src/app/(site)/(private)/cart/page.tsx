@@ -1,32 +1,41 @@
-import { CoinSmIcon, EditIcon, Info2Icon } from "@/Icons";
+"use client";
+import { CoinSmIcon, Info2Icon } from "@/Icons";
 import { CartProducts, SuggestedProduct } from "@/components";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import InputField from "@/components/FormComponents/InputField";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
+import { useGetCartList } from "@/queries/Cart";
 
 export default function page() {
+  const { data: cartList } = useGetCartList();
   return (
     <CustomPageWrapper heading="Cart">
-      <SavingBanner />
-      <div className="flex gap-[22px] mt-6 max-[800px]:flex-col">
-        <div className="flex-[0.6] flex flex-col gap-[150px] max-[800px]:gap-[40px]">
-          <CartProducts />
-          <SuggestedProduct />
-        </div>
-        <div className="flex-[0.4] flex flex-col gap-4">
-          <SpareCashCard />
-          <ApplyCouponCard />
-          <OrderCard />
-          <UseCashCard />
-          <PrimaryButton
-            label="Proceed to Checkout"
-            className="text-white text-sm not-italic font-medium leading-4 rounded-2xl py-[20px]"
-          />
-          <div className="mt-[66px]">
-            <ShippingCard />
+      {cartList?.data?.cartItems?.length > 0 ? (
+        <>
+          <SavingBanner />
+          <div className="flex gap-[22px] mt-6 max-[800px]:flex-col">
+            <div className="flex-[0.6] flex flex-col gap-[150px] max-[800px]:gap-[40px]">
+              <CartProducts />
+              <SuggestedProduct />
+            </div>
+            <div className="flex-[0.4] flex flex-col gap-4">
+              <SpareCashCard />
+              <ApplyCouponCard />
+              <OrderCard />
+              <UseCashCard />
+              <PrimaryButton
+                label="Proceed to Checkout"
+                className="text-white text-sm not-italic font-medium leading-4 rounded-2xl py-[20px]"
+              />
+              <div className="mt-[66px]">
+                <ShippingCard />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <p className="text-center font-medium text-lg">Add items in the cart</p>
+      )}
     </CustomPageWrapper>
   );
 }

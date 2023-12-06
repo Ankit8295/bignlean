@@ -6,4 +6,8 @@ export const ApiPaths = {
   BLOGS: "/blogs",
   USERS: "/users",
   HOME: "/home/products",
+  WISHLIST: "/favorites/user",
+  FAVORITES: "/favorites",
+  CART: "/cart",
+  CART_USER: "/cart/user",
 };
