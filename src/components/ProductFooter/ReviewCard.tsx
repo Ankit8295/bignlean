@@ -8,7 +8,7 @@ import ModalPopup from "../Wrappers/ModalPopup";
 import CustomerReviewCard from "./CustomerReviewCard";
 import SideReviewsCard from "./SideReviewsCard";
 
-export default function ReviewCard() {
+export default function ReviewCard({ ratings }: { ratings: any }) {
   const { reviewModalToggle } = useAppContext();
   const dispatch = useDispatchContext();
   return (
@@ -17,7 +17,7 @@ export default function ReviewCard() {
         <CustomerReviewCard />
       </div>
       <div className="flex-[0.65]">
-        <SideReviewsCard />
+        <SideReviewsCard ratings={ratings} />
       </div>
       {reviewModalToggle && (
         <ModalPopup

@@ -1,39 +1,9 @@
 import { StarIcon } from "@/Icons";
 
-const customerReviewData = [
-  {
-    custometrName: "Jenny",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-    imgs: ["/assets/product.png"],
-  },
-  {
-    custometrName: "Suraj",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-  },
-  {
-    custometrName: "Vanit",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-  },
-  {
-    custometrName: "Ankit",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-    imgs: ["/assets/product.png", "/assets/product.png"],
-  },
-];
-
-export default function SideReviewsCard() {
+export default function SideReviewsCard({ ratings }: { ratings: any }) {
   return (
     <div>
-      <ReviewWithImage />
-      <div className="h-[2px] bg-slate-100 my-4"></div>
+      {/* <ReviewWithImage /> */}
       <div className="flex items-center justify-between">
         <p className="text-black text-base not-italic font-semibold">
           Recent Reviews
@@ -41,19 +11,19 @@ export default function SideReviewsCard() {
         <ShortBy />
       </div>
       <div className="flex flex-col gap-3 my-3">
-        {customerReviewData?.map((review, index) => (
+        {ratings?.map((review: any, index: number) => (
           <CustomerReview
             key={index}
-            custometrName={review?.custometrName}
-            date={review?.date}
-            rating={review?.rating}
+            custometrName={review?.user?.name}
+            date={new Date(review?.createdAt).toUTCString()}
+            rating={Math.floor(review?.rate)}
             review={review?.review}
-            imgs={review?.imgs}
+            imgs={review?.images}
           />
         ))}
       </div>
       <p className="text-gradient text-sm not-italic font-semibold cursor-pointer hover:underline">
-        View all 197 Reviews
+        View all {ratings?.length} Reviews
       </p>
     </div>
   );

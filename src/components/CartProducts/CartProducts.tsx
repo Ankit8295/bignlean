@@ -9,7 +9,7 @@ export default function CartProducts() {
     <div className="sm-1 flex flex-col p-8 rounded-2xl bg-white gap-6">
       {cartList?.data?.cartItems?.length > 0 &&
         cartList?.data?.cartItems?.map((cart: any) => (
-          <CartProductCard key={cart?.id} />
+          <CartProductCard productDetail={cart} key={cart?.id} />
         ))}
     </div>
   );

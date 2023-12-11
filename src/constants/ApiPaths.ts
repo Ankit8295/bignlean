@@ -10,4 +10,12 @@ export const ApiPaths = {
   FAVORITES: "/favorites",
   CART: "/cart",
   CART_USER: "/cart/user",
+  PRODUCTS: "/products",
+  ADDRESSES: "/addresses",
+  ADDRESSES_USER: "/addresses/user",
+  ORDER_USER: "/order/user",
+  CANCEL_ORDER: "/order/cancel",
+  PLACE_ORDER: "/placeOrder",
+  RATING: "/ratings",
+  UPLOAD: "/upload",
 };

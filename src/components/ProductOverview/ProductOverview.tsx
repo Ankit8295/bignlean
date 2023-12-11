@@ -5,13 +5,13 @@ import ProductHorizontalSlider from "./ProductHorizontalSlider";
 import ProductPhoto from "./ProductPhoto";
 import ProductSlider from "./ProductSlider";
 
-export default function ProductOverview() {
+export default function ProductOverview({ images }: { images: string[] }) {
   const router = useRouter();
   return (
     <div className="flex gap-[30px] w-[500px] max-[1100px]:w-[400px] max-[890px]:w-[600px] max-[890px]:mx-auto max-[650px]:w-full max-[650px]:flex-col max-[650px]:gap-4">
-      <ProductSlider />
+      <ProductSlider images={images} />
       <div className="flex-1 flex flex-col gap-[28px]">
-        <ProductPhoto />
+        <ProductPhoto image={images?.[0]} />
         <div className="max-[890px]:hidden flex flex-col gap-[28px]">
           <ProductBenefits />
           <OutlinedButton

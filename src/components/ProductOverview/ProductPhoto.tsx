@@ -1,7 +1,12 @@
-export default function ProductPhoto() {
+"use client";
+export default function ProductPhoto({ image }: { image: string }) {
   return (
     <div className="w-full flex items-center justify-center h-[400px] bg-white rounded-lg relative sm-3">
-      <img src="/assets/product.png" alt="product" className="w-[50%]" />
+      <img
+        src={localStorage.getItem("product_image")! || image}
+        alt="product"
+        className="w-[50%]"
+      />
       <img
         src="/assets/veg.png"
         alt="veg symbol"

@@ -4,10 +4,10 @@ import ProductDelivery from "./ProductDelivery";
 import ProductInfo from "./ProductInfo";
 import ProductVarient from "./ProductVarient";
 
-export default function ProductDetail() {
+export default function ProductDetail({ product }: { product: any }) {
   return (
     <div className="flex flex-col gap-[32px]">
-      <ProductInfo />
+      <ProductInfo product={product} />
       <ProductVarient />
       <ProductDelivery />
       <ProductCouponOffers />
