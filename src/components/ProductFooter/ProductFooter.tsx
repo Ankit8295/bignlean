@@ -27,9 +27,7 @@ export default function ProductFooter({ product }: { product: any }) {
       {activeProductTab === "Certificate" && (
         <ProductCertificate certificates={product?.certificates} />
       )}
-      {activeProductTab === "Reviews" && (
-        <ReviewCard ratings={product?.ratings} />
-      )}
+      {activeProductTab === "Reviews" && <ReviewCard product={product} />}
     </div>
   );
 }

@@ -1,4 +1,6 @@
-import { StarIcon } from "@/Icons";
+"use client";
+import { EditIcon, StarIcon, TrashIcon } from "@/Icons";
+import { useDeleteRating } from "@/queries/Rating";
 
 export default function SideReviewsCard({ ratings }: { ratings: any }) {
   return (
@@ -19,6 +21,8 @@ export default function SideReviewsCard({ ratings }: { ratings: any }) {
             rating={Math.floor(review?.rate)}
             review={review?.review}
             imgs={review?.images}
+            userId={review?.user?.id}
+            ratingId={review?.id}
           />
         ))}
       </div>
@@ -35,13 +39,22 @@ const CustomerReview = ({
   rating,
   review,
   imgs,
+  userId,
+  ratingId,
 }: {
   custometrName: string;
   rating: number;
   date: string;
   review: string;
   imgs?: string[];
+  userId: number;
+  ratingId: number;
 }) => {
+  const auth = localStorage.getItem("AUTH")
+    ? JSON.parse(localStorage.getItem("AUTH")!)
+    : null;
+  const { mutate: deleteRating } = useDeleteRating();
+
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
@@ -57,7 +70,15 @@ const CustomerReview = ({
             ))}
           </div>
         </div>
-        <p className="text-gray-600 not-italic text-[10px]">{date}</p>
+        <p className="text-gray-600 not-italic text-[10px] flex items-center gap-2">
+          {date}
+          {/* <button><EditIcon /></button> */}
+          {userId === Number(auth?.user?.id) && (
+            <button onClick={() => deleteRating(ratingId)}>
+              <TrashIcon />
+            </button>
+          )}
+        </p>
       </div>
       {imgs && (
         <div className="mb-4 flex gap-2">

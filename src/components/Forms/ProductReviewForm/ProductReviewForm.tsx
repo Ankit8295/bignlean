@@ -3,11 +3,42 @@
 import { StarIcon } from "@/Icons";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import InputField from "@/components/FormComponents/InputField";
+import { useDispatchContext } from "@/provider/ContextProvider/ContextProvider";
+import { useGiveRating } from "@/queries/Rating";
+import { uploadPhoto, useUploadPhoto } from "@/queries/Upload";
 import { useState } from "react";
 
-export default function ProductReviewForm() {
+export default function ProductReviewForm({ product }: { product: any }) {
+  const [formData, setFormData] = useState({
+    product: product?.id,
+    rate: 0,
+    review: "",
+  });
+  const [images, setImages] = useState([]);
+  const { mutate: uploadPhoto } = useUploadPhoto();
+  const { mutate: giveRating } = useGiveRating();
+  const dispatch = useDispatchContext();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append("file", images?.[0]);
+    uploadPhoto(data as any, {
+      onSuccess: (res) => {
+        giveRating(
+          { ...formData, images: [res?.data?.fileUrl] },
+          {
+            onSuccess: () => {
+              dispatch({ type: "REVIEW_MODAL_TOGGLE_OFF" });
+            },
+          }
+        );
+      },
+    });
+  };
+
   return (
-    <form className="p-4 h-[500px] overflow-auto">
+    <form onSubmit={handleSubmit} className="p-4 h-[500px] overflow-auto">
       <h2 className="text-black text-xl not-italic font-semibold mb-4">
         Write a review
       </h2>
@@ -20,7 +51,7 @@ export default function ProductReviewForm() {
           <p className="text-black text-sm not-italic font-normal mb-3">
             4.4 kg Chocholate
           </p>
-          <RatingForm />
+          <RatingForm setFormData={setFormData} />
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-5">
@@ -32,15 +63,15 @@ export default function ProductReviewForm() {
       <div className="h-[2px] bg-gray-200 my-5"></div>
       <div className="flex flex-col gap-5">
         <AddTitle />
-        <AddPhoto />
-        <AddReview />
+        <AddPhoto images={images} setImages={setImages} />
+        <AddReview formData={formData} setFormData={setFormData} />
       </div>
       <PrimaryButton label="Submit" className="mt-4" />
     </form>
   );
 }
 
-const AddPhoto = () => {
+const AddPhoto = ({ images, setImages }: { setImages: any; images: any }) => {
   return (
     <div>
       <h3 className="text-black text-lg not-italic font-semibold mb-2">
@@ -50,35 +81,45 @@ const AddPhoto = () => {
         Visuals are more helpful than texts
       </p>
       <div className="flex gap-4">
-        <PhotoInput />
-        <PhotoInput />
-        <PhotoInput />
+        <PhotoInput images={images} setImages={setImages} />
       </div>
     </div>
   );
 };
 
-const PhotoInput = () => {
+const PhotoInput = ({ images, setImages }: { setImages: any; images: any }) => {
+  const [file, setFile] = useState<File>();
   return (
     <label className="w-[100px] h-[100px] border border-dashed border-gray-300 rounded-lg cursor-pointer flex items-center justify-center">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g opacity="0.4">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V12.449L19.7535 10.9786C18.019 9.84327 15.7486 9.96391 14.1442 11.2766L8.906 15.5624C7.80825 16.4606 6.25482 16.5431 5.06808 15.7663L2 13.7581V6ZM18.932 12.2336L22 14.2418V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V15.5509L4.24659 17.0214C5.98106 18.1567 8.25145 18.036 9.85585 16.7233L15.0941 12.4375C16.1918 11.5394 17.7452 11.4568 18.932 12.2336ZM8.5 11C9.88071 11 11 9.88071 11 8.5C11 7.11929 9.88071 6 8.5 6C7.11929 6 6 7.11929 6 8.5C6 9.88071 7.11929 11 8.5 11Z"
-            fill="black"
-          />
-        </g>
-      </svg>
+      {file ? (
+        <p>{file?.name}</p>
+      ) : (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g opacity="0.4">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V12.449L19.7535 10.9786C18.019 9.84327 15.7486 9.96391 14.1442 11.2766L8.906 15.5624C7.80825 16.4606 6.25482 16.5431 5.06808 15.7663L2 13.7581V6ZM18.932 12.2336L22 14.2418V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V15.5509L4.24659 17.0214C5.98106 18.1567 8.25145 18.036 9.85585 16.7233L15.0941 12.4375C16.1918 11.5394 17.7452 11.4568 18.932 12.2336ZM8.5 11C9.88071 11 11 9.88071 11 8.5C11 7.11929 9.88071 6 8.5 6C7.11929 6 6 7.11929 6 8.5C6 9.88071 7.11929 11 8.5 11Z"
+              fill="black"
+            />
+          </g>
+        </svg>
+      )}
 
-      <input type="file" className="hidden" />
+      <input
+        onChange={(e) => {
+          setImages([...images, e.target.files![0]]);
+          setFile(e.target.files![0]);
+        }}
+        type="file"
+        className="hidden"
+      />
     </label>
   );
 };
@@ -101,13 +142,21 @@ const AddTitle = () => {
   );
 };
 
-const AddReview = () => {
+const AddReview = ({
+  formData,
+  setFormData,
+}: {
+  formData: any;
+  setFormData: any;
+}) => {
   return (
     <div>
       <h3 className="text-black text-lg not-italic font-semibold mb-2">
         Add a review
       </h3>
       <InputField
+        value={formData?.review}
+        onChange={(e) => setFormData({ ...formData, review: e.target.value })}
         type="textarea"
         placeholder="What did you like about the product? What did you use this Product for ?"
         shadow={false}
@@ -116,7 +165,13 @@ const AddReview = () => {
   );
 };
 
-const RatingForm = ({ label }: { label?: string }) => {
+const RatingForm = ({
+  label,
+  setFormData,
+}: {
+  label?: string;
+  setFormData?: any;
+}) => {
   const [start, setStar] = useState(0);
   return (
     <div>
@@ -127,7 +182,13 @@ const RatingForm = ({ label }: { label?: string }) => {
       )}
       <div className="flex items-center gap-2">
         {new Array(5).fill(null).map((_, index) => (
-          <div key={index} onClick={() => setStar(index + 1)}>
+          <div
+            key={index}
+            onClick={() => {
+              setStar(index + 1);
+              setFormData((prev: any) => ({ ...prev, rate: index + 1 }));
+            }}
+          >
             {index + 1 <= start ? <StarIcon /> : <EmptyStar />}
           </div>
         ))}

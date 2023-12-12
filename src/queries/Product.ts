@@ -2,7 +2,9 @@ import { ApiPaths } from "@/constants";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
-const auth = JSON.parse(localStorage.getItem("AUTH")!);
+const auth = localStorage.getItem("AUTH")
+  ? JSON.parse(localStorage.getItem("AUTH")!)
+  : null;
 
 async function getWishList() {
   if (!auth) return;

@@ -4,7 +4,7 @@ import axios from "axios";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function uploadPhoto(formData: any) {
+export async function uploadPhoto(formData: any) {
   return axios({
     method: "POST",
     headers: {
@@ -18,5 +18,6 @@ async function uploadPhoto(formData: any) {
 export function useUploadPhoto() {
   return useMutation({
     mutationFn: (formData) => uploadPhoto(formData),
+    onSuccess: () => {},
   });
 }

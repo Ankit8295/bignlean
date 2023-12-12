@@ -45,6 +45,9 @@ export default function Profile() {
   const { profileToggle } = useAppContext();
   const dispatch = useDispatchContext();
   const router = useRouter();
+  const auth = localStorage.getItem("AUTH")
+    ? JSON.parse(localStorage.getItem("AUTH")!)
+    : null;
   return (
     <div className="relative">
       <div
@@ -57,14 +60,14 @@ export default function Profile() {
       >
         <div className="w-[38px] h-[38px] rounded-full ">
           <Image
-            src={"/assets/profile.png"}
+            src={auth?.user?.image || "/assets/profile.png"}
             alt="avatar"
             width={38}
             height={38}
           />
         </div>
         <p className="text-sm not-italic font-semibold whitespace-nowrap">
-          Pravin D.
+          {auth?.user?.name || "User Name"}
         </p>
       </div>
       {profileToggle && (
@@ -77,7 +80,7 @@ export default function Profile() {
             className="flex gap-4 items-center mb-5 cursor-pointer"
           >
             <Image
-              src={"/assets/profile.png"}
+              src={auth?.user?.image || "/assets/profile.png"}
               alt="avatar"
               width={60}
               height={60}
@@ -85,10 +88,10 @@ export default function Profile() {
             />
             <div>
               <p className="text-gray-900 text-base not-italic font-semibold">
-                Pravin Desai
+                {auth?.user?.name || "User Name"}
               </p>
               <p className="text-sm text-gray-900 opacity-70 not-italic font-normal">
-                pravin.desai@gmail.com
+                {auth?.user?.email || "User Email"}
               </p>
             </div>
           </div>

@@ -23,7 +23,7 @@ export default function page({ params }: { params: { id: string } }) {
       </div>
       <div className="h-[2px] w-full bg-gray-200 my-10"></div>
       <ProductFooter product={data?.data?.result} />
-      <PriceSaleAlert />
+      {/* <PriceSaleAlert /> */}
       <div className="border rounded-lg p-4 w-[60%] mt-10 max-[890px]:w-full">
         <p className="text-black text-base not-italic font-bold mb-3">
           Brand Authorized Imported

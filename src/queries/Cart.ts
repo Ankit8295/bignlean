@@ -3,7 +3,9 @@ import axios from "axios";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
-const auth = JSON.parse(localStorage.getItem("AUTH")!);
+const auth = localStorage.getItem("AUTH")
+  ? JSON.parse(localStorage.getItem("AUTH")!)
+  : null;
 
 async function getCartList() {
   if (!auth) return;
