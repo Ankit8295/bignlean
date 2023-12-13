@@ -2,11 +2,10 @@
 import { TrashIcon } from "@/Icons";
 import { useRemoveAddress } from "@/queries/Address";
 import { useRouter } from "next/navigation";
-import React from "react";
 
 export default function AddressCard({ address }: { address: any }) {
   const setAddress = () => {
-    localStorage.setItem("address", address?.id);
+    window?.localStorage?.setItem("address", address?.id);
   };
   const { mutate: removeAddress } = useRemoveAddress();
   const router = useRouter();
