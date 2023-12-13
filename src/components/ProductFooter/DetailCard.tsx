@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { OutlinedButton } from "..";
 
 export default function DetailCard({
@@ -72,7 +73,10 @@ const InfoCard = ({ info }: { info: any }) => {
       </h3>
       <div className="p-2 flex flex-col gap-2">
         {info?.table?.map((item: any, index: number) => (
-          <p className="flex items-center justify-between text-black text-center text-sm not-italic font-normal">
+          <p
+            key={index}
+            className="flex items-center justify-between text-black text-center text-sm not-italic font-normal"
+          >
             <span>{item?.for}</span>
             <span>{item?.value}</span>
           </p>

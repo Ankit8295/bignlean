@@ -8,7 +8,7 @@ import {
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useGetProductDetail } from "@/queries/Cart";
 
-export default function page({ params }: { params: { id: string } }) {
+export default function Page({ params }: { params: { id: string } }) {
   const { data } = useGetProductDetail(params?.id as any);
 
   return (
