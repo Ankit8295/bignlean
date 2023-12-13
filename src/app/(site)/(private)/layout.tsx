@@ -1,3 +1,4 @@
+"use client";
 import AuthWrapper from "@/components/Wrappers/AuthWrapper";
 import { ReactNode } from "react";
 

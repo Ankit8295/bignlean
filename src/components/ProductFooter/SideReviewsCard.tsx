@@ -1,6 +1,7 @@
 "use client";
 import { EditIcon, StarIcon, TrashIcon } from "@/Icons";
 import { useDeleteRating } from "@/queries/Rating";
+import { useEffect, useState } from "react";
 
 export default function SideReviewsCard({ ratings }: { ratings: any }) {
   return (
@@ -50,9 +51,15 @@ const CustomerReview = ({
   userId: number;
   ratingId: number;
 }) => {
-  const auth = localStorage.getItem("AUTH")
-    ? JSON.parse(localStorage.getItem("AUTH")!)
-    : null;
+  const [auth, setAuth] = useState<any>(null);
+  useEffect(() => {
+    setAuth(
+      localStorage.getItem("AUTH")
+        ? JSON.parse(localStorage.getItem("AUTH")!)
+        : null
+    );
+  }, []);
+
   const { mutate: deleteRating } = useDeleteRating();
 
   return (
