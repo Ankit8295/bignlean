@@ -71,8 +71,8 @@ export default function ProductCard({ product, pathname }: Props) {
         <button
           onClick={() =>
             pathname === "wishlist"
-              ? removeFromWishList(payload)
-              : addToWishList(payload)
+              ? removeFromWishList({ productId: product?.id })
+              : addToWishList({ productId: product?.id })
           }
           className="absolute top-3 right-3"
         >
