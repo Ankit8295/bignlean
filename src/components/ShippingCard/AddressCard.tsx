@@ -5,12 +5,16 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function AddressCard({ address }: { address: any }) {
+  const setAddress = () => {
+    localStorage.setItem("address", address?.id);
+  };
   const { mutate: removeAddress } = useRemoveAddress();
   const router = useRouter();
+
   return (
     <div className="flex items-center gap-3 rounded-2xl bg-white sm-3 p-2 px-3">
       <input
-        onClick={() => localStorage.setItem("address", address?.id)}
+        onClick={setAddress}
         type="radio"
         name="address"
         className="scale-150"
