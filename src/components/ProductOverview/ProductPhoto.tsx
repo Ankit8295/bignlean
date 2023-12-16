@@ -7,9 +7,7 @@ export default function ProductPhoto({ image }: { image: string }) {
   const [product_image, setProduct_image] = useState<any>(null);
   useEffect(() => {
     setProduct_image(
-      window.localStorage.getItem("product_image")
-        ? window.localStorage.getItem("product_image")
-        : null
+      localStorage.product_image ? localStorage.product_image : null
     );
   }, []);
 

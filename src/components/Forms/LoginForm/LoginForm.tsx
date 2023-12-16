@@ -57,7 +57,7 @@ export default function LoginForm() {
     confirmResult?.confirm(otp).then(async (result: any) => {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
-      if (res?.ok && user) {
+      if (res?.ok && user && window) {
         localStorage.AUTH = JSON.stringify(user);
       }
       router.push("/");

@@ -2,17 +2,11 @@
 import { ApiPaths } from "@/constants";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-let auth: any = null;
-if (typeof window !== "undefined") {
-  // 👉️ can use localStorage here
-  auth = localStorage.AUTH ? JSON.parse(window.localStorage.AUTH) : null;
-} else {
-  // 👉️ can't use localStorage
-}
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getWishList() {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   if (!auth) return;
   return axios({
     method: "GET",
@@ -28,6 +22,7 @@ export function useGEtWishList() {
 }
 
 async function addToWishList(productId: number) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   if (!auth) return;
   return axios({
     method: "POST",
@@ -46,6 +41,7 @@ export function useAddToWishList() {
 }
 
 async function removeFromWishList(productId: number) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   if (!auth) return;
   return axios({
     method: "DELETE",

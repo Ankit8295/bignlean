@@ -3,17 +3,10 @@ import { ApiPaths } from "@/constants";
 import axios from "axios";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-let auth: any = null;
-if (typeof window !== "undefined") {
-  // 👉️ can use localStorage here
-  auth = localStorage.AUTH ? JSON.parse(window.localStorage.AUTH) : null;
-} else {
-  // 👉️ can't use localStorage
-}
-
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getCartList() {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   if (!auth) return;
 
   return axios({
@@ -30,6 +23,7 @@ export function useGetCartList() {
 }
 
 async function addToCartList(product: number, qty: number) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   if (!auth) return;
   return axios({
     method: "POST",
@@ -46,12 +40,14 @@ export function useAddToCartList() {
 }
 
 async function removeFromCart(productId: number) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   return axios({
     method: "DELETE",
     url: base_url + ApiPaths.CART + "/" + productId,
   });
 }
 async function updateQuantityFromCart(productId: number, qty: number) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   return axios({
     method: "PUT",
     url: base_url + ApiPaths.CART + "/" + productId,
@@ -81,6 +77,7 @@ export function useUpdateQuantityFromCart() {
 }
 
 async function getProductDetail(productId: number) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   return axios({
     method: "GET",
     url: base_url + ApiPaths.PRODUCTS + "/" + "6" + "/" + productId,

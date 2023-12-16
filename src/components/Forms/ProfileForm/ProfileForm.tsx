@@ -11,11 +11,7 @@ export default function ProfileForm() {
   const [auth, setAuth] = useState<any>(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setAuth(
-        window.localStorage.getItem("AUTH")
-          ? JSON.parse(window.localStorage.getItem("AUTH")!)
-          : null
-      );
+      setAuth(localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null);
     }
   }, []);
 

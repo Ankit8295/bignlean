@@ -25,9 +25,7 @@ export default function ProductSlider({ images }: { images: string[] }) {
               <SwiperSlide
                 key={index}
                 className="rounded-lg !w-[64px] !h-[64px] bg-gray-300 p-2 cursor-pointer"
-                onClick={() =>
-                  window.localStorage.setItem("product_image", image)
-                }
+                onClick={() => (localStorage.product_image = image)}
               >
                 <img
                   src={image}

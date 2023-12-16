@@ -3,17 +3,10 @@ import { ApiPaths } from "@/constants";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-let auth: any = null;
-if (typeof window !== "undefined") {
-  // 👉️ can use localStorage here
-  auth = localStorage.AUTH ? JSON.parse(window.localStorage.AUTH) : null;
-} else {
-  // 👉️ can't use localStorage
-}
-
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getAllOrder() {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   return axios({
     method: "GET",
     url: base_url + ApiPaths.ORDER_USER + "/" + auth?.user?.id,
@@ -28,6 +21,7 @@ export function useGetAllOrder() {
 }
 
 async function cancelOrder(data: any) {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   return axios({
     method: "DELETE",
     url: base_url + ApiPaths.CANCEL_ORDER,
@@ -46,6 +40,7 @@ export function useCancelOrder() {
 }
 
 async function placeOrder() {
+  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
   const addressid = localStorage.getItem("address");
   const couponCode = localStorage.getItem("couponCode");
   if (!addressid) {

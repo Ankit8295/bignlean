@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function AddressCard({ address }: { address: any }) {
   const setAddress = () => {
     if (typeof window !== "undefined") {
-      window?.localStorage?.setItem("address", address?.id);
+      localStorage.address = address?.id;
     }
   };
   const { mutate: removeAddress } = useRemoveAddress();
