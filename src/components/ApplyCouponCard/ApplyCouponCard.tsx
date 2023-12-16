@@ -8,7 +8,11 @@ export default function ApplyCouponCard() {
         Apply coupon code{" "}
       </p>
       <InputField
-        onChange={(e) => localStorage.setItem("couponCode", e.target.value)}
+        onChange={(e) =>
+          window
+            ? window.localStorage.setItem("couponCode", e.target.value)
+            : null
+        }
         type="text"
         placeholder="Enter Code"
         shadow={false}

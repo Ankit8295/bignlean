@@ -1,3 +1,4 @@
+"use client";
 import { ApiPaths } from "@/constants";
 
 export async function loginUser(formData: any) {
@@ -12,6 +13,8 @@ export async function loginUser(formData: any) {
 }
 
 export function logout() {
-  localStorage?.setItem("AUTH", "");
-  window.location.replace("/login");
+  if (typeof window !== "undefined") {
+    window.localStorage?.setItem("AUTH", "");
+    window.location.replace("/login");
+  }
 }

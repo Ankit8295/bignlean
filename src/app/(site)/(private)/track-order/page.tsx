@@ -1,5 +1,5 @@
 "use client";
-import { CompleteIcon, ProccessingIcon } from "@/Icons";
+import { ProccessingIcon } from "@/Icons";
 import { OutlinedButton } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useCancelOrder, useGetAllOrder } from "@/queries/Order";

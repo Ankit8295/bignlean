@@ -10,11 +10,13 @@ import { useEffect, useState } from "react";
 export default function ProfileForm() {
   const [auth, setAuth] = useState<any>(null);
   useEffect(() => {
-    setAuth(
-      localStorage.getItem("AUTH")
-        ? JSON.parse(localStorage.getItem("AUTH")!)
-        : null
-    );
+    if (typeof window !== "undefined") {
+      setAuth(
+        window.localStorage.getItem("AUTH")
+          ? JSON.parse(window.localStorage.getItem("AUTH")!)
+          : null
+      );
+    }
   }, []);
 
   const [formData, setFormData] = useState({

@@ -1,3 +1,4 @@
+"use client";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import ContactCard, {
   generalTermOfUseList,

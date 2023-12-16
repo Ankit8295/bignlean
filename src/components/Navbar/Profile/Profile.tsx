@@ -45,8 +45,8 @@ export default function Profile() {
   const { profileToggle } = useAppContext();
   const dispatch = useDispatchContext();
   const router = useRouter();
-  const auth = localStorage.getItem("AUTH")
-    ? JSON.parse(localStorage.getItem("AUTH")!)
+  const auth = window.localStorage.getItem("AUTH")
+    ? JSON.parse(window.localStorage.getItem("AUTH")!)
     : null;
   return (
     <div className="relative">

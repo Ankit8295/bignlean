@@ -4,9 +4,11 @@ import { ReactNode, useEffect } from "react";
 
 export default function AuthWrapper({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const auth = localStorage?.getItem("AUTH");
-    if (!auth) {
-      redirect("/login");
+    if (typeof window !== "undefined") {
+      const auth = window.localStorage?.getItem("AUTH");
+      if (!auth) {
+        redirect("/login");
+      }
     }
   }, []);
   return <>{children}</>;

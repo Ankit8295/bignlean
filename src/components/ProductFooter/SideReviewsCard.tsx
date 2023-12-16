@@ -54,8 +54,8 @@ const CustomerReview = ({
   const [auth, setAuth] = useState<any>(null);
   useEffect(() => {
     setAuth(
-      localStorage.getItem("AUTH")
-        ? JSON.parse(localStorage.getItem("AUTH")!)
+      window.localStorage.getItem("AUTH")
+        ? JSON.parse(window.localStorage.getItem("AUTH")!)
         : null
     );
   }, []);

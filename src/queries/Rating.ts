@@ -1,3 +1,4 @@
+"use client";
 import { ApiPaths } from "@/constants";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
@@ -5,8 +6,8 @@ import axios from "axios";
 let auth: any = null;
 if (typeof window !== "undefined") {
   // 👉️ can use localStorage here
-  auth = localStorage.getItem("AUTH")
-    ? JSON.parse(localStorage.getItem("AUTH")!)
+  auth = window.localStorage.getItem("AUTH")
+    ? JSON.parse(window.localStorage.getItem("AUTH")!)
     : null;
 } else {
   // 👉️ can't use localStorage

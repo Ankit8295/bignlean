@@ -18,7 +18,7 @@ export default function LoginForm() {
   const [confirmResult, setConfirmResult] = useState<any>(null);
 
   useEffect(() => {
-    if (window) {
+    if (typeof window !== "undefined") {
       (window as any).recaptchaVerifier = new RecaptchaVerifier(
         auth,
         "recaptcha-container",
@@ -58,7 +58,7 @@ export default function LoginForm() {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
       if (res?.ok && user) {
-        localStorage.setItem("AUTH", JSON.stringify(user));
+        window.localStorage.setItem("AUTH", JSON.stringify(user));
       }
       router.push("/");
     });

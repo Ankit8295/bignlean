@@ -1,3 +1,4 @@
+"use client";
 import { CrossIcon } from "@/Icons";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
