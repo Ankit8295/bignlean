@@ -1,4 +1,3 @@
-"use server";
 import { BlogCard, BlogCarosoul } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { ApiPaths } from "@/constants";

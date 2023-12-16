@@ -1,4 +1,3 @@
-"use server";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { ApiPaths } from "@/constants";
 import { Blog } from "@/utils/Schemas";

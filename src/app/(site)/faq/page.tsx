@@ -1,4 +1,3 @@
-"use server";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import Accordian from "../app-certificates/Accordian";
 import { SideArrowIcon } from "@/Icons";
