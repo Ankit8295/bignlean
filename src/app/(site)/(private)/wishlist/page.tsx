@@ -3,7 +3,7 @@ import { ProductCard } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useGEtWishList } from "@/queries/Product";
 
-export default function page() {
+export default function Page() {
   const { data } = useGEtWishList();
 
   return (

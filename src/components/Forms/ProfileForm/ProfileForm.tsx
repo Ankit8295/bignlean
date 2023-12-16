@@ -5,12 +5,18 @@ import InputField from "@/components/FormComponents/InputField";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useUpdateProfile } from "@/queries/Profile";
 import { useUploadPhoto } from "@/queries/Upload";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProfileForm() {
-  const auth = localStorage.getItem("AUTH")
-    ? JSON.parse(localStorage.getItem("AUTH")!)
-    : null;
+  const [auth, setAuth] = useState<any>(null);
+  useEffect(() => {
+    setAuth(
+      localStorage.getItem("AUTH")
+        ? JSON.parse(localStorage.getItem("AUTH")!)
+        : null
+    );
+  }, []);
+
   const [formData, setFormData] = useState({
     name: auth?.user?.name || "",
     email: auth?.user?.email || "",

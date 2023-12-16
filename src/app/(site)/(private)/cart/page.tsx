@@ -10,7 +10,7 @@ import { usePlaceOrder } from "@/queries/Order";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function page() {
+export default function Page() {
   const { data: cartList } = useGetCartList();
   const { mutate: placeAnOrder, isSuccess } = usePlaceOrder();
   const router = useRouter();

@@ -1,9 +1,9 @@
 "use client";
 import { redirect } from "next/navigation";
-import { ReactNode, useLayoutEffect } from "react";
+import { ReactNode, useEffect } from "react";
 
 export default function AuthWrapper({ children }: { children: ReactNode }) {
-  useLayoutEffect(() => {
+  useEffect(() => {
     const auth = localStorage?.getItem("AUTH");
     if (!auth) {
       redirect("/login");
