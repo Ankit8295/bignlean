@@ -1,3 +1,4 @@
+"use client";
 import { ApiPaths } from "@/constants";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";

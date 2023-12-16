@@ -58,7 +58,7 @@ export default function LoginForm() {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
       if (res?.ok && user) {
-        window.localStorage.setItem("AUTH", JSON.stringify(user));
+        localStorage.AUTH = JSON.stringify(user);
       }
       router.push("/");
     });

@@ -6,9 +6,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 let auth: any = null;
 if (typeof window !== "undefined") {
   // 👉️ can use localStorage here
-  auth = window.localStorage.getItem("AUTH")
-    ? JSON.parse(window.localStorage.getItem("AUTH")!)
-    : null;
+  auth = localStorage.AUTH ? JSON.parse(window.localStorage.AUTH) : null;
 } else {
   // 👉️ can't use localStorage
 }

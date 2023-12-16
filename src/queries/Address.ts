@@ -7,9 +7,7 @@ const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 let auth: any = null;
 if (typeof window !== "undefined") {
   // 👉️ can use localStorage here
-  auth = window.localStorage.getItem("AUTH")
-    ? JSON.parse(window.localStorage.getItem("AUTH")!)
-    : null;
+  auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
 } else {
   // 👉️ can't use localStorage
 }

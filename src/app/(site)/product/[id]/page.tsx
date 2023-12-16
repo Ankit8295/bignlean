@@ -1,10 +1,5 @@
 "use client";
-import {
-  PriceSaleAlert,
-  ProductDetail,
-  ProductFooter,
-  ProductOverview,
-} from "@/components";
+import { ProductDetail, ProductFooter, ProductOverview } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useGetProductDetail } from "@/queries/Cart";
 

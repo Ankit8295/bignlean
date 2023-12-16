@@ -14,7 +14,7 @@ export async function loginUser(formData: any) {
 
 export function logout() {
   if (typeof window !== "undefined") {
-    window.localStorage?.setItem("AUTH", "");
+    localStorage.AUTH = "";
     window.location.replace("/login");
   }
 }
