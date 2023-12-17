@@ -8,12 +8,11 @@ import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useGetCartList } from "@/queries/Cart";
 import { usePlaceOrder } from "@/queries/Order";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  const auth = localStorage ? JSON.parse(localStorage?.AUTH) : null;
-
-  const { data: cartList } = useGetCartList(auth?.user?.id);
+  const [userId, setUserId] = useState<any>(null);
+  const { data: cartList } = useGetCartList(userId?.user?.id);
   const { mutate: placeAnOrder, isSuccess } = usePlaceOrder();
   const router = useRouter();
 
@@ -22,6 +21,10 @@ export default function Page() {
       router.push("/track-order");
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
 
   return (
     <CustomPageWrapper heading="Cart">
