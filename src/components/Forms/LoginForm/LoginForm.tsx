@@ -11,6 +11,12 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "@/utils/firebaseConfig";
 import { useLocalStorage } from "@/utils/useLocalStorage";
 
+interface CustomWindow extends Window {
+  recaptchaVerifier?: any;
+}
+
+declare var window: CustomWindow;
+
 export default function LoginForm() {
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
@@ -20,7 +26,7 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      (window as any).recaptchaVerifier = new RecaptchaVerifier(
+      window.recaptchaVerifier = new RecaptchaVerifier(
         auth,
         "recaptcha-container",
         {
@@ -36,7 +42,7 @@ export default function LoginForm() {
         }
       );
     }
-  }, [auth, window]);
+  }, [auth]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -47,7 +53,7 @@ export default function LoginForm() {
     const confirmation = await signInWithPhoneNumber(
       auth,
       "+91" + phone,
-      (window as any).recaptchaVerifier
+      window.recaptchaVerifier
     );
     setConfirmResult(confirmation);
     setIsOtpSent(true);
