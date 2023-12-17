@@ -36,7 +36,7 @@ export default function LoginForm() {
         }
       );
     }
-  }, [auth]);
+  }, [auth, window]);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -52,15 +52,14 @@ export default function LoginForm() {
     setConfirmResult(confirmation);
     setIsOtpSent(true);
   };
-  const myLocalStorage = useLocalStorage();
-  if (!myLocalStorage) return <></>;
+
   const handleOtpHandler = (e: any) => {
     e.preventDefault();
     confirmResult?.confirm(otp).then(async (result: any) => {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
       if (res?.ok && user && window) {
-        myLocalStorage.AUTH = JSON.stringify(user);
+        localStorage.AUTH = JSON.stringify(user);
       }
       router.push("/");
     });
