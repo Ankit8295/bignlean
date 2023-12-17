@@ -11,7 +11,9 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Page() {
-  const { data: cartList } = useGetCartList();
+  const auth = localStorage ? JSON.parse(localStorage?.AUTH) : null;
+
+  const { data: cartList } = useGetCartList(auth?.user?.id);
   const { mutate: placeAnOrder, isSuccess } = usePlaceOrder();
   const router = useRouter();
 

@@ -5,20 +5,19 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function getCartList() {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-  if (!auth) return;
-
-  return axios({
-    method: "GET",
-    url: base_url + ApiPaths.CART_USER + "/" + auth?.user?.id,
-  });
+async function getCartList(userId?: string | null) {
+  if (userId) {
+    return axios({
+      method: "GET",
+      url: base_url + ApiPaths.CART_USER + "/" + userId,
+    });
+  }
 }
 
-export function useGetCartList() {
+export function useGetCartList(userId?: string | null) {
   return useQuery({
     queryKey: ["cart"],
-    queryFn: getCartList,
+    queryFn: () => getCartList(userId),
   });
 }
 

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "@/utils/firebaseConfig";
+import { useLocalStorage } from "@/utils/useLocalStorage";
 
 export default function LoginForm() {
   const [phone, setPhone] = useState("");
@@ -51,14 +52,15 @@ export default function LoginForm() {
     setConfirmResult(confirmation);
     setIsOtpSent(true);
   };
-
+  const myLocalStorage = useLocalStorage();
+  if (!myLocalStorage) return <></>;
   const handleOtpHandler = (e: any) => {
     e.preventDefault();
     confirmResult?.confirm(otp).then(async (result: any) => {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
       if (res?.ok && user && window) {
-        localStorage.AUTH = JSON.stringify(user);
+        myLocalStorage.AUTH = JSON.stringify(user);
       }
       router.push("/");
     });

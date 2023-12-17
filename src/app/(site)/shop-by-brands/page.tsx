@@ -16,7 +16,6 @@ async function getAllBanners() {
 
 export default async function page() {
   const bannersData = await getAllBanners();
-  console.log(bannersData, "bannerData");
   return (
     <CustomPageWrapper className="w-[1400px] px-5">
       <div className="flex gap-[27px] max-[1400px]:flex-col">
