@@ -18,7 +18,7 @@ import { logout } from "@/queries/Auth";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 type ProfileOption = {
   link: string;
@@ -42,10 +42,15 @@ const profileOptions: ProfileOption[] = [
 ];
 
 export default function Profile() {
+  const [auth, setAuth] = useState<any>(null);
   const { profileToggle } = useAppContext();
   const dispatch = useDispatchContext();
   const router = useRouter();
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
+
+  useEffect(() => {
+    setAuth(JSON.parse(localStorage?.AUTH));
+  }, []);
+
   return (
     <div className="relative">
       <div
