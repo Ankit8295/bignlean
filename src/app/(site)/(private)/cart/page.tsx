@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 
 export default function Page() {
   const [userId, setUserId] = useState<any>(null);
+  const [addressId, setAddressId] = useState<any>(null);
+  const [couponCode, setCouponCode] = useState<any>(null);
   const { data: cartList } = useGetCartList(userId?.user?.id);
   const { mutate: placeAnOrder, isSuccess } = usePlaceOrder();
   const router = useRouter();
@@ -24,6 +26,8 @@ export default function Page() {
 
   useEffect(() => {
     setUserId(JSON.parse(localStorage?.Auth));
+    setAddressId(localStorage?.address);
+    setCouponCode(localStorage?.couponCode);
   }, [window]);
 
   return (
@@ -42,7 +46,9 @@ export default function Page() {
               <OrderCard />
               <UseCashCard />
               <PrimaryButton
-                onClick={() => placeAnOrder()}
+                onClick={() =>
+                  placeAnOrder({ userId, addressid: addressId, couponCode })
+                }
                 label="Place a Order"
                 className="text-white text-sm not-italic font-medium leading-4 rounded-2xl py-[20px]"
               />

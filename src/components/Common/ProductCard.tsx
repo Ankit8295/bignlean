@@ -5,6 +5,7 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
 import { useAddToWishList, useRemoveFormWishList } from "@/queries/Product";
 import { useAddToCartList } from "@/queries/Cart";
+import { useEffect, useState } from "react";
 
 type Props = {
   product?: {
@@ -19,11 +20,17 @@ type Props = {
 };
 
 export default function ProductCard({ product, pathname }: Props) {
+  const [userId, setUserId] = useState<any>(null);
   const router = useRouter();
   const { mutate: addToWishList } = useAddToWishList();
   const { mutate: removeFromWishList } = useRemoveFormWishList();
   const { mutate: addToCart } = useAddToCartList();
   const payload = { productId: product?.id };
+
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
+
   if (product) {
     return (
       <div className="rounded-[15px] sm-3 relative  p-3 my-2 overflow-hidden">
@@ -62,7 +69,13 @@ export default function ProductCard({ product, pathname }: Props) {
         <div className="h-[1px] bg-black opacity-5 mb-3" />
         <PrimaryButton
           className="w-full"
-          onClick={() => addToCart({ product: product?.id, qty: 1 })}
+          onClick={() =>
+            addToCart({
+              userId: userId?.user?.id,
+              product: product?.id,
+              qty: 1,
+            })
+          }
           label="Add to cart"
         />
         <p className="absolute top-0 left-0 text-green-500 text-xs not-italic font-bold bg-[#DFF3E2] p-2 rounded-br-[15px]">
@@ -71,8 +84,8 @@ export default function ProductCard({ product, pathname }: Props) {
         <button
           onClick={() =>
             pathname === "wishlist"
-              ? removeFromWishList({ productId: product?.id })
-              : addToWishList({ productId: product?.id })
+              ? removeFromWishList({ productId: product?.id, userId })
+              : addToWishList({ productId: product?.id, userId })
           }
           className="absolute top-3 right-3"
         >

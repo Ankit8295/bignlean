@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 
 export default function AddAddressForm({ addressId }: { addressId?: string }) {
   const router = useRouter();
+  const [userId, setUserId] = useState<any>(null);
   const { mutate: addAddress } = useAddAddress();
   const { mutate: updateAddress } = useUpdateAddress();
   const [formData, setFormData] = useState<any>({
@@ -23,7 +24,12 @@ export default function AddAddressForm({ addressId }: { addressId?: string }) {
     state: "",
     type: "",
   });
-  const { data } = useGetAllAddresses();
+  const { data } = useGetAllAddresses(userId?.user?.id);
+
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
+
   useEffect(() => {
     if (addressId) {
       const address = data?.data.addresses?.find(
@@ -66,11 +72,14 @@ export default function AddAddressForm({ addressId }: { addressId?: string }) {
         }
       );
     } else {
-      addAddress(formData, {
-        onSuccess: () => {
-          router.push("/cart");
-        },
-      });
+      addAddress(
+        { formData, userId },
+        {
+          onSuccess: () => {
+            router.push("/cart");
+          },
+        }
+      );
     }
   };
 

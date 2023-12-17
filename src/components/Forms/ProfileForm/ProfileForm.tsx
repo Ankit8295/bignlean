@@ -32,11 +32,14 @@ export default function ProfileForm() {
       data.append("file", profileImage);
       uploadPhoto(data as any, {
         onSuccess: (res) => {
-          updateProfile({ ...formData, image: res?.data?.fileUrl });
+          updateProfile({
+            formData: { ...formData, image: res?.data?.fileUrl },
+            userId: auth?.user?.id,
+          });
         },
       });
     } else {
-      updateProfile(formData);
+      updateProfile({ formData, userId: auth?.user?.id });
     }
   };
   return (

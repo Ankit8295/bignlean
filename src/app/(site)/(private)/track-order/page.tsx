@@ -3,9 +3,15 @@ import { ProccessingIcon } from "@/Icons";
 import { OutlinedButton } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useCancelOrder, useGetAllOrder } from "@/queries/Order";
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  const { data } = useGetAllOrder();
+  const [userId, setUserId] = useState<any>(null);
+  const { data } = useGetAllOrder(userId?.user?.id);
+
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
   return (
     <CustomPageWrapper
       heading="Track Order"
@@ -19,7 +25,7 @@ export default function Page() {
               AWB Tracking no: {order?.trackingID}
             </p>
             <div className="flex flex-col gap-[22px]">
-              <OrderCard order={order} />
+              <OrderCard order={order} userId={userId} />
             </div>
           </div>
         ))}
@@ -27,7 +33,7 @@ export default function Page() {
   );
 }
 
-const OrderCard = ({ order }: { order: any }) => {
+const OrderCard = ({ order, userId }: { order: any; userId: any }) => {
   return (
     <div className="sm-3 bg-white rounded-lg p-[30px] max-[550px]:p-3">
       <div className="flex gap-2 mb-7">
@@ -42,14 +48,14 @@ const OrderCard = ({ order }: { order: any }) => {
         </div>
       </div>
       <div className="flex gap-8 max-[1000px]:gap-4 max-[860px]:flex-col max-[600px]:gap-5">
-        <ProductDetailCard order={order} />
+        <ProductDetailCard order={order} userId={userId} />
         <ProcessingCard />
       </div>
     </div>
   );
 };
 
-const ProductDetailCard = ({ order }: { order: any }) => {
+const ProductDetailCard = ({ order, userId }: { order: any; userId: any }) => {
   const { mutate: cancelOrder } = useCancelOrder();
   return (
     <div className="flex gap-6 items-center">
@@ -69,7 +75,9 @@ const ProductDetailCard = ({ order }: { order: any }) => {
         </div>
         {order?.status !== "Cancelled" && (
           <OutlinedButton
-            onClick={() => cancelOrder({ waybill: order?.trackingID })}
+            onClick={() =>
+              cancelOrder({ data: { waybill: order?.trackingID }, userId })
+            }
             label="Cancel"
             className="mt-auto py-[8px] px-[10px] self-start max-[860px]:mt-0"
           />

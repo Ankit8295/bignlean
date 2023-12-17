@@ -1,4 +1,3 @@
-"use cart";
 import AddAddressForm from "@/components/Forms/AddAddressForm/AddAddressForm";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 

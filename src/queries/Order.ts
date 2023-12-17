@@ -5,49 +5,53 @@ import axios from "axios";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function getAllOrder() {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-  return axios({
-    method: "GET",
-    url: base_url + ApiPaths.ORDER_USER + "/" + auth?.user?.id,
-  });
+async function getAllOrder(userId: number) {
+  if (userId) {
+    return axios({
+      method: "GET",
+      url: base_url + ApiPaths.ORDER_USER + "/" + userId,
+    });
+  }
 }
 
-export function useGetAllOrder() {
+export function useGetAllOrder(userId: number) {
   return useQuery({
     queryKey: ["order"],
-    queryFn: getAllOrder,
+    queryFn: () => getAllOrder(userId),
   });
 }
 
-async function cancelOrder(data: any) {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-  return axios({
-    method: "DELETE",
-    url: base_url + ApiPaths.CANCEL_ORDER,
-    data: { ...data, user: auth?.user?.id },
-  });
+async function cancelOrder(data: any, userId: number) {
+  if (userId) {
+    return axios({
+      method: "DELETE",
+      url: base_url + ApiPaths.CANCEL_ORDER,
+      data: { ...data, user: userId },
+    });
+  }
 }
 
 export function useCancelOrder() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (data: any) => cancelOrder(data),
+    mutationFn: (payload: { data: any; userId: number }) =>
+      cancelOrder(payload?.data, payload?.userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["order"] });
     },
   });
 }
 
-async function placeOrder() {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-  const addressid = localStorage.getItem("address");
-  const couponCode = localStorage.getItem("couponCode");
+async function placeOrder(
+  userId: number,
+  addressid: string,
+  couponCode: string
+) {
   if (!addressid) {
     return;
   }
   const payload = {
-    userid: auth?.user?.id,
+    userid: userId,
     addressid,
     couponCode,
     paymentMethod: "Pre-paid",
@@ -65,7 +69,11 @@ async function placeOrder() {
 export function usePlaceOrder() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: () => placeOrder(),
+    mutationFn: (payload: {
+      userId: number;
+      addressid: string;
+      couponCode: string;
+    }) => placeOrder(payload?.userId, payload?.addressid, payload?.couponCode),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["order"] });
     },

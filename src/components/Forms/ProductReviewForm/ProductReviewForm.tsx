@@ -6,9 +6,10 @@ import InputField from "@/components/FormComponents/InputField";
 import { useDispatchContext } from "@/provider/ContextProvider/ContextProvider";
 import { useGiveRating } from "@/queries/Rating";
 import { uploadPhoto, useUploadPhoto } from "@/queries/Upload";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProductReviewForm({ product }: { product: any }) {
+  const [userId, setUserId] = useState<any>(null);
   const [formData, setFormData] = useState({
     product: product?.id,
     rate: 0,
@@ -19,6 +20,10 @@ export default function ProductReviewForm({ product }: { product: any }) {
   const { mutate: giveRating } = useGiveRating();
   const dispatch = useDispatchContext();
 
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     const data = new FormData();
@@ -26,7 +31,7 @@ export default function ProductReviewForm({ product }: { product: any }) {
     uploadPhoto(data as any, {
       onSuccess: (res) => {
         giveRating(
-          { ...formData, images: [res?.data?.fileUrl] },
+          { data: { ...formData, images: [res?.data?.fileUrl] }, userId },
           {
             onSuccess: () => {
               dispatch({ type: "REVIEW_MODAL_TOGGLE_OFF" });

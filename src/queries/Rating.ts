@@ -5,19 +5,21 @@ import axios from "axios";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function giveRating(data: any) {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-  return axios({
-    method: "POST",
-    url: base_url + ApiPaths.RATING,
-    data: { ...data, user: auth?.user?.id },
-  });
+async function giveRating(data: any, userId: number) {
+  if (userId) {
+    return axios({
+      method: "POST",
+      url: base_url + ApiPaths.RATING,
+      data: { ...data, user: userId },
+    });
+  }
 }
 
 export function useGiveRating() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (data: any) => giveRating(data),
+    mutationFn: (payload: { data: any; userId: number }) =>
+      giveRating(payload?.data, payload?.userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["products"] });
     },

@@ -5,40 +5,38 @@ import axios from "axios";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function getAllAddresses() {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-
-  if (!auth) return;
-  return axios({
-    method: "GET",
-    url: base_url + ApiPaths.ADDRESSES_USER + "/" + auth?.user?.id,
-  });
+async function getAllAddresses(userId: number) {
+  if (userId) {
+    return axios({
+      method: "GET",
+      url: base_url + ApiPaths.ADDRESSES_USER + "/" + userId,
+    });
+  }
 }
 
-export function useGetAllAddresses() {
+export function useGetAllAddresses(userId: number) {
   return useQuery({
     queryKey: ["addresses"],
-    queryFn: getAllAddresses,
+    queryFn: () => getAllAddresses(userId),
   });
 }
 
-async function addAddress(formData: any) {
-  const auth = localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null;
-
+async function addAddress(formData: any, userId: number) {
   return axios({
     method: "POST",
     url: base_url + ApiPaths.ADDRESSES,
     headers: {
       "Content-Type": "application/json",
     },
-    data: { ...formData, user: auth?.user?.id },
+    data: { ...formData, user: userId },
   });
 }
 
 export function useAddAddress() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (formData: any) => addAddress(formData),
+    mutationFn: (payload: { formData: any; userId: number }) =>
+      addAddress(payload?.formData, payload?.userId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["addresses"] });
     },

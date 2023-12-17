@@ -2,9 +2,15 @@
 import { ProductCard } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useGEtWishList } from "@/queries/Product";
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  const { data } = useGEtWishList();
+  const [userId, setUserId] = useState<any>(null);
+  const { data } = useGEtWishList(userId?.user?.id);
+
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
 
   return (
     <CustomPageWrapper heading="Wishlist" showContentFooter={false}>
