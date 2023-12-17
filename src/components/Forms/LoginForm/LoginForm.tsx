@@ -4,7 +4,7 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import InputField from "@/components/FormComponents/InputField";
 import FormWrapper from "@/components/Wrappers/FormWrapper";
 import { loginUser } from "@/queries/Auth";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -15,7 +15,7 @@ export default function LoginForm() {
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
-  const router = useRouter();
+  const [isLoginSuccess, setIsLoginSuccess] = useState<any>(null);
   const [confirmResult, setConfirmResult] = useState<any>(null);
 
   useEffect(() => {
@@ -58,12 +58,18 @@ export default function LoginForm() {
     confirmResult?.confirm(otp).then(async (result: any) => {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
-      if (res?.ok && user && window) {
-        localStorage.AUTH = JSON.stringify(user);
+      if (res?.ok && user) {
+        setIsLoginSuccess(JSON.stringify(user));
       }
-      router.push("/");
     });
   };
+
+  useEffect(() => {
+    if (isLoginSuccess) {
+      localStorage.AUTH = isLoginSuccess;
+      redirect("/");
+    }
+  }, [isLoginSuccess]);
 
   return (
     <>
