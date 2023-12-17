@@ -5,12 +5,12 @@ import { ReactNode, useEffect, useState } from "react";
 export default function AuthWrapper({ children }: { children: ReactNode }) {
   const [auth, getAuth] = useState(null);
   useEffect(() => {
-    if (window) {
+    if (localStorage) {
       getAuth(localStorage?.AUTH);
     } else {
       getAuth(null);
     }
-  }, [window]);
+  }, []);
   if (auth) {
     return <>{children}</>;
   }
