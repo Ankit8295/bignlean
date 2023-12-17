@@ -24,7 +24,7 @@ export default function ProfileForm() {
   });
   const [profileImage, setProfileImage] = useState<File>();
   const { mutate: uploadPhoto } = useUploadPhoto();
-  const { mutate: updateProfile } = useUpdateProfile();
+  const { mutate: updateProfile, isSuccess, data } = useUpdateProfile();
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (profileImage) {
@@ -42,6 +42,13 @@ export default function ProfileForm() {
       updateProfile({ formData, userId: auth?.user?.id });
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      window.localStorage.setItem("AUTH", JSON.stringify(data?.data));
+    }
+  }, [isSuccess]);
+
   return (
     <CustomPageWrapper heading="Profile" className="relative">
       <button className="absolute top-[6%] right-0 text-sm not-italic font-medium text-gradient">

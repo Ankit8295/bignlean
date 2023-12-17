@@ -1,4 +1,3 @@
-"use client";
 import { ApiPaths } from "@/constants";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -19,8 +18,5 @@ export function useUpdateProfile() {
   return useMutation({
     mutationFn: (payload: { formData: any; userId: number }) =>
       updateProfile(payload?.formData, payload?.userId),
-    onSuccess: (res) => {
-      window.localStorage.setItem("AUTH", JSON.stringify(res?.data));
-    },
   });
 }
