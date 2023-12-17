@@ -12,7 +12,7 @@ export default function ShippingCard() {
 
   useEffect(() => {
     setUserId(JSON.parse(localStorage?.Auth));
-  }, [window]);
+  }, []);
   return (
     <div className="bg-white rounded-lg sm-1 p-4 flex flex-col gap-3">
       <p className="text-black text-base not-italic font-semibold leading-4 mb-5">

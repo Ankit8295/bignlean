@@ -2,20 +2,23 @@
 import { TrashIcon } from "@/Icons";
 import { useRemoveAddress } from "@/queries/Address";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AddressCard({ address }: { address: any }) {
-  const setAddress = () => {
-    if (typeof window !== "undefined") {
+  const [addressId, setAddressId] = useState(false);
+
+  useEffect(() => {
+    if (addressId) {
       localStorage.address = address?.id;
     }
-  };
+  }, [addressId]);
   const { mutate: removeAddress } = useRemoveAddress();
   const router = useRouter();
 
   return (
     <div className="flex items-center gap-3 rounded-2xl bg-white sm-3 p-2 px-3">
       <input
-        onClick={setAddress}
+        onClick={() => setAddressId(true)}
         type="radio"
         name="address"
         className="scale-150"

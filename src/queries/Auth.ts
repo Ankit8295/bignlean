@@ -1,4 +1,3 @@
-"use client";
 import { ApiPaths } from "@/constants";
 
 export async function loginUser(formData: any) {
