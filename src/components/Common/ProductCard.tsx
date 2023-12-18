@@ -29,7 +29,7 @@ export default function ProductCard({ product, pathname }: Props) {
 
   useEffect(() => {
     setUserId(JSON.parse(localStorage?.Auth));
-  }, [window]);
+  }, []);
 
   if (product) {
     return (
