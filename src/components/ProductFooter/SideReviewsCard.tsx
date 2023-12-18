@@ -1,39 +1,12 @@
-import { StarIcon } from "@/Icons";
+"use client";
+import { EditIcon, StarIcon, TrashIcon } from "@/Icons";
+import { useDeleteRating } from "@/queries/Rating";
+import { useEffect, useState } from "react";
 
-const customerReviewData = [
-  {
-    custometrName: "Jenny",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-    imgs: ["/assets/product.png"],
-  },
-  {
-    custometrName: "Suraj",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-  },
-  {
-    custometrName: "Vanit",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-  },
-  {
-    custometrName: "Ankit",
-    rating: 4,
-    date: "Dec 10, 2024",
-    review: `Very nice and comfortable hotel, thank you for accompanying my vacation`,
-    imgs: ["/assets/product.png", "/assets/product.png"],
-  },
-];
-
-export default function SideReviewsCard() {
+export default function SideReviewsCard({ ratings }: { ratings: any }) {
   return (
     <div>
-      <ReviewWithImage />
-      <div className="h-[2px] bg-slate-100 my-4"></div>
+      {/* <ReviewWithImage /> */}
       <div className="flex items-center justify-between">
         <p className="text-black text-base not-italic font-semibold">
           Recent Reviews
@@ -41,19 +14,21 @@ export default function SideReviewsCard() {
         <ShortBy />
       </div>
       <div className="flex flex-col gap-3 my-3">
-        {customerReviewData?.map((review, index) => (
+        {ratings?.map((review: any, index: number) => (
           <CustomerReview
             key={index}
-            custometrName={review?.custometrName}
-            date={review?.date}
-            rating={review?.rating}
+            custometrName={review?.user?.name}
+            date={new Date(review?.createdAt).toUTCString()}
+            rating={Math.floor(review?.rate)}
             review={review?.review}
-            imgs={review?.imgs}
+            imgs={review?.images}
+            userId={review?.user?.id}
+            ratingId={review?.id}
           />
         ))}
       </div>
       <p className="text-gradient text-sm not-italic font-semibold cursor-pointer hover:underline">
-        View all 197 Reviews
+        View all {ratings?.length} Reviews
       </p>
     </div>
   );
@@ -65,13 +40,24 @@ const CustomerReview = ({
   rating,
   review,
   imgs,
+  userId,
+  ratingId,
 }: {
   custometrName: string;
   rating: number;
   date: string;
   review: string;
   imgs?: string[];
+  userId: number;
+  ratingId: number;
 }) => {
+  const [auth, setAuth] = useState<any>(null);
+  useEffect(() => {
+    setAuth(localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null);
+  }, []);
+
+  const { mutate: deleteRating } = useDeleteRating();
+
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
@@ -87,7 +73,15 @@ const CustomerReview = ({
             ))}
           </div>
         </div>
-        <p className="text-gray-600 not-italic text-[10px]">{date}</p>
+        <p className="text-gray-600 not-italic text-[10px] flex items-center gap-2">
+          {date}
+          {/* <button><EditIcon /></button> */}
+          {userId === Number(auth?.user?.id) && (
+            <button onClick={() => deleteRating(ratingId)}>
+              <TrashIcon />
+            </button>
+          )}
+        </p>
       </div>
       {imgs && (
         <div className="mb-4 flex gap-2">

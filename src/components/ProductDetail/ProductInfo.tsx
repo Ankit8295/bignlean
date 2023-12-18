@@ -4,19 +4,19 @@ import { OutlinedButton } from "..";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
 
-export default function ProductInfo() {
+export default function ProductInfo({ product }: { product: any }) {
   const router = useRouter();
   return (
     <div>
       <p className="text-green-700 text-xl not-italic font-normal">
-        Muscletech
+        {product?.brand?.heading}
       </p>
       <h2 className="text-black text-2xl not-italic font-semibold mb-4">
-        Muscletech NitroTech 100% Whey Gold Performance Series
+        {product?.brand?.body}
       </h2>
       <ProductRating />
       <div className="flex items-center justify-between">
-        <PriceCard className="my-5" />
+        <PriceCard product={product} className="my-5" />
         <OutlinedButton
           label="+ Compare"
           className="hidden max-[890px]:block"
@@ -56,18 +56,26 @@ const ProductRating = () => {
   );
 };
 
-const PriceCard = ({ className }: { className?: string }) => {
+const PriceCard = ({
+  className,
+  product,
+}: {
+  className?: string;
+  product: any;
+}) => {
   return (
     <div className={className}>
       <div className="flex items-center gap-2">
         <p className="text-black text-base not-italic font-normal line-through opacity-30">
-          ₹3,999.00
+          {product?.premiumPrice}
         </p>
         <p className="text-green-500 text-xs not-italic font-semibold">
           21% off
         </p>
       </div>
-      <p className="text-gradient text-2xl not-italic font-bold">₹3,449.00</p>
+      <p className="text-gradient text-2xl not-italic font-bold">
+        {product?.sellingPrice}
+      </p>
       <p className="text-black text-xs not-italic font-normal">
         Inclusive of all taxes
       </p>

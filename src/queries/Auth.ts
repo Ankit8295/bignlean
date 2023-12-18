@@ -1,5 +1,4 @@
 import { ApiPaths } from "@/constants";
-import { redirect, useRouter } from "next/navigation";
 
 export async function loginUser(formData: any) {
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + ApiPaths.USERS, {
@@ -13,6 +12,8 @@ export async function loginUser(formData: any) {
 }
 
 export function logout() {
-  localStorage?.setItem("AUTH", "");
-  window.location.replace("/login");
+  if (typeof window !== "undefined") {
+    localStorage.AUTH = "";
+    window.location.replace("/login");
+  }
 }

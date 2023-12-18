@@ -1,13 +1,18 @@
 "use client";
 import { redirect } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 export default function AuthWrapper({ children }: { children: ReactNode }) {
+  const [auth, getAuth] = useState(null);
   useEffect(() => {
-    const auth = localStorage?.getItem("AUTH");
-    if (!auth) {
-      redirect("/login");
+    if (localStorage) {
+      getAuth(localStorage?.AUTH);
+    } else {
+      getAuth(null);
     }
   }, []);
-  return <>{children}</>;
+  if (auth) {
+    return <>{children}</>;
+  }
+  redirect("/login");
 }

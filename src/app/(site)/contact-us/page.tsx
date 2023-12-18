@@ -1,3 +1,4 @@
+"use client";
 import { AddressIcon, CallIcon, MessageIcon } from "@/Icons";
 import ContactUsForm from "@/components/Forms/ContactUsForm/ContactUsForm";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";

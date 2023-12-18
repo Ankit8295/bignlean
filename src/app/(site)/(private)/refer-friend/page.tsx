@@ -1,9 +1,9 @@
+"use client";
 import {
   InfoIcon,
   LinkIcon,
   ShareIcon,
   Wallet2Icons,
-  WalletIcon,
   WalletStarIcon,
   WhatsappIcon,
 } from "@/Icons";

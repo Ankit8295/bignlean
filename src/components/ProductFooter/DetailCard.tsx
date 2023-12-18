@@ -1,6 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import { OutlinedButton } from "..";
 
-export default function DetailCard() {
+export default function DetailCard({
+  details,
+  information,
+  supplements,
+}: {
+  details: any;
+  information: any;
+  supplements: any;
+}) {
   return (
     <div>
       <h2 className="text-black text-base not-italic font-bold mb-3">
@@ -8,74 +17,70 @@ export default function DetailCard() {
       </h2>
       <div className="border-[1px] p-4 rounded-lg border-gray-300">
         <div className="flex flex-col gap-8">
-          <AboutProduct />
-          <OtherInformation />
-          <BenefitsCard />
-          <ConsumeCard />
-          <NutCard />
-          <PrecautionCard />
-          <GoldStandardCard />
-          <FaqCard />
-          <OutlinedButton label="Show less" />
-          <InformationCard />
-          <SuplimemntsCard />
+          {details?.map((detail: any, index: number) => (
+            <div key={index}>
+              <h3 className="text-black text-lg not-italic font-bold mb-3">
+                {detail?.heading}
+              </h3>
+              <p className="text-black text-sm not-italic font-normal mb-4  leading-6">
+                {detail?.body}
+              </p>
+            </div>
+          ))}
+          <InformationCard information={information} />
+          <SuplimemntsCard supplements={supplements} />
         </div>
       </div>
     </div>
   );
 }
 
-const SuplimemntsCard = () => {
+const SuplimemntsCard = ({ supplements }: { supplements: any }) => {
   return (
     <div>
       <h3 className="text-black text-lg not-italic font-bold mb-3">
         Supplements
       </h3>
-      <div className="w-[200px]">
-        <img src="/assets/product/supli.png" alt="supli" className="w-full" />
-      </div>
+      {supplements?.map((item: any, index: number) => (
+        <div key={index} className="w-[200px]">
+          <img src={item} alt="supli" className="w-full" />
+        </div>
+      ))}
     </div>
   );
 };
 
-const InformationCard = () => {
+const InformationCard = ({ information }: { information: any }) => {
   return (
     <div>
       <h3 className="text-black text-lg not-italic font-bold mb-3">
         Information
       </h3>
       <div className="custom-grid3">
-        <InfoCard />
-        <InfoCard />
-        <InfoCard />
+        {information?.map((info: any, index: number) => (
+          <InfoCard key={index} info={info} />
+        ))}
       </div>
     </div>
   );
 };
 
-const InfoCard = () => {
+const InfoCard = ({ info }: { info: any }) => {
   return (
     <div>
       <h3 className="text-black text-sm not-italic font-semibold p-3 bg-gray-200 rounded-lg">
-        General Trait
+        {info?.title}
       </h3>
       <div className="p-2 flex flex-col gap-2">
-        <p className="flex items-center justify-between text-black text-center text-sm not-italic font-normal">
-          <span>Weight</span>
-          <span>4g</span>
-        </p>
-        <p className="flex items-center justify-between text-black text-center text-sm not-italic font-normal">
-          <span>Protein % per Serving</span>
-          <span>4g</span>
-        </p>
-        <p className="flex items-center justify-between text-black text-center text-sm not-italic font-normal">
-          <span>Price per kg</span>
-          <span>2g</span>
-        </p>
-        <p className="flex items-center justify-between text-black text-center text-sm not-italic font-normal">
-          <span>Number of Servings</span>
-          <span>44</span>
-        </p>
+        {info?.table?.map((item: any, index: number) => (
+          <p
+            key={index}
+            className="flex items-center justify-between text-black text-center text-sm not-italic font-normal"
+          >
+            <span>{item?.for}</span>
+            <span>{item?.value}</span>
+          </p>
+        ))}
       </div>
     </div>
   );

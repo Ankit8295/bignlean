@@ -1,3 +1,4 @@
+"use client";
 import { QualityIcon } from "@/Icons";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import Image from "next/image";

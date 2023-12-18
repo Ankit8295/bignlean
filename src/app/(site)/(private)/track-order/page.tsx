@@ -1,58 +1,62 @@
 "use client";
-import { CompleteIcon, ProccessingIcon } from "@/Icons";
+import { ProccessingIcon } from "@/Icons";
 import { OutlinedButton } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
+import { useCancelOrder, useGetAllOrder } from "@/queries/Order";
+import { useEffect, useState } from "react";
 
-export default function page() {
+export default function Page() {
+  const [userId, setUserId] = useState<any>(null);
+  const { data } = useGetAllOrder(userId?.user?.id);
+
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.Auth));
+  }, [window]);
   return (
     <CustomPageWrapper
       heading="Track Order"
       className="relative flex flex-col gap-8"
       headingClass="mb-0"
     >
-      <div className="w-full flex flex-col gap-4">
-        <p className="w-full text-end text-black text-sm not-italic font-medium max-[1000px]:top-0 max-[450px]:static">
-          AWB Tracking no: 318464688
-        </p>
-        <div className="flex flex-col gap-[22px]">
-          <OrderCard />
-        </div>
-      </div>
-      <div className="w-full flex flex-col gap-4">
-        <p className="w-full text-end text-black text-sm not-italic font-medium max-[1000px]:top-0 max-[450px]:static">
-          AWB Tracking no: 318464689
-        </p>
-        <div className="flex flex-col gap-[22px]">
-          <OrderCard />
-        </div>
-      </div>
+      {data?.data?.orders?.length > 0 &&
+        data?.data?.orders?.map((order: any) => (
+          <div key={order?.id} className="w-full flex flex-col gap-4">
+            <p className="w-full text-end text-black text-sm not-italic font-medium max-[1000px]:top-0 max-[450px]:static">
+              AWB Tracking no: {order?.trackingID}
+            </p>
+            <div className="flex flex-col gap-[22px]">
+              <OrderCard order={order} userId={userId} />
+            </div>
+          </div>
+        ))}
     </CustomPageWrapper>
   );
 }
 
-const OrderCard = () => {
+const OrderCard = ({ order, userId }: { order: any; userId: any }) => {
   return (
     <div className="sm-3 bg-white rounded-lg p-[30px] max-[550px]:p-3">
       <div className="flex gap-2 mb-7">
         <ProccessingIcon />
         <div className="flex flex-col gap-1">
           <span className="text-blue-900 text-center text-base not-italic font-semibold">
-            Processing
+            {order?.status} - {order?.orderID}
           </span>
           <span className="text-gray-500 text-center text-xs not-italic font-medium">
-            On Fri, 16 Dec
+            On {new Date(order?.createdAt).toDateString()}
           </span>
         </div>
       </div>
       <div className="flex gap-8 max-[1000px]:gap-4 max-[860px]:flex-col max-[600px]:gap-5">
-        <ProductDetailCard />
+        <ProductDetailCard order={order} userId={userId} />
         <ProcessingCard />
       </div>
     </div>
   );
 };
 
-const ProductDetailCard = () => {
+const ProductDetailCard = ({ order, userId }: { order: any; userId: any }) => {
+  const { mutate: cancelOrder } = useCancelOrder();
   return (
     <div className="flex gap-6 items-center">
       <img
@@ -69,10 +73,15 @@ const ProductDetailCard = () => {
             3 kg - Unflavoured
           </p>
         </div>
-        <OutlinedButton
-          label="Cancel"
-          className="mt-auto py-[8px] px-[10px] self-start max-[860px]:mt-0"
-        />
+        {order?.status !== "Cancelled" && (
+          <OutlinedButton
+            onClick={() =>
+              cancelOrder({ data: { waybill: order?.trackingID }, userId })
+            }
+            label="Cancel"
+            className="mt-auto py-[8px] px-[10px] self-start max-[860px]:mt-0"
+          />
+        )}
       </div>
     </div>
   );

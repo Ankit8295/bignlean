@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-export default function ProductCertificate() {
+export default function ProductCertificate({
+  certificates,
+}: {
+  certificates: any;
+}) {
   return (
     <div className="border-[1px] p-4 rounded-lg border-gray-300">
       <div className="flex items-center justify-between">
@@ -13,12 +17,11 @@ export default function ProductCertificate() {
         Bright Commodties (Glanbia Performance Nutrition)
       </p>
       <div className="w-[70%] flex gap-[43px]">
-        <div className="flex-1">
-          <img src="/assets/certi/img1.png" alt="certu" className="w-full" />
-        </div>
-        <div className="flex-1">
-          <img src="/assets/certi/img1.png" alt="certu" className="w-full" />
-        </div>
+        {certificates?.map((item: any, index: number) => (
+          <div key={index} className="flex-1">
+            <img src={item} alt="certu" className="w-full" />
+          </div>
+        ))}
       </div>
     </div>
   );

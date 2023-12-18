@@ -9,15 +9,25 @@ import DetailCard from "./DetailCard";
 import ProductCertificate from "./ProductCertificate";
 import ReviewCard from "./ReviewCard";
 
-export default function ProductFooter() {
+export default function ProductFooter({ product }: { product: any }) {
   const { activeProductTab } = useAppContext();
   return (
     <div className="flex flex-col gap-10">
       <ProductTab />
-      {activeProductTab === "Overview" && <OverviewCard />}
-      {activeProductTab === "Details" && <DetailCard />}
-      {activeProductTab === "Certificate" && <ProductCertificate />}
-      {activeProductTab === "Reviews" && <ReviewCard />}
+      {activeProductTab === "Overview" && (
+        <OverviewCard overview={product?.overView} />
+      )}
+      {activeProductTab === "Details" && (
+        <DetailCard
+          details={product?.details}
+          information={product?.tables}
+          supplements={product?.supplements}
+        />
+      )}
+      {activeProductTab === "Certificate" && (
+        <ProductCertificate certificates={product?.certificates} />
+      )}
+      {activeProductTab === "Reviews" && <ReviewCard product={product} />}
     </div>
   );
 }

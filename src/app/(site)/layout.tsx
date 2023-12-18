@@ -4,7 +4,7 @@ import MobileFooter from "@/components/Footer/MobileFooter";
 import { useDispatchContext } from "@/provider/ContextProvider/ContextProvider";
 import { ReactNode, useEffect } from "react";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
   const dispatch = useDispatchContext();
   useEffect(() => {
     const func = () => {

@@ -1,3 +1,4 @@
+"use client";
 import {
   FilterBy,
   HomeCarosoul,
@@ -6,16 +7,10 @@ import {
 } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { ApiPaths } from "@/constants";
-const base_url = process.env.BASE_URL;
-
-async function getAllBanners() {
-  const res = await fetch(base_url + ApiPaths.BANNERS);
-  const data = await res.json();
-  return data?.banner;
-}
+import { useCommanApi } from "@/queries/CommonApi";
 
 export default async function page() {
-  const bannersData = await getAllBanners();
+  const { data } = useCommanApi("BANNER", ApiPaths.BANNERS);
   return (
     <CustomPageWrapper className="w-[1400px] px-5">
       <div className="flex gap-[27px] max-[1400px]:flex-col">
@@ -24,7 +19,10 @@ export default async function page() {
         </div>
         <div className="flex-[0.75] flex flex-col items-center gap-4">
           <div className="max-[1000px]:hidden">
-            <HomeCarosoul bannersData={bannersData} className="!w-[1000px]" />
+            <HomeCarosoul
+              bannersData={data?.data?.banner || []}
+              className="!w-[1000px]"
+            />
           </div>
           <BrandInfo />
           <div className="h-[2px] bg-gray-300 w-full"></div>
@@ -44,7 +42,7 @@ export default async function page() {
             <VarityCard label="All" />
             <VarityCard label="Protein Powder" />
             <VarityCard label="Multivitamins" />
-            <VarityCard label="Specialty Supplements " active />
+            <VarityCard label="Specialty Supplements" active />
             <VarityCard label="Vitamins" />
             <VarityCard label="Minerals" />
             <VarityCard label="Antioxidants " />

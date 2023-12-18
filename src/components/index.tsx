@@ -36,7 +36,9 @@ import ProductFooter from "./ProductFooter/ProductFooter";
 import FilterBy from "./FilterBy/FilterBy";
 import SecondaryNavbar from "./SecondaryNavbar/SecondaryNavbar";
 import BlogCard from "./BlogCard/BlogCard";
+import ProductSection from "./Home/ProductSection/ProductSection";
 export {
+  ProductSection,
   BlogCard,
   SecondaryNavbar,
   FilterBy,

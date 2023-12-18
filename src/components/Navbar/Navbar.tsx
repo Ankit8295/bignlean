@@ -17,6 +17,7 @@ import {
   WalletIcon,
 } from "@/Icons";
 import { ReactNode, useState, Dispatch, SetStateAction } from "react";
+import { logout } from "@/queries/Auth";
 
 type ProfileOption = {
   link: string;
@@ -107,7 +108,10 @@ const MobileSideBar = ({
           </Link>
         ))}
       </div>
-      <div className="flex absolute bottom-5 left-5 gap-2">
+      <div
+        onClick={() => logout()}
+        className="flex absolute bottom-5 left-5 gap-2 cursor-pointer"
+      >
         <LogoutIcon />
         <p className="text-white text-base not-italic font-semibold">Logout</p>
       </div>

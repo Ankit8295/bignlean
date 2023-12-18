@@ -1,3 +1,4 @@
+"use client";
 import { CoinIcon, CoinSmIcon, CreditIcon, DebitIcon } from "@/Icons";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 
