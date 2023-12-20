@@ -48,7 +48,7 @@ export default function Profile() {
   const router = useRouter();
 
   useEffect(() => {
-    setAuth(JSON.parse(localStorage?.AUTH));
+    setAuth(JSON.parse(localStorage?.AUTH || "null"));
   }, []);
 
   return (
