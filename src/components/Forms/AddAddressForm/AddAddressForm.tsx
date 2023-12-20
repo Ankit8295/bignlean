@@ -27,8 +27,8 @@ export default function AddAddressForm({ addressId }: { addressId?: string }) {
   const { data } = useGetAllAddresses(userId?.user?.id);
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
-  }, [window]);
+    setUserId(JSON.parse(localStorage?.AUTH || "null"));
+  }, []);
 
   useEffect(() => {
     if (addressId) {

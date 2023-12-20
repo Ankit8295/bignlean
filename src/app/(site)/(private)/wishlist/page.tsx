@@ -9,8 +9,8 @@ export default function Page() {
   const { data } = useGEtWishList(userId?.user?.id);
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
-  }, [window]);
+    setUserId(JSON.parse(localStorage?.AUTH || ""));
+  }, []);
 
   return (
     <CustomPageWrapper heading="Wishlist" showContentFooter={false}>

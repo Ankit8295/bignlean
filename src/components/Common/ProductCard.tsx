@@ -28,7 +28,7 @@ export default function ProductCard({ product, pathname }: Props) {
   const payload = { productId: product?.id };
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
+    setUserId(JSON.parse(localStorage?.AUTH || "null"));
   }, []);
 
   if (product) {

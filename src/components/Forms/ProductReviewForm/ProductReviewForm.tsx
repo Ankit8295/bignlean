@@ -21,8 +21,8 @@ export default function ProductReviewForm({ product }: { product: any }) {
   const dispatch = useDispatchContext();
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
-  }, [window]);
+    setUserId(JSON.parse(localStorage?.AUTH || "null"));
+  }, []);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();

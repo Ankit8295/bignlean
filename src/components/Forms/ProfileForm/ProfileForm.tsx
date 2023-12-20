@@ -10,9 +10,7 @@ import { useEffect, useState } from "react";
 export default function ProfileForm() {
   const [auth, setAuth] = useState<any>(null);
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setAuth(localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null);
-    }
+    setAuth(JSON.parse(localStorage.AUTH) || "null");
   }, []);
 
   const [formData, setFormData] = useState({
@@ -45,7 +43,7 @@ export default function ProfileForm() {
 
   useEffect(() => {
     if (isSuccess) {
-      window.localStorage.setItem("AUTH", JSON.stringify(data?.data));
+      localStorage.AUTH = JSON.stringify(data?.data);
     }
   }, [isSuccess]);
 

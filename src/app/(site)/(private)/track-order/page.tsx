@@ -10,8 +10,8 @@ export default function Page() {
   const { data } = useGetAllOrder(userId?.user?.id);
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
-  }, [window]);
+    setUserId(JSON.parse(localStorage?.AUTH || ""));
+  }, []);
   return (
     <CustomPageWrapper
       heading="Track Order"

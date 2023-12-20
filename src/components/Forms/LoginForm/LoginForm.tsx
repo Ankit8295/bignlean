@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "@/utils/firebaseConfig";
-import { useLocalStorage } from "@/utils/useLocalStorage";
 
 interface CustomWindow extends Window {
   recaptchaVerifier?: any;

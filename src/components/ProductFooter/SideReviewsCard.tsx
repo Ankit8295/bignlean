@@ -53,7 +53,7 @@ const CustomerReview = ({
 }) => {
   const [auth, setAuth] = useState<any>(null);
   useEffect(() => {
-    setAuth(localStorage.AUTH ? JSON.parse(localStorage.AUTH) : null);
+    setAuth(JSON.parse(localStorage.AUTH) || "null");
   }, []);
 
   const { mutate: deleteRating } = useDeleteRating();

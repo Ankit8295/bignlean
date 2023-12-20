@@ -11,7 +11,7 @@ export default function ShippingCard() {
   const router = useRouter();
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
+    setUserId(JSON.parse(localStorage?.AUTH || "null"));
   }, []);
   return (
     <div className="bg-white rounded-lg sm-1 p-4 flex flex-col gap-3">

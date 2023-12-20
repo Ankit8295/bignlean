@@ -25,7 +25,7 @@ export default function Page() {
   }, [isSuccess]);
 
   useEffect(() => {
-    setUserId(JSON.parse(localStorage?.Auth));
+    setUserId(JSON.parse(localStorage?.AUTH || "null"));
     setAddressId(localStorage?.address);
     setCouponCode(localStorage?.couponCode);
   }, [window]);
