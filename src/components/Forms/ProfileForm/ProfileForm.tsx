@@ -6,6 +6,7 @@ import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useUpdateProfile } from "@/queries/Profile";
 import { useUploadPhoto } from "@/queries/Upload";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function ProfileForm() {
   const [auth, setAuth] = useState<any>(null);
@@ -30,14 +31,34 @@ export default function ProfileForm() {
       data.append("file", profileImage);
       uploadPhoto(data as any, {
         onSuccess: (res) => {
-          updateProfile({
-            formData: { ...formData, image: res?.data?.fileUrl },
-            userId: auth?.user?.id,
-          });
+          updateProfile(
+            {
+              formData: { ...formData, image: res?.data?.fileUrl },
+              userId: auth?.user?.id,
+            },
+            {
+              onSuccess: () => {
+                toast.success("Profile updated Successfully!!!");
+              },
+              onError: () => {
+                toast.error("Something went wrong!!!");
+              },
+            }
+          );
         },
       });
     } else {
-      updateProfile({ formData, userId: auth?.user?.id });
+      updateProfile(
+        { formData, userId: auth?.user?.id },
+        {
+          onSuccess: () => {
+            toast.success("Profile updated Successfully!!!");
+          },
+          onError: () => {
+            toast.error("Something went wrong!!!");
+          },
+        }
+      );
     }
   };
 

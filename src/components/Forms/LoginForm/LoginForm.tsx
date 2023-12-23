@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from "@/utils/firebaseConfig";
+import { toast } from "react-toastify";
 
 interface CustomWindow extends Window {
   recaptchaVerifier?: any;
@@ -64,7 +65,10 @@ export default function LoginForm() {
       const res = await loginUser(JSON.stringify({ phone }));
       const user = await res?.json();
       if (res?.ok && user) {
+        toast.success("Login Successfully!!!");
         setIsLoginSuccess(JSON.stringify(user));
+      } else {
+        toast.error("Something went wrong!!!");
       }
     });
   };

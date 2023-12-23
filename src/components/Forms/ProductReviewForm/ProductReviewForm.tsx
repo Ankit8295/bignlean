@@ -5,7 +5,8 @@ import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import InputField from "@/components/FormComponents/InputField";
 import { useDispatchContext } from "@/provider/ContextProvider/ContextProvider";
 import { useGiveRating } from "@/queries/Rating";
-import { uploadPhoto, useUploadPhoto } from "@/queries/Upload";
+import { useUploadPhoto } from "@/queries/Upload";
+import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 
 export default function ProductReviewForm({ product }: { product: any }) {
@@ -35,6 +36,10 @@ export default function ProductReviewForm({ product }: { product: any }) {
           {
             onSuccess: () => {
               dispatch({ type: "REVIEW_MODAL_TOGGLE_OFF" });
+              toast.success("Review added Successfully!!!");
+            },
+            onError: () => {
+              toast.error("Something went wrong!!!");
             },
           }
         );

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAddToWishList, useRemoveFormWishList } from "@/queries/Product";
 import { useAddToCartList } from "@/queries/Cart";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 type Props = {
   product?: {
@@ -70,11 +71,18 @@ export default function ProductCard({ product, pathname }: Props) {
         <PrimaryButton
           className="w-full"
           onClick={() =>
-            addToCart({
-              userId: userId?.user?.id,
-              product: product?.id,
-              qty: 1,
-            })
+            addToCart(
+              {
+                userId: userId?.user?.id,
+                product: product?.id,
+                qty: 1,
+              },
+              {
+                onSuccess: () => {
+                  toast.success("Product added Successfully!!!");
+                },
+              }
+            )
           }
           label="Add to cart"
         />
@@ -84,8 +92,22 @@ export default function ProductCard({ product, pathname }: Props) {
         <button
           onClick={() =>
             pathname === "wishlist"
-              ? removeFromWishList({ productId: product?.id, userId })
-              : addToWishList({ productId: product?.id, userId })
+              ? removeFromWishList(
+                  { productId: product?.id, userId },
+                  {
+                    onSuccess: () => {
+                      toast.success("Product removed Successfully!!!");
+                    },
+                  }
+                )
+              : addToWishList(
+                  { productId: product?.id, userId },
+                  {
+                    onSuccess: () => {
+                      toast.success("Product added Successfully!!!");
+                    },
+                  }
+                )
           }
           className="absolute top-3 right-3"
         >

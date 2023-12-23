@@ -8,6 +8,7 @@ import {
 } from "@/queries/Address";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export default function AddAddressForm({ addressId }: { addressId?: string }) {
   const router = useRouter();
@@ -67,7 +68,11 @@ export default function AddAddressForm({ addressId }: { addressId?: string }) {
         { addressId, formData },
         {
           onSuccess: () => {
+            toast.success("Address added Successfully!!!");
             router.push("/cart");
+          },
+          onError: () => {
+            toast.error("Something went wrong!!!");
           },
         }
       );
@@ -76,7 +81,11 @@ export default function AddAddressForm({ addressId }: { addressId?: string }) {
         { formData, userId },
         {
           onSuccess: () => {
+            toast.success("Address added Successfully!!!");
             router.push("/cart");
+          },
+          onError: () => {
+            toast.error("Something went wrong!!!");
           },
         }
       );

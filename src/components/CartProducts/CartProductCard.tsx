@@ -13,7 +13,7 @@ export default function CartProductCard({
   productDetail: any;
 }) {
   const { mutate: removeFromCart } = useRemoveFromCart();
-  const { data } = useGetProductDetail(productDetail?.product);
+  const { data } = useGetProductDetail(productDetail?.product?.id);
   const { mutate: updateQuantityFromCart } = useUpdateQuantityFromCart();
   return (
     <div className={`flex items-start gap-8 max-[500px]:gap-4 ${className}`}>

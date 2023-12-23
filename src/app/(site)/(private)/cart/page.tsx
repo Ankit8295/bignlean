@@ -14,7 +14,7 @@ export default function Page() {
   const [userId, setUserId] = useState<any>(null);
   const [addressId, setAddressId] = useState<any>(null);
   const [couponCode, setCouponCode] = useState<any>(null);
-  const { data: cartList } = useGetCartList(userId?.user?.id);
+  const { data: cartList } = useGetCartList(userId?.user?.id || "");
   const { mutate: placeAnOrder, isSuccess } = usePlaceOrder();
   const router = useRouter();
 
@@ -28,7 +28,7 @@ export default function Page() {
     setUserId(JSON.parse(localStorage?.AUTH || "null"));
     setAddressId(localStorage?.address);
     setCouponCode(localStorage?.couponCode);
-  }, [window]);
+  }, []);
 
   return (
     <CustomPageWrapper heading="Cart">
@@ -37,7 +37,7 @@ export default function Page() {
           <SavingBanner />
           <div className="flex gap-[22px] mt-6 max-[800px]:flex-col">
             <div className="flex-[0.6] flex flex-col gap-[150px] max-[800px]:gap-[40px]">
-              <CartProducts />
+              <CartProducts data={cartList?.data?.cartItems || []} />
               <SuggestedProduct />
             </div>
             <div className="flex-[0.4] flex flex-col gap-4">
