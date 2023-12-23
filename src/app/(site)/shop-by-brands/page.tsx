@@ -8,9 +8,13 @@ import {
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { ApiPaths } from "@/constants";
 import { useCommanApi } from "@/queries/CommonApi";
+import { useState } from "react";
 
-export default async function page() {
+export default function Page() {
   const { data } = useCommanApi("BANNER", ApiPaths.BANNERS);
+  const { data: homeProducts } = useCommanApi("HOME", ApiPaths.HOME);
+  const [active, setActive] = useState("All");
+  const [dropdown, setDropdown] = useState(false);
   return (
     <CustomPageWrapper className="w-[1400px] px-5">
       <div className="flex gap-[27px] max-[1400px]:flex-col">
@@ -34,21 +38,36 @@ export default async function page() {
               </span>
             </p>
             <div className="flex items-center gap-2 border rounded-lg p-2 border-gray-300 max-[1000px]:hidden">
-              <p>Sort by :</p>
-              <p>Popularity</p>
+              <p>Sort:</p>
+              <select
+                onClick={(e: any) => setDropdown(e.target.value)}
+                className="outline-none"
+              >
+                <option value="Popularity">Popularity</option>
+                <option value="Price">Price</option>
+                <option value="Rating">Rating</option>
+              </select>
             </div>
           </div>
           <div className="w-full flex gap-2 items-center max-[1000px]:hidden">
-            <VarityCard label="All" />
-            <VarityCard label="Protein Powder" />
-            <VarityCard label="Multivitamins" />
-            <VarityCard label="Specialty Supplements" active />
-            <VarityCard label="Vitamins" />
-            <VarityCard label="Minerals" />
-            <VarityCard label="Antioxidants " />
+            {[
+              "All",
+              "Protein Powder",
+              "Minerals",
+              "Vitamins",
+              "Multivitamins",
+              "Specialty Supplements",
+              "Antioxidants",
+            ].map((item) => (
+              <VarityCard
+                label={item}
+                active={item === active}
+                onClick={() => setActive(item)}
+              />
+            ))}
           </div>
-          <Products />
-          <Pagination />
+          <Products products={homeProducts?.data?.data?.[0]?.products} />
+          {/* <Pagination /> */}
           <EndFooter />
         </div>
       </div>
@@ -56,9 +75,18 @@ export default async function page() {
   );
 }
 
-const VarityCard = ({ label, active }: { label: string; active?: boolean }) => {
+const VarityCard = ({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active?: boolean;
+  onClick: () => void;
+}) => {
   return (
     <div
+      onClick={onClick}
       className={`border-[2px] text-black text-center text-xs not-italic font-medium cursor-pointer rounded-[12px] p-2 ${
         active ? "text-gradient border-red-400" : ""
       }`}
@@ -105,21 +133,12 @@ const PaginationButton = ({
   );
 };
 
-const Products = () => {
+const Products = ({ products }: { products: any }) => {
   return (
     <div className="my-5 custom-grid2">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map((item: any, index: number) => (
+        <ProductCard product={item} />
+      ))}
     </div>
   );
 };

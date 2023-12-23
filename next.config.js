@@ -8,6 +8,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "13.126.83.194",
+      },
+      {
+        protocol: "https",
         hostname: "alhn.dev",
       },
     ],

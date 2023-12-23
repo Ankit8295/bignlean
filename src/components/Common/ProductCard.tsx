@@ -35,7 +35,7 @@ export default function ProductCard({ product, pathname }: Props) {
     return (
       <div className="rounded-[15px] sm-3 relative  p-3 my-2 overflow-hidden">
         <div className="w-full flex  justify-center pt-7 pb-4 ">
-          <Image
+          <img
             src={product?.images[0]}
             alt="product"
             width={97}

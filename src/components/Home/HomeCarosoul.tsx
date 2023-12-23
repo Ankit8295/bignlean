@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Autoplay, Pagination, A11y } from "swiper/modules";
-import Image from "next/image";
 import NextButton from "../SliderButtons/NextButton";
 import PrevButton from "../SliderButtons/PrevButton";
 import { Banners } from "@/utils/Schemas";
@@ -42,7 +41,7 @@ export default function HomeCarosoul({
               key={banner?.id}
               className="w-full h-full bg-text-grey flex items-center justify-center  overflow-hidden cursor-pointer"
             >
-              <Image
+              <img
                 src={banner?.web}
                 alt="carosoul"
                 width={1000}

@@ -76,7 +76,7 @@ export function useUpdateQuantityFromCart() {
 async function getProductDetail(productId: number) {
   return axios({
     method: "GET",
-    url: base_url + ApiPaths.PRODUCTS + "/" + "6" + "/" + productId,
+    url: base_url + ApiPaths.PRODUCTS + "/" + productId + "/" + 1,
   });
 }
 

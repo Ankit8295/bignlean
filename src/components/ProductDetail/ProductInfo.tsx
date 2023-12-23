@@ -3,9 +3,17 @@ import { ShareIcon, StarIcon, WhishlistIcon } from "@/Icons";
 import { OutlinedButton } from "..";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { useRouter } from "next/navigation";
+import { useAddToCartList } from "@/queries/Cart";
+import { useEffect, useState } from "react";
 
 export default function ProductInfo({ product }: { product: any }) {
   const router = useRouter();
+  const { mutate: addToCart } = useAddToCartList();
+  const [userId, setUserId] = useState<any>(null);
+  useEffect(() => {
+    setUserId(JSON.parse(localStorage?.AUTH || "null"));
+  }, []);
+  console.log(product);
   return (
     <div>
       <p className="text-green-700 text-xl not-italic font-normal">
@@ -14,7 +22,7 @@ export default function ProductInfo({ product }: { product: any }) {
       <h2 className="text-black text-2xl not-italic font-semibold mb-4">
         {product?.brand?.body}
       </h2>
-      <ProductRating />
+      <ProductRating rating={product?.totalRating} />
       <div className="flex items-center justify-between">
         <PriceCard product={product} className="my-5" />
         <OutlinedButton
@@ -27,21 +35,41 @@ export default function ProductInfo({ product }: { product: any }) {
         <QuantityCard />
       </div>
       <div className="flex gap-3 mt-6 w-[70%] max-[1220px]:w-full max-[450px]:hidden">
-        <OutlinedButton label="ADD TO CART" className="flex-1" />
-        <PrimaryButton label="BUY NOW" className="flex-1" />
+        <OutlinedButton
+          onClick={() =>
+            addToCart({
+              userId: userId?.user?.id,
+              product: product?.id,
+              qty: 1,
+            })
+          }
+          label="ADD TO CART"
+          className="flex-1"
+        />
+        <PrimaryButton
+          onClick={() =>
+            addToCart({
+              userId: userId?.user?.id,
+              product: product?.id,
+              qty: 1,
+            })
+          }
+          label="BUY NOW"
+          className="flex-1"
+        />
       </div>
     </div>
   );
 }
 
-const ProductRating = () => {
+const ProductRating = ({ rating }: { rating: number }) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         <StarIcon />
         <p className="text-black text-xl not-italic font-bold">4.4</p>
         <span className="text-black text-base not-italic font-medium opacity-30">
-          (1,233 Reviews)
+          ({rating} Reviews)
         </span>
       </div>
       <div className="flex items-center gap-2">

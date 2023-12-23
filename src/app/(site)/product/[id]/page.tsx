@@ -2,8 +2,10 @@
 import { ProductDetail, ProductFooter, ProductOverview } from "@/components";
 import CustomPageWrapper from "@/components/Wrappers/CustomPageWrapper";
 import { useGetProductDetail } from "@/queries/Cart";
+import { useParams } from "next/navigation";
 
-export default function Page({ params }: { params: { id: string } }) {
+export default function Page() {
+  const params = useParams();
   const { data } = useGetProductDetail(params?.id as any);
 
   return (

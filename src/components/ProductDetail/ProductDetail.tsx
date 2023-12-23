@@ -8,7 +8,7 @@ export default function ProductDetail({ product }: { product: any }) {
   return (
     <div className="flex flex-col gap-[32px]">
       <ProductInfo product={product} />
-      <ProductVarient />
+      <ProductVarient product={product} />
       <ProductDelivery />
       <ProductCouponOffers />
       <ProductBottomSheet />
