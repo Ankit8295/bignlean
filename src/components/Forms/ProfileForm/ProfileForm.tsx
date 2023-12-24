@@ -76,7 +76,7 @@ export default function ProfileForm() {
       <div className="flex justify-center  mb-6">
         <label className="rounded-full border-[4px] border-red-500 relative">
           <img
-            src={auth?.user?.image || "assets/profile.png"}
+            src={auth?.user?.image || "assets/profile.jpg"}
             className="rounded-full w-[160px] h-[160px]"
             alt="profile"
           />

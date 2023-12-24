@@ -63,7 +63,7 @@ export default function Profile() {
       >
         <div className="w-[38px] h-[38px] rounded-full ">
           <Image
-            src={auth?.user?.image || "/assets/profile.png"}
+            src={auth?.user?.image || "/assets/profile.jpg"}
             alt="avatar"
             width={38}
             height={38}
@@ -83,7 +83,7 @@ export default function Profile() {
             className="flex gap-4 items-center mb-5 cursor-pointer"
           >
             <Image
-              src={auth?.user?.image || "/assets/profile.png"}
+              src={auth?.user?.image || "/assets/profile.jpg"}
               alt="avatar"
               width={60}
               height={60}
@@ -110,12 +110,22 @@ export default function Profile() {
               </Link>
             ))}
           </div>
-          <button
-            onClick={logout}
-            className="mt-8 ml-5 text-lg not-italic font-semibold text-gradient"
-          >
-            Logout
-          </button>
+          {auth && (
+            <button
+              onClick={logout}
+              className="mt-8 ml-5 text-lg not-italic font-semibold text-gradient"
+            >
+              Logout
+            </button>
+          )}
+          {!auth && (
+            <button
+              onClick={() => router.push("/login")}
+              className="mt-8 ml-5 text-lg not-italic font-semibold text-gradient"
+            >
+              SignIn
+            </button>
+          )}
         </div>
       )}
     </div>

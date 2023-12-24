@@ -1,4 +1,5 @@
 import { ApiPaths } from "@/constants";
+import { toast } from "react-toastify";
 
 export async function loginUser(formData: any) {
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + ApiPaths.USERS, {
@@ -14,6 +15,7 @@ export async function loginUser(formData: any) {
 export function logout() {
   if (typeof window !== "undefined") {
     localStorage.AUTH = "";
+    toast.success("Logout successfully!!");
     window.location.replace("/login");
   }
 }

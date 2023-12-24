@@ -16,8 +16,15 @@ import {
   ReviewsIcon,
   WalletIcon,
 } from "@/Icons";
-import { ReactNode, useState, Dispatch, SetStateAction } from "react";
+import {
+  ReactNode,
+  useState,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+} from "react";
 import { logout } from "@/queries/Auth";
+import { useRouter } from "next/navigation";
 
 type ProfileOption = {
   link: string;
@@ -42,9 +49,14 @@ const profileOptions: ProfileOption[] = [
 
 export default function NavBar() {
   const [toggle, setToggle] = useState(false);
+  const [auth, setAuth] = useState(null);
+
+  useEffect(() => {
+    setAuth(JSON.parse(localStorage?.AUTH || "null"));
+  }, []);
   return (
     <div className="bg-light-grey">
-      {toggle && <MobileSideBar setToggle={setToggle} />}
+      {toggle && <MobileSideBar auth={auth} setToggle={setToggle} />}
       <div className="max-w-[1300px] mx-auto py-[20px] flex items-center gap-[35px] max-[1300px]:px-5">
         <div className="hidden flex-1 max-[750px]:block">
           <button onClick={() => setToggle(true)}>
@@ -74,9 +86,12 @@ export default function NavBar() {
 
 const MobileSideBar = ({
   setToggle,
+  auth,
 }: {
   setToggle: Dispatch<SetStateAction<boolean>>;
+  auth: any;
 }) => {
+  const router = useRouter();
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 linear-gradient-1 z-[100000] hidden max-[750px]:block">
       <button
@@ -108,13 +123,28 @@ const MobileSideBar = ({
           </Link>
         ))}
       </div>
-      <div
-        onClick={() => logout()}
-        className="flex absolute bottom-5 left-5 gap-2 cursor-pointer"
-      >
-        <LogoutIcon />
-        <p className="text-white text-base not-italic font-semibold">Logout</p>
-      </div>
+      {auth && (
+        <div
+          onClick={() => logout()}
+          className="flex absolute bottom-5 left-5 gap-2 cursor-pointer"
+        >
+          <LogoutIcon />
+          <p className="text-white text-base not-italic font-semibold">
+            Logout
+          </p>
+        </div>
+      )}
+      {!auth && (
+        <div
+          onClick={() => router.push("/login")}
+          className="flex absolute bottom-5 left-5 gap-2 cursor-pointer"
+        >
+          <LogoutIcon />
+          <p className="text-white text-base not-italic font-semibold">
+            SignIn
+          </p>
+        </div>
+      )}
     </div>
   );
 };
