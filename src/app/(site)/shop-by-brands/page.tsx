@@ -58,7 +58,7 @@ export default function Page() {
               "Multivitamins",
               "Specialty Supplements",
               "Antioxidants",
-            ].map((item) => (
+            ]?.map((item) => (
               <VarityCard
                 label={item}
                 active={item === active}
@@ -136,7 +136,7 @@ const PaginationButton = ({
 const Products = ({ products }: { products: any }) => {
   return (
     <div className="my-5 custom-grid2">
-      {products.map((item: any, index: number) => (
+      {products?.map((item: any, index: number) => (
         <ProductCard product={item} />
       ))}
     </div>
