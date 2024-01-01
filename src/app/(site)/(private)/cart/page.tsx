@@ -14,10 +14,10 @@ export default function Page() {
   const [userId, setUserId] = useState<any>(null);
   const [addressId, setAddressId] = useState<any>(null);
   const [couponCode, setCouponCode] = useState<any>(null);
-  const { data: cartList } = useGetCartList(userId?.user?.id || "");
+  const { data: cartList } = useGetCartList(userId?.user?.id);
   const { mutate: placeAnOrder, isSuccess } = usePlaceOrder();
   const router = useRouter();
-
+  console.log("cartList", cartList);
   useEffect(() => {
     if (isSuccess) {
       router.push("/track-order");

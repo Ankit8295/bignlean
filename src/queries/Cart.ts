@@ -5,7 +5,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function getCartList(userId?: string | null) {
+async function getCartList(userId: string) {
   if (userId) {
     return axios({
       method: "GET",
@@ -14,10 +14,11 @@ async function getCartList(userId?: string | null) {
   }
 }
 
-export function useGetCartList(userId?: string | null) {
+export function useGetCartList(userId: string) {
   return useQuery({
-    queryKey: ["cart"],
+    queryKey: ["cart", userId],
     queryFn: () => getCartList(userId),
+    enabled: !!userId,
   });
 }
 
