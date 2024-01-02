@@ -6,12 +6,10 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function getCartList(userId: string) {
-  if (userId) {
-    return axios({
-      method: "GET",
-      url: base_url + ApiPaths.CART_USER + "/" + userId,
-    });
-  }
+  return axios({
+    method: "GET",
+    url: base_url + ApiPaths.CART_USER + "/" + userId,
+  });
 }
 
 export function useGetCartList(userId: string) {
